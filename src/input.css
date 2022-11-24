@@ -48,3 +48,10 @@
 .ulasan .swiper-pagination-bullet {
   @apply bg-primary h-3 w-3;
 }
+
+.custom-scrollbar {
+  @apply scrollbar-thumb-primary scrollbar-thin scrollbar-track-background2;
+}
+.custom-chat {
+  @apply focus:outline-none placeholder:text-text3 placeholder:text-paragraph4 text-text1 resize-none scrollbar-thumb-primary scrollbar-thin scrollbar-track-background2 w-4/5;
+}

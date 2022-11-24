@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
