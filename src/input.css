@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper-pagination-bullet {
+  @apply bg-secondary;
+}
+
+.btn-primary {
+  @apply inline-block px-6 py-4 bg-primary text-text2 text-paragraph1 rounded-[8px] hover:bg-secondary transition-default;
+}
+.transition-default {
+  @apply transition-all ease-in-out duration-200;
+}
+
+.gradient-primary {
+  @apply h-full w-full bg-gradient-to-b from-[rgba(0,0,0,0.38)] to-[rgba(3,76,95,0.53)];
+}
+
+.nav-active {
+  @apply inline-block px-6 py-5 bg-primary text-text2;
+}
+
+.nav-non-active {
+  @apply inline-block px-6 py-5 text-text1 hover:bg-primary hover:text-text2 transition-all ease-in-out duration-200;
+}
+
+.rating label {
+  @apply transition-default;
+}
+
+.rating input:not(:checked) ~ label:hover,
+.rating input:not(:checked) ~ label:hover ~ label {
+  @apply fill-background3;
+}
+.rating input:checked ~ label {
+  @apply fill-background3;
+}

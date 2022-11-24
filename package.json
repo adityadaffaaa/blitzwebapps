@@ -1,0 +1,23 @@
+{
+  "name": "blitz-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/customer/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "antd": "^5.0.0",
+    "aos": "^2.3.4",
+    "remixicon": "^2.5.0",
+    "reveal.js": "^4.4.0",
+    "sweetalert2": "^11.6.10",
+    "swiper": "^8.4.4"
+  }
+}
