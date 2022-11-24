@@ -36,3 +36,15 @@
 .rating input:checked ~ label {
   @apply fill-background3;
 }
+
+.hero-carousel .swiper-button-next,
+.hero-carousel .swiper-button-prev {
+  @apply text-text2 mx-6 scale-75 hover:scale-100 transition-default;
+}
+
+.hero-carousel .swiper-pagination-bullet {
+  @apply bg-primary h-3 w-3;
+}
+.ulasan .swiper-pagination-bullet {
+  @apply bg-primary h-3 w-3;
+}
