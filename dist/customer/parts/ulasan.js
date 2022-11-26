@@ -14,3 +14,4 @@ var swiper = new Swiper(".SwiperUlasan", {
     prevEl: ".swiper-ulasan-button-prev",
   },
 });
+ 

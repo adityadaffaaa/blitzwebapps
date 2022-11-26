@@ -1,3 +1,31 @@
+const hapus = document.querySelectorAll(".hapus");
+
+hapus.forEach((evt) => {
+  evt.addEventListener("click", () => {
+    swal
+      .fire({
+        icon: "question",
+        title: "Yakin menghapus riwayat?",
+        showDenyButton: true,
+        confirmButtonText: "Ya",
+        confirmButtonColor: "#034C5F",
+        denyButtonText: "Tidak",
+        denyButtonColor: "#EE6457",
+        iconColor: "#ADADAD",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swal.fire({
+            icon: "success",
+            confirmButtonColor: "#034C5F",
+            title: "Riwayat berhasil dihapus",
+            iconColor: "#034C5F",
+          });
+        }
+      });
+  });
+});
+
 // header navbar
 window.onscroll = () => {
   const header = document.querySelector("header");
