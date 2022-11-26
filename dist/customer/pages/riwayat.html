@@ -51,9 +51,9 @@
       </div>
     </section>
     <!-- Hero End -->
-    <div class="container mx-auto">
-      <!-- pencarian riwayat -->
-      <form action="" method="">
+    <form action="" method="">
+      <div class="container mx-auto">
+        <!-- pencarian riwayat -->
         <section class="mt-[50px] flex justify-center">
           <div class="flex flex-row w-4/5 justify-between">
             <div class="flex flex-row gap-4">
@@ -81,14 +81,14 @@
             <div class="flex flex-row items-center gap-6">
               <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
                 <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text" placeholder="Cari Riwayat" />
-                <span class="fill-text4 cursor-pointer">
+                <button type="submit" class="fill-text4 cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="none" d="M0 0h24v24H0z" />
                     <path
                       d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"
                     />
                   </svg>
-                </span>
+                </button>
               </div>
               <span class="filter fill-primary cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -99,8 +99,82 @@
             </div>
           </div>
         </section>
-      </form>
-      <!-- pencarian riwayat end -->
+      </div>
+      <!-- filter pop up -->
+      <div class="filter-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)]">
+        <div class="filter-popup p-6 bg-background1 relative shadow-default flex flex-col gap-4 rounded-lg">
+          <div class="close-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
+            <span class="fill-text2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+              </svg>
+            </span>
+          </div>
+          <div class="flex flex-row gap-4">
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-2">
+                <p class="text-primary text-paragraph1">Jasa</p>
+                <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotografi">
+                  <input class="hidden peer" type="radio" name="jasa" id="fotografi" />
+                  <div class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2"></div>
+                  <p class="text-text3 peer-checked:text-primary text-paragraph2">Fotografi</p>
+                </label>
+                <label class="radio flex flex-row cursor-pointer items-center gap-2" for="videografi">
+                  <input class="hidden peer" type="radio" name="jasa" id="videografi" />
+                  <div class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2"></div>
+                  <p class="text-text3 peer-checked:text-primary text-paragraph2">Videografi</p>
+                </label>
+                <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotovideografi">
+                  <input class="hidden peer" type="radio" name="jasa" id="fotovideografi" />
+                  <div class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2"></div>
+                  <p class="text-text3 peer-checked:text-primary text-paragraph2">Foto dan Videografi</p>
+                </label>
+              </div>
+              <div class="flex flex-col gap-2">
+                <p class="text-primary text-paragraph1">Foto/Videografer</p>
+                <select class="p-1 bg-secondary cursor-pointer text-text2 text-paragraph4 rounded-lg outline-none" name="fotovideografer" id="fotovideografer">
+                  <option value="-">Pilih Foto/Videografer</option>
+                  <option value="Hery Taufan">Hery Taufan</option>
+                  <option value="Hery Taufan">Hery Taufan</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-2">
+                <p class="text-primary text-paragraph1">Tanggal Pesan</p>
+                <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg" type="date" name="tanggal_pesan" id="tanggal_pesan" />
+              </div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-2">
+                <p class="text-primary text-paragraph1">Tanggal Mulai</p>
+                <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg" type="date" name="tanggal_mulai" id="tanggal_mulai" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <p class="text-primary text-paragraph1">Tanggal Akhir</p>
+                <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg" type="date" name="tanggal_akhir" id="tanggal_akhir" />
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <p class="text-primary text-paragraph1">Rentang Harga</p>
+            <div class="flex flex-row gap-2 items-center text-primary">
+              <div class="flex flex-row items-center gap-1">
+                <p class="text-primary text-paragraph4">Min</p>
+                <input placeholder="300000" class="p-1 w-[100px] rounded-lg text-primary text-paragraph4 placeholder:text-paragraph4 outline-none border-2 border-primary" type="text" name="min" id="min" value="" />
+              </div>
+              -
+              <div class="flex flex-row items-center gap-1">
+                <p class="text-primary text-paragraph4">Maks</p>
+                <input placeholder="2999999" class="p-1 w-[100px] rounded-lg text-primary text-paragraph4 placeholder:text-paragraph4 outline-none border-2 border-primary" type="text" name="min" id="min" value="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- filter pop up end -->
+    </form>
+    <!-- pencarian riwayat end -->
+    <div class="container mx-auto">
       <!-- tabel riwayat -->
       <section class="mt-[42px] flex justify-center">
         <div class="flex flex-col items-center w-4/5 gap-6">
@@ -380,6 +454,7 @@
       </section>
       <!-- tabel riwayat end -->
     </div>
+
     <!-- chat -->
     <div data-aos="fade-up" class="chat flex flex-col gap-8 items-end bottom-10 right-10 z-[100] fixed drop-shadow-[0px_4px_24px_rgba(0,0,0,0.3)]">
       <!-- chat card -->

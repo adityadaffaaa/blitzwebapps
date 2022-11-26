@@ -1,5 +1,5 @@
+// hapus
 const hapus = document.querySelectorAll(".hapus");
-
 hapus.forEach((evt) => {
   evt.addEventListener("click", () => {
     swal
@@ -55,4 +55,18 @@ const chatToggle = document.querySelector(".chat-toggle");
 chatToggle.addEventListener("click", () => {
   const chatContent = document.querySelector(".chat-content");
   chatContent.classList.toggle("hidden");
+});
+
+// filter pop up
+const filter = document.querySelector(".filter");
+const filterPopup = document.querySelector(".filter-popup-background");
+const closePopup = document.querySelector(".close-popup");
+filter.addEventListener("click", () => {
+  filterPopup.classList.add("flex");
+  filterPopup.classList.remove("hidden");
+});
+// filter close
+closePopup.addEventListener("click", () => {
+  filterPopup.classList.remove("flex");
+  filterPopup.classList.add("hidden");
 });

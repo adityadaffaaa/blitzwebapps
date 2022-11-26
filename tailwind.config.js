@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./dist/customer/**/*.{html,js,php}"],
+  content: ["./dist/customer/**/*.{html,js,php}", "./dist/fotovideografer/**/*.{html,js,php}"],
   theme: {
     extend: {
       fontSize: {
