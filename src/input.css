@@ -55,3 +55,7 @@
 .custom-chat {
   @apply focus:outline-none placeholder:text-text3 placeholder:text-paragraph4 text-text1 resize-none scrollbar-thumb-primary scrollbar-thin scrollbar-track-background2 w-4/5;
 }
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+}

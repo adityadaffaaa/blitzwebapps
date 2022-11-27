@@ -35,7 +35,12 @@ chat.addEventListener("mouseleave", () => {
 
 // chat toggle
 const chatToggle = document.querySelector(".chat-toggle");
+const chatContent = document.querySelector(".chat-content");
 chatToggle.addEventListener("click", () => {
-  const chatContent = document.querySelector(".chat-content");
   chatContent.classList.toggle("hidden");
+  chatContent.classList.toggle("block");
+  setTimeout(() => {
+    chatContent.classList.toggle("translate-x-64");
+    chatContent.classList.toggle("opacity-0");
+  }, 100);
 });

@@ -1,9 +1,9 @@
 <div class="container mx-auto">
-  <!-- jasa videografi -->
+  <!-- jasa fotografi -->
   <section class="mt-10">
     <form class="input" name="input" action="" enctype="multipart/form-data">
       <div class="flex flex-col items-center gap-[50px]">
-        <h1 class="text-text1 text-heading1 font-poppins">Jasa Videografi</h1>
+        <h1 class="text-text1 text-heading1 font-poppins">Jasa Fotografi & Videografi</h1>
         <div class="flex flex-row justify-evenly w-3/4">
           <div class="flex flex-col gap-4">
             <label class="text-text1 text-heading3 font-poppins" for="kategori">Kategori</label>
@@ -83,7 +83,7 @@
               <h3 class="text-text1 text-heading3 font-poppins">Pilih Jadwal</h3>
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_mulai">Tanggal Mulai</label>
-                <input class="p-[10px] w-[366px] cursor-pointer outline-none bg-secondary text-text2 rounded-lg"
+                <input class="p-[10px] w-[366px cursor-pointer outline-none bg-secondary text-text2 rounded-lg"
                   type="date" name="tanggal_mulai" id="tanggal_mulai" />
               </div>
               <div class="flex flex-col gap-1">
@@ -94,10 +94,10 @@
               </div>
             </div>
             <div class="flex flex-col gap-4">
-              <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Videografer</label>
+              <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Foto/Videografer</label>
               <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="fotografer"
                 id="fotografer">
-                <option value="-">Pilih Videografer</option>
+                <option value="-">Pilih Foto/Videografer</option>
                 <option value="Hery Taufan">Hery Taufan</option>
                 <option value="Hery Taufan">Hery Taufan</option>
               </select>
@@ -130,5 +130,5 @@
       </div>
     </form>
   </section>
-  <!-- jasa videografi end -->
+  <!-- jasa fotografi end -->
 </div>

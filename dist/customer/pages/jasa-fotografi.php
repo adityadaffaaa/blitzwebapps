@@ -1,9 +1,9 @@
 <div class="container mx-auto">
-  <!-- jasa videografi -->
+  <!-- jasa fotografi -->
   <section class="mt-10">
     <form class="input" name="input" action="" enctype="multipart/form-data">
       <div class="flex flex-col items-center gap-[50px]">
-        <h1 class="text-text1 text-heading1 font-poppins">Jasa Videografi</h1>
+        <h1 class="text-text1 text-heading1 font-poppins">Jasa Fotografi</h1>
         <div class="flex flex-row justify-evenly w-3/4">
           <div class="flex flex-col gap-4">
             <label class="text-text1 text-heading3 font-poppins" for="kategori">Kategori</label>
@@ -79,7 +79,7 @@
             </div>
           </div>
           <div class="flex flex-col gap-8">
-            <div class="flex flex-col gap-4">
+            <div class="tanggal flex flex-col gap-4">
               <h3 class="text-text1 text-heading3 font-poppins">Pilih Jadwal</h3>
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_mulai">Tanggal Mulai</label>
@@ -94,10 +94,10 @@
               </div>
             </div>
             <div class="flex flex-col gap-4">
-              <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Videografer</label>
+              <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Fotografer</label>
               <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="fotografer"
                 id="fotografer">
-                <option value="-">Pilih Videografer</option>
+                <option value="-">Pilih Fotografer</option>
                 <option value="Hery Taufan">Hery Taufan</option>
                 <option value="Hery Taufan">Hery Taufan</option>
               </select>
@@ -116,6 +116,7 @@
               <h5 class="text-text1 text-heading5 font-poppins">No. Rekening</h5>
               <h3 class="text-text1 text-paragraph2">123456789 (BNI)</h3>
             </div>
+
             <a class="px-6 py-4 text-text2 text-paragraph1 flex justify-center bg-primary rounded-lg transition-default hover:bg-secondary"
               href="#">Pesan Sekarang
               <span class="fill-text2">
@@ -130,5 +131,5 @@
       </div>
     </form>
   </section>
-  <!-- jasa videografi end -->
+  <!-- jasa fotografi end -->
 </div>
