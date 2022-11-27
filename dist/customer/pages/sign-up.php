@@ -2,7 +2,7 @@
   <div class="w-full h-full bg-gradient-to-r from-primary to-[rgba(3,76,95,0.6)] flex justify-center items-center">
     <!-- form sign up -->
     <div class="flex flex-row w-4/5 justify-between">
-      <form action="" method="" class="w-full">
+      <form action="index.php?include=konfirmasi-sign-up-customer" method="POST" class="w-full">
         <div class="flex flex-col gap-6 items-start">
           <a class="px-[14px] py-[10px] flex items-center bg-secondary rounded-lg text-paragraph1 transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-secondary text-text2"
             href="index.php?include=beranda">
@@ -62,7 +62,7 @@
               </div>
               <button
                 class="text-text2 p-[10px] bg-secondary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-secondary"
-                type="submit">Sign In</button>
+                type="submit" name="signup" value="signup">Sign Up</button>
               <div class="flex flex-row items-center">
                 <hr class="border-t-2 border-text2 w-full" />
                 <p class="text-text2 mx-6 text-paragraph2">Atau</p>

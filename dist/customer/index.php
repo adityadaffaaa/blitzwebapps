@@ -1,5 +1,14 @@
 <?php
+session_start();
 include("../koneksi/koneksi.php");
+if(isset($_GET["include"])){
+  $include = $_GET["include"];
+  if($include== "konfirmasi-sign-up-customer"){
+  include "confirm/konfirmasi-sign-up-customer.php";
+  } else if($include == "konfirmasi-sign-in-customer"){
+    include "confirm/konfirmasi-sign-in-customer.php";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
