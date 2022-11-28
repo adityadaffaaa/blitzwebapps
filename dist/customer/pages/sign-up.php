@@ -13,6 +13,7 @@
               </svg>
             </span>
             Kembali</a>
+
           <div class="flex flex-col gap-6">
             <div class="flex flex-col gap-1">
               <h1 class="text-text2 text-heading1 font-poppins">Membuat Akun Baru</h1>
@@ -88,5 +89,47 @@
       </div>
     </div>
     <!-- form sign up end -->
+
   </div>
 </div>
+<?php
+    if(!empty($_GET["notif"])){
+    if($_GET["notif"]=="nama kosong"){
+    ?>
+<script>
+alert("Nama tidak boleh kosong!")
+</script>
+<?php
+    } else if ($_GET["notif"]=="username kosong"){
+      ?>
+<script>
+alert("Username tidak boleh kosong!")
+</script>
+<?php
+    }else if ($_GET["notif"]=="email kosong"){
+      ?>
+<script>
+alert("Email tidak boleh kosong!")
+</script>
+<?php
+    } else if ($_GET["notif"]=="password kosong"){
+      ?>
+<script>
+alert("Password tidak boleh kosong!")
+</script>
+<?php
+    } else if ($_GET["notif"]=="Konfirmasi password kosong"){
+      ?>
+<script>
+alert("Konfirmasi password tidak boleh kosong!")
+</script>
+<?php
+    } else if ($_GET["notif"]=="konfirmasi password tidak sama"){
+      ?>
+<script>
+alert("Konfirmasi tidak valid!")
+</script>
+<?php
+    }
+    }
+    ?>

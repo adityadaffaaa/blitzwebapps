@@ -164,8 +164,7 @@
         <div class="flex flex-col gap-8">
           <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
             <div class="flex flex-col">
-              <h3 class="text-text1 text-heading3 font-poppins">Profil</h3>
-              <p class="text-text1 text-paragraph2">Selamat Datang, <a class="text-primary text-paragraph1">Daffa</a></p>
+              <h3 class="text-text1 text-heading3 font-poppins">Edit Profil</h3>
             </div>
             <a href="./signin.html" class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
               <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
@@ -178,35 +177,53 @@
             </a>
           </div>
           <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
-            <div class="flex flex-row px-6 py-2 items-center justify-end border-b-2 border-primary">
-              <a class="px-4 py-[10px] bg-primary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-secondary" href="./edit-profil.html">
+            <div class="flex flex-row px-6 py-2 items-center justify-between border-b-2 border-primary">
+              <h5 class="text-text1 text-heading5 font-poppins">Form Edit Profil</h5>
+              <a class="px-4 py-[10px] bg-primary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-secondary" href="./profil.html">
                 <span class="fill-text2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="none" d="M0 0h24v24H0z" />
-                    <path d="M6.414 16L16.556 5.858l-1.414-1.414L5 14.586V16h1.414zm.829 2H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" />
+                    <path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z" />
                   </svg>
                 </span>
-                Edit Profil</a
+                Kembali</a
               >
             </div>
-            <div class="px-6 py-4 items-center bg-primary" role="alert">
-              <p class="text-text2 text-paragraph1 font-poppins">Data berhasil diubah</p>
-            </div>
-            <div class="px-6 py-4 flex flex-col items-start gap-6">
-              <img class="h-[240px] rounded-lg" src="../assets/img/fotoadmin.png" alt="" />
-              <div class="flex flex-row bg-background1 p-6 gap-4 shadow-default rounded-lg">
-                <div class="flex flex-col gap-4">
-                  <p class="text-text1 text-paragraph1">Nama</p>
-                  <p class="text-text1 text-paragraph1">Email</p>
-                  <p class="text-text1 text-paragraph1">No Telepon</p>
-                </div>
-                <div class="flex flex-col gap-4">
-                  <p class="text-text1 text-paragraph2">Daffa Fawwaz Aditya</p>
-                  <p class="text-text1 text-paragraph2">daffa@gmail.com</p>
-                  <p class="text-text1 text-paragraph2">081807866444</p>
+            <form method="" action="" class="px-6 py-4 flex flex-col gap-6 items-start">
+              <div class="flex flex-row w-full justify-between items-center">
+                <p class="text-text1 text-paragraph1">Foto profil</p>
+                <div class="flex justify-start mr-40">
+                  <input class="cursor-pointer p-[10px] w-[800px] bg-primary text-paragraph2 rounded-lg text-text2 transition-default hover:bg-secondary outline-none" type="file" name="foto" id="foto" />
                 </div>
               </div>
-            </div>
+              <div class="flex flex-row w-full justify-between items-center">
+                <p class="text-text1 text-paragraph1">Nama</p>
+                <div class="flex justify-start mr-40">
+                  <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="nama" id="nama" type="text" value="Daffa Fawwaz Aditya" />
+                </div>
+              </div>
+              <div class="flex flex-row w-full justify-between items-center">
+                <p class="text-text1 text-paragraph1">Username</p>
+                <div class="flex justify-start mr-40">
+                  <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="username" id="username" type="text" value="daffaaditya" />
+                </div>
+              </div>
+              <div class="flex flex-row w-full justify-between items-center">
+                <p class="text-text1 text-paragraph1">Email</p>
+                <div class="flex justify-start mr-40">
+                  <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="email" id="email" type="text" value="daffa@gmail.com" />
+                </div>
+              </div>
+              <div class="flex flex-row w-full justify-between items-center">
+                <p class="text-text1 text-paragraph1">No Telepon</p>
+                <div class="flex justify-start mr-40">
+                  <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                </div>
+              </div>
+              <div class="flex flex-row w-full justify-end">
+                <button class="px-4 py-[10px] bg-primary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-secondary" type="submit" name="simpan" value="simpan">Simpan</button>
+              </div>
+            </form>
           </div>
         </div>
         <div class="flex flex-row bg-text2 px-6 py-4 items-center justify-start shadow-default">

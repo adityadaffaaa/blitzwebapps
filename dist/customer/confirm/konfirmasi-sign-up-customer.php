@@ -8,6 +8,7 @@ if(isset($_POST["signup"])){
   $konfirmasipass = $_POST["konfirmasi-password"];
   $password = mysqli_real_escape_string($koneksi, md5($pass));
   $konfirmasipw = mysqli_real_escape_string($koneksi, md5($konfirmasipass));
+  $level = "silver";
   if(empty($nama)){
     header("Location:index.php?include=sign-up-customer&notif=nama kosong");
   } else if(empty($username)){
@@ -21,8 +22,8 @@ if(isset($_POST["signup"])){
   } else if($password != $konfirmasipw){
     header("Location:index.php?include=sign-up-customer&notif=konfirmasi password tidak sama");
   } else{
-    $sql_signup ="INSERT INTO `customer` (`nama`, `username`, `email`,`password`)
-    VALUES ('$nama','$username','$email','$password');";
+    $sql_signup ="INSERT INTO `customer` (`nama`, `username`, `email`,`password`, `level`)
+    VALUES ('$nama','$username','$email','$password','$level')";
     mysqli_query($koneksi, $sql_signup);
     header("Location:index.php?include=sign-in-customer&notif=daftar berhasil");
   }

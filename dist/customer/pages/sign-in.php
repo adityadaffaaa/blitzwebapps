@@ -2,7 +2,7 @@
     <div class="w-full h-full bg-gradient-to-r from-primary to-[rgba(3,76,95,0.6)] flex justify-center items-center">
       <!-- form sign in -->
       <div class="flex flex-row w-4/5 justify-between">
-        <form action="" method="" class="w-full">
+        <form action="index.php?include=konfirmasi-sign-in-customer" method="POST" class="w-full">
           <div class="flex flex-col gap-6 items-start">
             <a class="px-[14px] py-[10px] flex items-center bg-secondary rounded-lg text-paragraph1 transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-secondary text-text2"
               href="index.php?include=beranda">
@@ -42,7 +42,7 @@
                 </div>
                 <button
                   class="text-text2 p-[10px] bg-secondary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-secondary"
-                  type="submit">Sign In</button>
+                  type="submit" name="signin" value="sign in">Sign In</button>
                 <div class="flex flex-row items-center">
                   <hr class="border-t-2 border-text2 w-full" />
                   <p class="text-text2 mx-6 text-paragraph2">Atau</p>
@@ -70,11 +70,34 @@
       <!-- form sign in end -->
     </div>
   </div>
-  </body>
-  <!-- aos -->
-  <script src="/node_modules/aos/dist/aos.js"></script>
-  <script>
-AOS.init();
-  </script>
 
-  </html>
+  <?php
+    if(!empty($_GET["notif"])){
+    if($_GET["notif"]=="username kosong"){
+    ?>
+  <script>
+alert("username tidak boleh kosong!")
+  </script>
+  <?php
+    } else if ($_GET["notif"]=="password kosong"){
+      ?>
+  <script>
+alert("password tidak boleh kosong!")
+  </script>
+  <?php
+    }else if ($_GET["notif"]=="username dan password salah"){
+      ?>
+  <script>
+alert("username dan password Anda salah!")
+  </script>
+  <?php
+    }else if ($_GET["notif"]=="daftar berhasil"){
+      ?>
+  <script>
+alert("Berhasil membuat data baru")
+  </script>
+  <?php
+    
+    }
+    }
+    ?>
