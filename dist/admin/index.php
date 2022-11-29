@@ -9,6 +9,8 @@ if(isset($_GET["include"])){
     include "confirm/logout.php";
   } else if($include =="konfirmasi-edit-profil"){
     include "confirm/konfirmasi-edit-profil.php";
+  } else if($include =="konfirmasi-ubah-password"){
+    include "confirm/konfirmasi-ubah-password.php";
   }
 }
 ?>
@@ -37,6 +39,8 @@ if(isset($_GET["include"])){
         include "pages/data-customer.php" ;
       } else if ($include == "data-fotovideografer"){
         include "pages/data-fotovideografer.php" ;
+      } else if ($include == "ubah-password"){
+        include "pages/ubah-password.php" ;
       }
     
     } else{

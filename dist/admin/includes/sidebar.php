@@ -117,7 +117,7 @@
       </a>
     </div>
 
-    <a href="./portofolio.html"
+    <a href="#"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -133,7 +133,7 @@
     <?php
     if($_SESSION["level"]=="superadmin"){
     ?>
-    <a href="./ulasan.html"
+    <a href="#"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -163,7 +163,7 @@
     }
     ?>
 
-    <a href="./ubah-password.html"
+    <a href="index.php?include=ubah-password"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
