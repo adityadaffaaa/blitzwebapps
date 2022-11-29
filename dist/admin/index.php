@@ -33,6 +33,10 @@ if(isset($_GET["include"])){
         include "pages/profil.php";
       } else if ($include == "edit-profil"){
         include "pages/editprofil.php" ;
+      } else if ($include == "data-customer"){
+        include "pages/data-customer.php" ;
+      } else if ($include == "data-fotovideografer"){
+        include "pages/data-fotovideografer.php" ;
       }
     
     } else{

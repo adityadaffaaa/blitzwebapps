@@ -6,6 +6,17 @@
       <img class="h-14" src="./assets/Blitz Logo.png" alt="" />
       <h3 class="text-primary text-heading3 font-poppins">Sign In Admin</h3>
     </div>
+    <?php if(!empty($_GET['notif'])){?>
+    <?php  if($_GET['notif']=="username kosong"){?>
+    <p class="text-secondary text-center text-paragraph1 font-poppins">Username harus diisi!</p>
+    <?php } else ?>
+    <?php  if($_GET['notif']=="password kosong"){?>
+    <p class="text-secondary text-center text-paragraph1 font-poppins">Password harus diisi!</p>
+    <?php } else ?>
+    <?php  if($_GET['notif']=="username dan password salah"){?>
+    <p class="text-secondary text-center text-paragraph1 font-poppins">Username dan password Anda salah!</p>
+    <?php } ?>
+    <?php }?>
     <div class="flex flex-row px-[14px] py-[10px] h-10 w-[367px] items-center bg-secondary rounded-lg text-text2">
       <input
         class="w-full h-full outline-none text-text2 bg-secondary text-paragraph2 placeholder:text-text2 placeholder:text-paragraph2"

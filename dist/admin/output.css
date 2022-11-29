@@ -889,6 +889,10 @@ video {
   height: 688px;
 }
 
+.h-\[470px\] {
+  height: 470px;
+}
+
 .h-\[240px\] {
   height: 240px;
 }
@@ -1249,6 +1253,10 @@ video {
   gap: 8rem;
 }
 
+.gap-\[6px\] {
+  gap: 6px;
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -1498,6 +1506,10 @@ video {
 
 .p-10 {
   padding: 2.5rem;
+}
+
+.p-\[4px\] {
+  padding: 4px;
 }
 
 .py-10 {

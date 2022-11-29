@@ -39,7 +39,7 @@
       </span>
     </a>
     <div id="toggle-datamaster" class="flex-col gap-4 overflow-hidden hidden transition-all">
-      <a href="#"
+      <a href="index.php?include=data-customer"
         class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
         <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -52,7 +52,7 @@
           class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Data
           Customer</p>
       </a>
-      <a href="#"
+      <a href="index.php?include=data-fotovideografer"
         class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
         <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

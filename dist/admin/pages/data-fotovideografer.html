@@ -164,7 +164,7 @@
         <div class="flex flex-col gap-8">
           <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
             <div class="flex flex-col">
-              <h3 class="text-text1 text-heading3 font-poppins">Data Customer</h3>
+              <h3 class="text-text1 text-heading3 font-poppins">Data Fotografer dan Videografer</h3>
             </div>
             <a href="./signin.html" class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
               <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
@@ -179,7 +179,7 @@
           <form method="" action="" class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
             <div class="flex flex-row px-6 py-2 items-center justify-between border-b-2 border-primary">
               <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
-                <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text" placeholder="Cari Customer" />
+                <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text" placeholder="Cari Foto/Videografer" />
                 <button type="submit" class="fill-text4 cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="none" d="M0 0h24v24H0z" />
@@ -212,9 +212,11 @@
                         <th width="5%" class="rounded-tl-lg py-[14px] px-2">No</th>
                         <th width="15%" class="px-2">Nama</th>
                         <th width="15%" class="px-2">Email</th>
+                        <th width="10%" class="px-2">Jenis Kelamin</th>
                         <th width="15%" class="px-2">No Telepon</th>
-                        <th width="20%" class="px-2">Alamat</th>
-                        <th width="15%" class="px-2">Tanggal Bergabung</th>
+                        <th width="15%" class="px-2">Alamat</th>
+                        <th width="15%" class="px-2">Role</th>
+                        <th width="15%" class="px-2">Status</th>
                         <th width="5%" class="rounded-tr-lg px-3"><p class="hidden"></p></th>
                       </tr>
                     </thead>
@@ -224,6 +226,8 @@
                         <td class="text-center py-4">1</td>
                         <td class="text-center py-4">Daffa</td>
                         <td class="text-center py-4">daffa@gmail.com</td>
+                        <td class="text-center py-4">081807866444</td>
+                        <td class="text-center py-4">081807866444</td>
                         <td class="text-center py-4">081807866444</td>
                         <td class="text-center py-4">Bojonggede</td>
                         <td class="text-center py-4">20 Januari 2022</td>
@@ -253,9 +257,14 @@
                   </table>
                   <!-- paginasi riwayat -->
                   <div class="flex flex-row gap-6 items-center">
-                  
+                    <a class="inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary" href="#">
+                      <span class="fill-text2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+                          <path fill="none" d="M0 0h24v24H0z" />
+                          <path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z" />
+                        </svg> </span
                     ></a>
-                    <ul class="flex flex-row items-center gap-2">
+                    <ul class="flex flex-row gap-1">
                       <li>
                         <a href="#"><div class="flex justify-center text-text2 items-center w-9 h-9 bg-primary rounded-lg transition-default">1</div></a>
                       </li>
@@ -266,7 +275,13 @@
                         <a href="#"><div class="flex justify-center text-text2 items-center w-9 h-9 bg-background2 rounded-lg transition-default hover:bg-primary">3</div></a>
                       </li>
                     </ul>
-                    
+                    <a class="inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary" href="#">
+                      <span class="fill-text2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+                          <path fill="none" d="M0 0h24v24H0z" />
+                          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                        </svg> </span
+                    ></a>
                   </div>
                   <!-- paginasi riwayat end -->
                 </div>
