@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <!-- jasa videografi -->
   <section class="mt-10">
-    <form class="input" name="input" action="" enctype="multipart/form-data">
+    <form action="" enctype="multipart/form-data">
       <div class="flex flex-col items-center gap-[50px]">
         <h1 class="text-text1 text-heading1 font-poppins">Jasa Videografi</h1>
         <div class="flex flex-row justify-evenly w-3/4">
@@ -90,12 +90,20 @@
               </div>
             </div>
             <div class="flex flex-col gap-4">
-              <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Videografer</label>
-              <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="fotografer"
-                id="fotografer">
-                <option value="-">Pilih Videografer</option>
-                <option value="Hery Taufan">Hery Taufan</option>
-                <option value="Hery Taufan">Hery Taufan</option>
+              <label class="text-text1 text-heading3 font-poppins" for="videografer">Pilih Videografer</label>
+              <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="videografer"
+                id="videografer">
+                <option value="0">Pilih Videografer</option>
+                <?php
+                $sql_videografer = "SELECT `id_fotovideografer`, `nama` FROM `fotovideografer` WHERE `role` = 'videografer' ORDER BY `nama`";
+                $query_videografer = mysqli_query($koneksi, $sql_videografer);
+                while($data_videografer = mysqli_fetch_row($query_videografer)){
+                  $id_videografer = $data_videografer[0]; 
+                  $nama = $data_videografer[1]; 
+                  ?>
+                <option value="<?php echo $id_videografer ?>"><?php echo $nama ?></option>
+                <?php } ?>
+
               </select>
             </div>
             <div class="flex flex-col gap-1">

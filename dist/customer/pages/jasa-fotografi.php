@@ -1,7 +1,3 @@
-<?php 
-$id_customer = $_SESSION["id_customer"];
-?>
-
 <div class="container mx-auto">
   <!-- jasa fotografi -->
   <section class="mt-10">
@@ -15,7 +11,7 @@ $id_customer = $_SESSION["id_customer"];
               <!-- ulang tahun -->
               <label class="cursor-pointer" for="ulang-tahun">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="Ulang Tahun" />
+                  <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="8" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-ulangtahun.png')">
@@ -31,7 +27,7 @@ $id_customer = $_SESSION["id_customer"];
               <!-- kelulusan -->
               <label class="cursor-pointer" for="kelulusan">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="kelulusan" class="peer sr-only" type="radio" name="kategori" value="Kelulusan" />
+                  <input id="kelulusan" class="peer sr-only" type="radio" name="kategori" value="9" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-kelulusan.png')">
@@ -47,7 +43,7 @@ $id_customer = $_SESSION["id_customer"];
               <!-- ulang tahun -->
               <label class="cursor-pointer" for="liburan">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="liburan" class="peer hidden" type="radio" name="kategori" value="Liburan" />
+                  <input id="liburan" class="peer hidden" type="radio" name="kategori" value="10" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-liburan.png')">
@@ -63,7 +59,7 @@ $id_customer = $_SESSION["id_customer"];
               <!-- kelulusan -->
               <label class="cursor-pointer" for="pra-nikah">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="pra-nikah" class="peer sr-only" type="radio" name="kategori" value="Pra Nikah" />
+                  <input id="pra-nikah" class="peer sr-only" type="radio" name="kategori" value="11" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-wedding.png')">
@@ -98,8 +94,15 @@ $id_customer = $_SESSION["id_customer"];
               <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="fotografer"
                 id="fotografer">
                 <option value="-">Pilih Fotografer</option>
-                <option value="Hery Taufan">Hery Taufan</option>
-                <option value="Hery Taufan">Hery Taufan</option>
+                <?php
+                $sql_fotografer = "SELECT `id_fotovideografer`, `nama` FROM `fotovideografer` WHERE `role` = 'fotografer' ORDER BY `nama`";
+                $query_fotografer = mysqli_query($koneksi, $sql_fotografer);
+                while($data_fotografer = mysqli_fetch_row($query_fotografer)){
+                  $id_fotografer = $data_fotografer[0]; 
+                  $nama = $data_fotografer[1]; 
+                  ?>
+                <option value="<?php echo $id_fotografer ?>"><?php echo $nama ?></option>
+                <?php } ?>
               </select>
             </div>
             <div class="flex flex-col gap-1">
@@ -110,7 +113,7 @@ $id_customer = $_SESSION["id_customer"];
             </div>
             <div class="flex flex-col gap-1">
               <h5 class="text-text1 text-heading5 font-poppins">Total Harga</h5>
-              <h3 class="text-primary text-heading3 font-poppins">IDR 1.100.000</h3>
+              <h3 id="total-bayar" class="text-primary text-heading3 font-poppins">IDR 1.100.000</h3>
             </div>
             <div class="flex flex-col gap-1">
               <h5 class="text-text1 text-heading5 font-poppins">No. Rekening</h5>

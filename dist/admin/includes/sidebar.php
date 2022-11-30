@@ -1,6 +1,6 @@
 <!-- side bar -->
 <nav id="nav"
-  class="h-[100vh] w-[86px] hover:w-[300px] group/nav py-8 transition-all ease-in-out duration-500 bg-secondary shadow-default shadow-secondary">
+  class="h-[100vh] w-[300px] hover:w-[300px] group/nav py-8 transition-all ease-in-out duration-500 bg-secondary shadow-default shadow-secondary">
   <div class="ml-[26px] flex flex-col gap-4">
     <img id="toggle-menu" class="w-7 scale-[200%] mb-8 cursor-pointer" src="./assets/Blitz Logo White.png" alt="" />
     <a href="index.php?include=profil"
@@ -13,7 +13,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Profil
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Profil
       </p>
     </a>
     <a id="data-master"
@@ -27,11 +27,11 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Data
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Data
           Master</p>
       </div>
       <span id="menu-desc"
-        class="fill-[rgba(255,255,255,0.8)] transition default group-hover:fill-text2 opacity-0 group-hover/nav:opacity-100">
+        class="fill-[rgba(255,255,255,0.8)] transition default group-hover:fill-text2 opacity-100 group-hover/nav:opacity-100">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
           <path fill="none" d="M0 0h24v24H0z" />
           <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
@@ -49,7 +49,7 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Data
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Data
           Customer</p>
       </a>
       <a href="index.php?include=data-fotovideografer"
@@ -62,7 +62,7 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Data
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Data
           Foto/Videografer</p>
       </a>
     </div>
@@ -77,11 +77,11 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Chat
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Chat
         </p>
       </div>
       <span id="menu-desc"
-        class="fill-[rgba(255,255,255,0.8)] transition default group-hover:fill-text2 opacity-0 group-hover/nav:opacity-100">
+        class="fill-[rgba(255,255,255,0.8)] transition default group-hover:fill-text2 opacity-100 group-hover/nav:opacity-100">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
           <path fill="none" d="M0 0h24v24H0z" />
           <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
@@ -99,7 +99,7 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Chat
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Chat
           Customer</p>
       </a>
       <a href="#"
@@ -112,7 +112,7 @@
           </svg>
         </span>
         <p id="menu-desc"
-          class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Chat
+          class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Chat
           Foto/Videografer</p>
       </a>
     </div>
@@ -127,7 +127,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Pemesanan</p>
     </a>
     <?php
@@ -143,7 +143,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Konfirmasi</p>
     </a>
     <a href="#"
@@ -156,7 +156,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Admin
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Admin
       </p>
     </a>
     <?php
@@ -173,7 +173,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Ubah
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Ubah
         Password</p>
     </a>
     <a href="index.php?include=logout"
@@ -186,7 +186,7 @@
         </svg>
       </span>
       <p id="menu-desc"
-        class="text-paragraph1 absolute left-[60px] transition-default opacity-0 group-hover/nav:opacity-100">Log Out
+        class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Log Out
       </p>
     </a>
   </div>

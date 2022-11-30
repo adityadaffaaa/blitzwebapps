@@ -47,7 +47,7 @@
         <div class="flex flex-row items-center gap-6">
           <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
             <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text"
-              placeholder="Cari Riwayat" />
+              placeholder="Cari Riwayat" autocomplete="off" />
             <button type="submit" class="fill-text4 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z" />
@@ -199,7 +199,7 @@
               </div>
             </td>
             <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
+            <td class="bukti flex justify-center py-4 relative">
               <span class="fill-primary absolute top-0 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path fill="none" d="M0 0h24v24H0z" />
@@ -221,201 +221,7 @@
               </span>
             </td>
           </tr>
-          <tr class="baris border-b-[1px] border-b-text3">
-            <td class="text-center py-4">1</td>
-            <td class="text-center py-4">Liburan</td>
-            <td class="text-center py-4">Fotografi</td>
-            <td class="text-center py-4">04/01/2022</td>
-            <td class="text-center py-4">07/01/2022</td>
-            <td class="text-center py-4">09/01/2022</td>
-            <td class="flex justify-center py-4">
-              <div class="flex flex-row items-center gap-2">
-                <img class="h-[42px] rounded-full" src="./assets/img/hery.png" alt="" />
-                <div class="flex flex-col gap-[2px]">
-                  <p>Hery Taufan</p>
-                  <p class="text-text3 text-paragraph4">@herytaufan119</p>
-                </div>
-              </div>
-            </td>
-            <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
-              <span class="fill-primary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 2.003V2h10.998C20.55 2 21 2.455 21 2.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6-5.997zM5.83 8H9V4.83L5.83 8zM11 4v5a1 1 0 0 1-1 1H5v10h14V4h-8z" />
-                </svg>
-              </span>
-            </td>
-            <td class="text-center py-4">
-              <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
-            </td>
-            <td class="flex justify-center py-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
-                </svg>
-              </span>
-            </td>
-          </tr>
-          <tr class="baris border-b-[1px] border-b-text3">
-            <td class="text-center py-4">1</td>
-            <td class="text-center py-4">Liburan</td>
-            <td class="text-center py-4">Fotografi</td>
-            <td class="text-center py-4">04/01/2022</td>
-            <td class="text-center py-4">07/01/2022</td>
-            <td class="text-center py-4">09/01/2022</td>
-            <td class="flex justify-center py-4">
-              <div class="flex flex-row items-center gap-2">
-                <img class="h-[42px] rounded-full" src="./assets/img/hery.png" alt="" />
-                <div class="flex flex-col gap-[2px]">
-                  <p>Hery Taufan</p>
-                  <p class="text-text3 text-paragraph4">@herytaufan119</p>
-                </div>
-              </div>
-            </td>
-            <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
-              <span class="fill-primary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 2.003V2h10.998C20.55 2 21 2.455 21 2.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6-5.997zM5.83 8H9V4.83L5.83 8zM11 4v5a1 1 0 0 1-1 1H5v10h14V4h-8z" />
-                </svg>
-              </span>
-            </td>
-            <td class="text-center py-4">
-              <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
-            </td>
-            <td class="flex justify-center py-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
-                </svg>
-              </span>
-            </td>
-          </tr>
-          <tr class="baris border-b-[1px] border-b-text3">
-            <td class="text-center py-4">1</td>
-            <td class="text-center py-4">Liburan</td>
-            <td class="text-center py-4">Fotografi</td>
-            <td class="text-center py-4">04/01/2022</td>
-            <td class="text-center py-4">07/01/2022</td>
-            <td class="text-center py-4">09/01/2022</td>
-            <td class="flex justify-center py-4">
-              <div class="flex flex-row items-center gap-2">
-                <img class="h-[42px] rounded-full" src="./assets/img/hery.png" alt="" />
-                <div class="flex flex-col gap-[2px]">
-                  <p>Hery Taufan</p>
-                  <p class="text-text3 text-paragraph4">@herytaufan119</p>
-                </div>
-              </div>
-            </td>
-            <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
-              <span class="fill-primary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 2.003V2h10.998C20.55 2 21 2.455 21 2.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6-5.997zM5.83 8H9V4.83L5.83 8zM11 4v5a1 1 0 0 1-1 1H5v10h14V4h-8z" />
-                </svg>
-              </span>
-            </td>
-            <td class="text-center py-4">
-              <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
-            </td>
-            <td class="flex justify-center py-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
-                </svg>
-              </span>
-            </td>
-          </tr>
-          <tr class="baris border-b-[1px] border-b-text3">
-            <td class="text-center py-4">1</td>
-            <td class="text-center py-4">Liburan</td>
-            <td class="text-center py-4">Fotografi</td>
-            <td class="text-center py-4">04/01/2022</td>
-            <td class="text-center py-4">07/01/2022</td>
-            <td class="text-center py-4">09/01/2022</td>
-            <td class="flex justify-center py-4">
-              <div class="flex flex-row items-center gap-2">
-                <img class="h-[42px] rounded-full" src="./assets/img/hery.png" alt="" />
-                <div class="flex flex-col gap-[2px]">
-                  <p>Hery Taufan</p>
-                  <p class="text-text3 text-paragraph4">@herytaufan119</p>
-                </div>
-              </div>
-            </td>
-            <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
-              <span class="fill-primary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 2.003V2h10.998C20.55 2 21 2.455 21 2.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6-5.997zM5.83 8H9V4.83L5.83 8zM11 4v5a1 1 0 0 1-1 1H5v10h14V4h-8z" />
-                </svg>
-              </span>
-            </td>
-            <td class="text-center py-4">
-              <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
-            </td>
-            <td class="flex justify-center py-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
-                </svg>
-              </span>
-            </td>
-          </tr>
-          <tr class="baris border-b-[1px] border-b-text3">
-            <td class="text-center py-4">1</td>
-            <td class="text-center py-4">Liburan</td>
-            <td class="text-center py-4">Fotografi</td>
-            <td class="text-center py-4">04/01/2022</td>
-            <td class="text-center py-4">07/01/2022</td>
-            <td class="text-center py-4">09/01/2022</td>
-            <td class="flex justify-center py-4">
-              <div class="flex flex-row items-center gap-2">
-                <img class="h-[42px] rounded-full" src="./assets/img/hery.png" alt="" />
-                <div class="flex flex-col gap-[2px]">
-                  <p>Hery Taufan</p>
-                  <p class="text-text3 text-paragraph4">@herytaufan119</p>
-                </div>
-              </div>
-            </td>
-            <td class="text-center py-4">IDR 350.000</td>
-            <td class="flex justify-center py-4 relative">
-              <span class="fill-primary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 2.003V2h10.998C20.55 2 21 2.455 21 2.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6-5.997zM5.83 8H9V4.83L5.83 8zM11 4v5a1 1 0 0 1-1 1H5v10h14V4h-8z" />
-                </svg>
-              </span>
-            </td>
-            <td class="text-center py-4">
-              <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
-            </td>
-            <td class="flex justify-center py-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
-                </svg>
-              </span>
-            </td>
-          </tr>
+
         </tbody>
         <!-- data riwayat end -->
       </table>
@@ -462,3 +268,21 @@
   </section>
   <!-- tabel riwayat end -->
 </div>
+<!-- bukti pop up -->
+<div
+  class="bukti-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
+  <div class="bukti-popup relative shadow-default transition-all ease-in-out duration-500 translate-y-64">
+    <img class="h-[500px] w-auto" src="./assets/img/buktipembayaran.jpeg" alt="" />
+    <div
+      class="close-bukti-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
+      <span class="fill-text2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+<!-- bukti pop up end -->

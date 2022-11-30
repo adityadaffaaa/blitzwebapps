@@ -42,7 +42,7 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
           <form method="POST" action="index.php?include=data-fotovideografer"
             class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
             <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
-              placeholder="Cari Foto/Videografer" />
+              placeholder="Cari Foto/Videografer" autocomplete="off" />
             <button type="submit" class="fill-text4 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z" />
@@ -51,15 +51,6 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
               </svg>
             </button>
           </form>
-          <a class="px-4 py-[10px] bg-primary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-secondary"
-            href="./profil.html">
-            <span class="fill-text2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z" />
-              </svg>
-            </span>
-            Kembali</a>
         </div>
         <?php if(!empty($_GET['notif'])){?>
         <?php  if($_GET['notif']=="hapusberhasil"){?>
@@ -140,8 +131,8 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                     <td class="text-center py-4"><?php echo $alamat ?></td>
                     <td class="text-center py-4"><?php echo $role ?></td>
                     <td class="text-center py-4"><?php echo $status ?></td>
-                    <td class="flex justify-center py-4 px-4">
-                      <div class="flex flex-row gap-2">
+                    <td class="h-full justify-center py-4 px-4">
+                      <div class="flex flex-row  gap-2">
                         <a href="" class="hapus fill-primary cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />

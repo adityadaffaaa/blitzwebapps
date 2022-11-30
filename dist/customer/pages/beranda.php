@@ -15,7 +15,11 @@
                     jasa fotografi & videografi terbaik untuk setiap momen berharga yang hanya terjadi sekali dalam
                     hidup</p>
                   <div class="wrapbtn">
+                    <?php if(isset($_SESSION["id_customer"])) {?>
+                    <a class="btn-primary" href="index.php?include=jasa-kami">Pesan Sekarang</a>
+                    <?php } else {?>
                     <a class="btn-primary" href="index.php?include=sign-in-customer">Mulai sebagai customer</a>
+                    <?php }?>
                   </div>
                 </div>
               </div>
@@ -146,8 +150,18 @@
             <div
               class="w-full mx-6 my-10 h-[320px] bg-primary rounded-[32px] flex items-center justify-center overflow-hidden">
               <div class="flex flex-row items-center gap-[70px]">
+                <?php if($foto_ulasan == null){ ?>
+                <span class="fill-text2 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="188" height="188">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-4.987-3.744A7.966 7.966 0 0 0 12 20c1.97 0 3.773-.712 5.167-1.892A6.979 6.979 0 0 0 12.16 16a6.981 6.981 0 0 0-5.147 2.256zM5.616 16.82A8.975 8.975 0 0 1 12.16 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187zM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                  </svg>
+                </span>
+                <?php } else{ ?>
                 <img class="h-[188px] rounded-full border-4 border-text2" src="./assets/img/<?php echo $foto_ulasan ?>"
                   alt="" />
+                <?php }?>
                 <div class="flex flex-col gap-4">
                   <div class="flex flex-col">
                     <h4 class="text-heading4 text-text2 font-poppins"><?php echo $nama_ulasan ?></h4>
