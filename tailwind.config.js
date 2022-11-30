@@ -47,9 +47,6 @@ module.exports = {
       boxShadow: {
         default: "0px 4px 24px rgba(0, 0, 0, 0.1)",
       },
-      content: {
-        cs: "url('/dist/customer/assets/icon/cs-icon.svg')",
-      },
     },
   },
   plugins: [require("tailwind-scrollbar")],

@@ -1,5 +1,12 @@
 <?php
 $id_admin = $_SESSION["id_admin"];
+
+$sql_header = "SELECT SUBSTRING_INDEX(`nama`,' ',1)FROM `admin` WHERE `id_admin`= $id_admin";
+$query_header = mysqli_query($koneksi, $sql_header);
+while($data_header=mysqli_fetch_row($query_header)){
+$nama_header = $data_header[0];
+}
+
 $sql_admin = "SELECT `id_admin`, `foto`, `nama`,`email`,`no_telp` 
 FROM `admin` WHERE `id_admin`= $id_admin";
 $query_admin = mysqli_query($koneksi, $sql_admin);
@@ -21,7 +28,7 @@ while($data = mysqli_fetch_row($query_admin)){
         <div class="flex flex-col">
           <h3 class="text-text1 text-heading3 font-poppins">Profil</h3>
           <p class="text-text1 text-paragraph2">Selamat Datang, <a
-              class="text-primary text-paragraph1"><?php echo $nama ?></a></p>
+              class="text-primary text-paragraph1"><?php echo $nama_header ?></a></p>
         </div>
         <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">

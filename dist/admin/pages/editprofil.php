@@ -23,7 +23,7 @@ while($data = mysqli_fetch_row($query_admin)){
         <div class="flex flex-col">
           <h3 class="text-text1 text-heading3 font-poppins">Edit Profil</h3>
         </div>
-        <a href="./signin.html"
+        <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
           <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

@@ -7,75 +7,71 @@
         <div class="flex flex-row justify-evenly w-3/4">
           <div class="flex flex-col gap-4">
             <label class="text-text1 text-heading3 font-poppins" for="kategori">Kategori</label>
-            <div class="flex flex-col gap-[42px]">
-              <div class="flex flex-row gap-6">
-                <!-- ulang tahun -->
-                <label class="cursor-pointer" for="ulang-tahun">
-                  <div class="flex flex-col relative items-center gap-4">
-                    <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="Ulang Tahun" />
+            <div class="grid grid-cols-2 gap-[42px]">
+              <!-- ulang tahun -->
+              <label class="cursor-pointer" for="ulang-tahun">
+                <div class="flex flex-col relative items-center gap-4">
+                  <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="Ulang Tahun" />
+                  <div
+                    class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
+                    style="background-image: url('./assets/img/kategori-ulangtahun.png')">
                     <div
-                      class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
-                      style="background-image: url('./assets/img/kategori-ulangtahun.png')">
-                      <div
-                        class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                        <h4 class="text-text2 text-heading4 font-poppins">IDR 550.000/hari</h4>
-                      </div>
+                      class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
+                      <h4 class="text-text2 text-heading4 font-poppins">IDR 550.000/hari</h4>
                     </div>
-                    <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pesta Ulang Tahun</p>
                   </div>
-                </label>
-                <!-- ulang tahun end -->
-                <!-- kelulusan -->
-                <label class="cursor-pointer" for="kelulusan">
-                  <div class="flex flex-col relative items-center gap-4">
-                    <input id="kelulusan" class="peer sr-only" type="radio" name="kategori" value="Kelulusan" />
+                  <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pesta Ulang Tahun</p>
+                </div>
+              </label>
+              <!-- ulang tahun end -->
+              <!-- kelulusan -->
+              <label class="cursor-pointer" for="kelulusan">
+                <div class="flex flex-col relative items-center gap-4">
+                  <input id="kelulusan" class="peer sr-only" type="radio" name="kategori" value="Kelulusan" />
+                  <div
+                    class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
+                    style="background-image: url('./assets/img/kategori-kelulusan.png')">
                     <div
-                      class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
-                      style="background-image: url('./assets/img/kategori-kelulusan.png')">
-                      <div
-                        class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                        <h4 class="text-text2 text-heading4 font-poppins">IDR 750.000/hari</h4>
-                      </div>
+                      class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
+                      <h4 class="text-text2 text-heading4 font-poppins">IDR 750.000/hari</h4>
                     </div>
-                    <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Kelulusan</p>
                   </div>
-                </label>
-                <!-- kelulusan end -->
-              </div>
-              <div class="flex flex-row gap-6">
-                <!-- ulang tahun -->
-                <label class="cursor-pointer" for="liburan">
-                  <div class="flex flex-col relative items-center gap-4">
-                    <input id="liburan" class="peer hidden" type="radio" name="kategori" value="Liburan" />
+                  <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Kelulusan</p>
+                </div>
+              </label>
+              <!-- kelulusan end -->
+              <!-- ulang tahun -->
+              <label class="cursor-pointer" for="liburan">
+                <div class="flex flex-col relative items-center gap-4">
+                  <input id="liburan" class="peer hidden" type="radio" name="kategori" value="Liburan" />
+                  <div
+                    class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
+                    style="background-image: url('./assets/img/kategori-liburan.png')">
                     <div
-                      class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
-                      style="background-image: url('./assets/img/kategori-liburan.png')">
-                      <div
-                        class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                        <h4 class="text-text2 text-heading4 font-poppins">IDR 850.000/hari</h4>
-                      </div>
+                      class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
+                      <h4 class="text-text2 text-heading4 font-poppins">IDR 850.000/hari</h4>
                     </div>
-                    <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Liburan</p>
                   </div>
-                </label>
-                <!-- ulang tahun end -->
-                <!-- kelulusan -->
-                <label class="cursor-pointer" for="pra-nikah">
-                  <div class="flex flex-col relative items-center gap-4">
-                    <input id="pra-nikah" class="peer sr-only" type="radio" name="kategori" value="Pra Nikah" />
+                  <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Liburan</p>
+                </div>
+              </label>
+              <!-- ulang tahun end -->
+              <!-- kelulusan -->
+              <label class="cursor-pointer" for="pra-nikah">
+                <div class="flex flex-col relative items-center gap-4">
+                  <input id="pra-nikah" class="peer sr-only" type="radio" name="kategori" value="Pra Nikah" />
+                  <div
+                    class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
+                    style="background-image: url('./assets/img/kategori-wedding.png')">
                     <div
-                      class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
-                      style="background-image: url('./assets/img/kategori-wedding.png')">
-                      <div
-                        class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                        <h4 class="text-text2 text-heading4 font-poppins">IDR 1.470.000/hari</h4>
-                      </div>
+                      class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
+                      <h4 class="text-text2 text-heading4 font-poppins">IDR 1.470.000/hari</h4>
                     </div>
-                    <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pra Nikah</p>
                   </div>
-                </label>
-                <!-- kelulusan end -->
-              </div>
+                  <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pra Nikah</p>
+                </div>
+              </label>
+              <!-- kelulusan end -->
             </div>
           </div>
           <div class="flex flex-col gap-8">

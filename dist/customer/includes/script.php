@@ -12,8 +12,8 @@
 <script src="./js/riwayat.js"></script>
 
 <!-- sweet alert -->
-<script src="/sweatalert/sweetalert2.all.min.js"></script>
+<script src="../../sweatalert/sweetalert2.all.min.js"></script>
 
 <!-- aos -->
-<script src="/node_modules/aos/dist/aos.js"></script>
+<script src="../../node_modules/aos/dist/aos.js"></script>
 <script src="./js/aos-init.js"></script>

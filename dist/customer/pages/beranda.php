@@ -129,23 +129,36 @@
     <div class="wrap ulasan relative">
       <div class="swiper SwiperUlasan w-3/4">
         <div class="swiper-wrapper">
+          <?php 
+            $sql_ulasan =" SELECT `c`.`foto`, `c`.`nama`, `u`.`deskripsi`, `u`.`rating`,`u`.`isi` 
+            FROM `ulasan` `u` 
+            JOIN `customer` `c` ON `u`.`id_customer` = `c`.`id_customer`
+            ORDER BY `c`.`nama` LIMIT 5";
+            $query_ulasan = mysqli_query($koneksi, $sql_ulasan);
+            while($data_ulasan = mysqli_fetch_row($query_ulasan)){
+              $foto_ulasan = $data_ulasan[0];
+              $nama_ulasan = $data_ulasan[1];
+              $deskripsi_ulasan = $data_ulasan[2];
+              $rating_ulasan = $data_ulasan[3];
+              $isi_ulasan = $data_ulasan[4];
+              ?>
           <div class="swiper-slide flex justify-center">
             <div
               class="w-full mx-6 my-10 h-[320px] bg-primary rounded-[32px] flex items-center justify-center overflow-hidden">
               <div class="flex flex-row items-center gap-[70px]">
-                <img class="h-[188px] rounded-full border-4 border-text2" src="./assets/img/ulasan1.png" alt="" />
+                <img class="h-[188px] rounded-full border-4 border-text2" src="./assets/img/<?php echo $foto_ulasan ?>"
+                  alt="" />
                 <div class="flex flex-col gap-4">
                   <div class="flex flex-col">
-                    <h4 class="text-heading4 text-text2 font-poppins">Michael Roland</h4>
-                    <p class="text-text3 text-paragraph4">Mahasiswa Universitas Brawijaya</p>
+                    <h4 class="text-heading4 text-text2 font-poppins"><?php echo $nama_ulasan ?></h4>
+                    <p class="text-text3 text-paragraph4"><?php echo $deskripsi_ulasan ?></p>
                   </div>
                   <p class="text-paragraph4 text-text2 w-[568px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, lorem tempor nunc ultrices
-                    pellentesque facilisis aliquet leo vulputate. Sagittis, dignissim nibh ultricies aliquet ornare
-                    donec turpis. Adipiscing nec
-                    egestas cursus amet elementum duis commodo quam nunc.
+                    <?php echo $isi_ulasan ?>
                   </p>
                   <div class="flex flex-row gap-1">
+                    <?php 
+                  for($i=0 ; $i < $rating_ulasan ; $i++) { ?>
                     <span class="fill-background3">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -153,153 +166,13 @@
                           d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
                       </svg>
                     </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide flex justify-center">
-            <div
-              class="w-full mx-6 my-10 h-[320px] bg-primary rounded-[32px] flex items-center justify-center overflow-hidden">
-              <div class="flex flex-row items-center gap-[70px]">
-                <img class="h-[188px] rounded-full border-4 border-text2" src="./assets/img/ulasan1.png" alt="" />
-                <div class="flex flex-col gap-4">
-                  <div class="flex flex-col">
-                    <h4 class="text-heading4 text-text2 font-poppins">Edward Dinson</h4>
-                    <p class="text-text3 text-paragraph4">Mahasiswa Universitas Brawijaya</p>
-                  </div>
-                  <p class="text-paragraph4 text-text2 w-[568px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, lorem tempor nunc ultrices
-                    pellentesque facilisis aliquet leo vulputate. Sagittis, dignissim nibh ultricies aliquet ornare
-                    donec turpis. Adipiscing nec
-                    egestas cursus amet elementum duis commodo quam nunc.
-                  </p>
-                  <div class="flex flex-row gap-1">
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide flex justify-center">
-            <div
-              class="w-full mx-6 my-10 h-[320px] bg-primary rounded-[32px] flex items-center justify-center overflow-hidden">
-              <div class="flex flex-row items-center gap-[70px]">
-                <img class="h-[188px] rounded-full border-4 border-text2" src="./assets/img/ulasan1.png" alt="" />
-                <div class="flex flex-col gap-4">
-                  <div class="flex flex-col">
-                    <h4 class="text-heading4 text-text2 font-poppins">Regi Mahendra</h4>
-                    <p class="text-text3 text-paragraph4">Mahasiswa Universitas Brawijaya</p>
-                  </div>
-                  <p class="text-paragraph4 text-text2 w-[568px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, lorem tempor nunc ultrices
-                    pellentesque facilisis aliquet leo vulputate. Sagittis, dignissim nibh ultricies aliquet ornare
-                    donec turpis. Adipiscing nec
-                    egestas cursus amet elementum duis commodo quam nunc.
-                  </p>
-                  <div class="flex flex-row gap-1">
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                    <span class="fill-background3">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php }?>
         </div>
         <div class="flex flex-row justify-between w-full h-full items-center z-50 absolute top-0">
           <div
@@ -509,119 +382,3 @@
   </section>
   <!-- klien kami end -->
 </div>
-<!-- chat -->
-<div data-aos="fade-up"
-  class="chat flex flex-col gap-8 items-end bottom-10 right-10 z-[100] fixed drop-shadow-[0px_4px_24px_rgba(0,0,0,0.3)]">
-  <!-- chat card -->
-  <div
-    class="chat-content w-[410px] rounded-[16px] hidden overflow-hidden translate-x-64 opacity-0 transition-all ease-in-out duration-500 bg-text2">
-    <div class="flex flex-col">
-      <!-- header chat -->
-      <div class="w-full h-full p-6 bg-secondary">
-        <div class="flex flex-col">
-          <h3 class="text-text2 text-heading3">Halo, Daffa 👋</h3>
-          <p class="text-text2 text-paragraph2">Ada yang bisa kami bantu?</p>
-        </div>
-      </div>
-      <!-- header chat end -->
-      <!-- chat body -->
-      <div class="w-full h-[300px] px-6 py-6 overflow-auto custom-scrollbar bg-text2">
-        <div class="flex flex-col gap-6">
-          <!-- chat content -->
-          <div class="flex flex-row">
-            <div class="flex flex-col w-[200px] gap-1">
-              <div
-                class="px-2 py-3 bg-background1 shadow-default rounded-lg relative before:content-cs before:flex before:items-end before:justify-center before:h-7 before:w-7 before:bg-primary before:rounded-full before:absolute before:-top-4 before:left-0">
-                <p class="text-text1 text-paragraph4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="flex flex-row justify-between">
-                <p class="text-text3 text-paragraph5">09.30</p>
-                <p class="text-text3 text-paragraph5">18-01-2022</p>
-              </div>
-            </div>
-          </div>
-          <!-- chat content end -->
-          <!-- chat content -->
-          <div class="flex flex-row justify-end">
-            <div class="flex flex-col w-[200px] gap-1">
-              <div
-                class="px-2 py-3 bg-background1 shadow-default rounded-lg relative before:content-['kamu'] before:text-text2 before:flex before:items-end before:justify-center before:px-2 before:py-[2px] before:bg-secondary before:rounded-full before:absolute before:-top-4 before:right-0">
-                <p class="text-text1 text-paragraph4">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p>
-              </div>
-              <div class="flex flex-row justify-between">
-                <p class="text-text3 text-paragraph5">09.34</p>
-                <p class="text-text3 text-paragraph5">18-01-2022</p>
-              </div>
-            </div>
-          </div>
-          <!-- chat content end -->
-          <!-- chat content -->
-          <div class="flex flex-row">
-            <div class="flex flex-col w-[200px] gap-1">
-              <div
-                class="px-2 py-3 bg-background1 shadow-default rounded-lg relative before:content-cs before:flex before:items-end before:justify-center before:h-7 before:w-7 before:bg-primary before:rounded-full before:absolute before:-top-4 before:left-0">
-                <p class="text-text1 text-paragraph4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="flex flex-row justify-between">
-                <p class="text-text3 text-paragraph5">09.38</p>
-                <p class="text-text3 text-paragraph5">18-01-2022</p>
-              </div>
-            </div>
-          </div>
-          <!-- chat content end -->
-          <!-- chat content -->
-          <div class="flex flex-row justify-end">
-            <div class="flex flex-col w-[200px] gap-1">
-              <div
-                class="px-2 py-3 bg-background1 shadow-default rounded-lg relative before:content-['kamu'] before:text-text2 before:flex before:items-end before:justify-center before:px-2 before:py-[2px] before:bg-secondary before:rounded-full before:absolute before:-top-4 before:right-0">
-                <p class="text-text1 text-paragraph4">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p>
-              </div>
-              <div class="flex flex-row justify-between">
-                <p class="text-text3 text-paragraph5">09.40</p>
-                <p class="text-text3 text-paragraph5">18-01-2022</p>
-              </div>
-            </div>
-          </div>
-          <!-- chat content end -->
-        </div>
-      </div>
-      <!-- chat body end -->
-      <form action="">
-        <div class="w-full flex flex-row px-6 py-6 justify-between">
-          <textarea class="custom-chat" name="pesan" id="pesan" placeholder="Masukkan pesan kamu..."></textarea>
-          <button
-            class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
-            type="submit">
-            <span class="fill-text2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!-- chat card end -->
-  <!-- chat toggle -->
-  <div class="flex flex-row relative items-center">
-    <div class="wrap overflow-hidden">
-      <div class="py-[10px] pl-6 pr-12 translate-x-32 bg-primary rounded-full flex items-center transition-default">
-        <p class="text-text2 text-paragraph1">Chat with us</p>
-      </div>
-    </div>
-    <div class="chat-toggle bg-secondary p-[10px] absolute -right-3 cursor-pointer rounded-full">
-      <span class="fill-text2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path
-            d="M10 3h4a8 8 0 1 1 0 16v3.5c-5-2-12-5-12-11.5a8 8 0 0 1 8-8zm2 14h2a6 6 0 1 0 0-12h-4a6 6 0 0 0-6 6c0 3.61 2.462 5.966 8 8.48V17z" />
-        </svg>
-      </span>
-    </div>
-  </div>
-  <!-- chat toggle end -->
-</div>
-<!-- chat end -->

@@ -7,6 +7,14 @@ if(isset($_GET["include"])){
   include "confirm/konfirmasi-sign-up-customer.php";
   } else if($include == "konfirmasi-sign-in-customer"){
     include "confirm/konfirmasi-sign-in-customer.php";
+  } else if($include == "konfirmasi-edit-profil"){
+    include "confirm/konfirmasi-editprofil.php";
+  } else if($include == "konfirmasi-ubah-password"){
+    include "confirm/konfirmasi-ubah-password.php";
+  } else if($include == "konfirmasi-ulasan"){
+    include "confirm/konfirmasi-ulasan.php";
+  } else if($include == "logout"){
+    include "confirm/logout.php";
   }
 }
 ?>
@@ -21,6 +29,7 @@ if(isset($_GET["include"])){
 <?php 
   if(isset($_GET["include"])){
     $include = $_GET["include"];
+
     if($include =="jasa-kami"){
       ?>
 
@@ -29,6 +38,7 @@ if(isset($_GET["include"])){
   <?php include "includes/navbar.php"; ?>
   <?php
     include "pages/jasakami.php";
+    include "includes/chat.php";
     include "includes/footer.php";
   } else if($include == "riwayat"){
     ?>
@@ -37,6 +47,7 @@ if(isset($_GET["include"])){
     <?php include "includes/navbar.php"; ?>
     <?php
     include "pages/riwayat.php";
+    include "includes/chat.php";
     include "includes/footer.php";
   }else if($include == "portofolio"){
     ?>
@@ -45,6 +56,7 @@ if(isset($_GET["include"])){
       <?php include "includes/navbar.php"; ?>
       <?php
     include "pages/portofolio.php";
+    include "includes/chat.php";
     include "includes/footer.php";
   } else if($include == "ulasan"){
     ?>
@@ -53,6 +65,7 @@ if(isset($_GET["include"])){
         <?php include "includes/navbar.php"; ?>
         <?php
     include "pages/ulasan.php";
+    include "includes/chat.php";
     include "includes/footer.php";
   } else if($include == "detail-klienkami"){
     ?>
@@ -105,26 +118,58 @@ if(isset($_GET["include"])){
                     <body class="font-lora h-[100vh]">
                       <?php
     include "pages/sign-up.php";
-  } else {
-    ?>
+  } else if(isset($_SESSION["id_customer"])){
+    if(isset($_GET["include"])){
+      $include = $_GET["include"];
+      if($include=="edit-profil"){
+        
+        ?>
 
-                      <body class="font-lora custom-scrollbar scrollbar">
-                        <?php include "includes/navbar.php"; ?>
+                      <body class="font-lora flex">
+                        <?php include "includes/sidebar-profil.php" ?>
                         <?php
-    include("pages/beranda.php");
-    include "includes/footer.php";
-  }
-  } else {
-    ?>
+include "pages/edit-profil.php";
+      } else if($include=="beranda"){
+        ?>
 
                         <body class="font-lora custom-scrollbar scrollbar">
                           <?php include "includes/navbar.php"; ?>
                           <?php
+include("pages/beranda.php");
+include "includes/chat.php";
+include "includes/footer.php";
+      } else if($include=="ubah-password"){
+      
+        ?>
+
+                          <body class="font-lora flex">
+                            <?php include "includes/sidebar-profil.php" ?>
+                            <?php
+include "pages/ubah-password.php";
+      }
+    }
+  } else {
+    ?>
+
+                            <body class="font-lora custom-scrollbar scrollbar">
+                              <?php include "includes/navbar.php"; ?>
+                              <?php
+    include("pages/beranda.php");
+    include "includes/chat.php";
+    include "includes/footer.php";
+  }
+  } else {
+    ?>
+
+                              <body class="font-lora custom-scrollbar scrollbar">
+                                <?php include "includes/navbar.php"; ?>
+                                <?php
     include "pages/beranda.php";
+    include "includes/chat.php";
     include "includes/footer.php";
   }
   ?>
-                        </body>
-                        <?php include "includes/script.php" ?>
+                              </body>
+                              <?php include "includes/script.php" ?>
 
 </html>
