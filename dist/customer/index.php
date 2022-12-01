@@ -13,6 +13,8 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-ubah-password.php";
   } else if($include == "konfirmasi-ulasan"){
     include "confirm/konfirmasi-ulasan.php";
+  } else if($include == "konfirmasi-chat-admin"){
+    include "confirm/konfirmasi-chat-admin.php";
   } else if($include == "logout"){
     include "confirm/logout.php";
   }

@@ -11,6 +11,8 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-edit-profil.php";
   } else if($include =="konfirmasi-ubah-password"){
     include "confirm/konfirmasi-ubah-password.php";
+  } else if($include =="konfirmasi-kirim-chat-customer"){
+    include "confirm/konfirmasi-kirim-chat-customer.php";
   }
 }
 ?>
@@ -41,6 +43,14 @@ if(isset($_GET["include"])){
         include "pages/data-fotovideografer.php" ;
       } else if ($include == "ubah-password"){
         include "pages/ubah-password.php" ;
+      } else if ($include == "chat-customer"){
+        include "pages/chat-customer.php" ;
+      } else if ($include == "chat-fotovideografer"){
+        include "pages/chat-fotovideografer.php" ;
+      } else if ($include == "detail-chat-customer"){
+        include "pages/detail-chatcustomer.php" ;
+      } else if ($include == "detail-chat-fotovideografer"){
+        include "pages/detail-chatfotovideografer.php" ;
       }
     
     } else{
