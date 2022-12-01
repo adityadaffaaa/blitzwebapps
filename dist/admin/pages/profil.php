@@ -18,6 +18,7 @@ while($data = mysqli_fetch_row($query_admin)){
   $email = $data[3];
   $no_telp = $data[4];
 }
+
 ?>
 
 <!-- content edit profil -->

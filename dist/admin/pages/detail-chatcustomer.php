@@ -41,7 +41,7 @@ $id_customer = $_GET["data"];
           <!-- chat content -->
           <div class="flex flex-col px-6 py-4 h-[406px] gap-6 overflow-auto custom-scrollbar">
             <?php
-            $sql_chat = "SELECT `cust`.`foto`, `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%h.%m'), `cac`.`pengirim`
+            $sql_chat = "SELECT `cust`.`foto`, `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%H.%i'), `cac`.`pengirim`
             FROM `chat_admin_customer` `cac`             
             JOIN `customer` `cust` ON `cac`.`id_customer` = `cust`.`id_customer`
             JOIN `chat_cs` `c` ON `cac`.`id_chat` = `c`.`id_chat`

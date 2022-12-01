@@ -25,7 +25,7 @@ $id_customer = $_SESSION["id_customer"];
       <div class="w-full h-[300px] px-2 py-6 overflow-auto custom-scrollbar bg-text2">
         <div class="flex flex-col gap-2">
           <?php 
-          $sql_chat = "SELECT `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%h.%m'), `cac`.`pengirim`
+          $sql_chat = "SELECT `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%H.%i'), `cac`.`pengirim`
             FROM `chat_admin_customer` `cac`             
             JOIN `customer` `cust` ON `cac`.`id_customer` = `cust`.`id_customer`
             JOIN `chat_cs` `c` ON `cac`.`id_chat` = `c`.`id_chat`
@@ -40,7 +40,7 @@ $id_customer = $_SESSION["id_customer"];
           <!-- chat content -->
           <div class="flex flex-row justify-start">
             <div class="flex flex-col p-4 gap-1">
-              <div class="px-2 py-3 bg-background1 shadow-default rounded-lg relative ">
+              <div class="p-4 bg-background1 shadow-default rounded-lg relative ">
                 <p class="text-text1 text-paragraph4"><?php echo $chat ?></p>
                 <div class="w-7 h-7 bg-primary rounded-full absolute -top-4 left-0 flex items-center justify-center">
                   <span class="fill-text2">
@@ -63,7 +63,7 @@ $id_customer = $_SESSION["id_customer"];
           <div class="flex flex-row justify-end">
             <div class="flex flex-col p-4 gap-1">
               <div
-                class="px-2 py-3 bg-background1 shadow-default rounded-lg relative before:content-['kamu'] before:text-text2 before:flex before:items-end before:justify-center before:px-2 before:py-[2px] before:bg-secondary before:rounded-full before:absolute before:-top-4 before:right-0">
+                class="p-4 bg-background1 shadow-default rounded-lg relative before:content-['kamu'] before:text-text2 before:flex before:items-end before:justify-center before:px-2 before:py-[2px] before:bg-secondary before:rounded-full before:absolute before:-top-4 before:right-0">
                 <p class="text-text1 text-paragraph4"><?php echo $chat ?> </p>
               </div>
               <div class="flex flex-row justify-between">
@@ -79,22 +79,51 @@ $id_customer = $_SESSION["id_customer"];
         </div>
       </div>
       <!-- chat body end -->
-      <form action="index.php?include=konfirmasi-chat-admin" method="POST">
-        <div class="w-full flex flex-row px-6 py-6 justify-between">
-          <textarea class="custom-chat" name="chat" id="chat" placeholder="Masukkan pesan kamu..."></textarea>
-          <button
-            class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
-            type="submit">
-            <span class="fill-text2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </form>
+      <?php 
+      if(isset($_GET["include"])){
+        $include = $_GET["include"];
+        if($include == "beranda"){
+          ?>
+      <form action="index.php?include=konfirmasi-chat-admin-beranda" method="POST">
+
+        <?php
+        } else if($include =="jasa-kami"){
+          ?>
+        <form action="index.php?include=konfirmasi-chat-admin-jasakami" method="POST">
+
+          <?php
+        } else if($include =="riwayat"){
+          ?>
+          <form action="index.php?include=konfirmasi-chat-admin-riwayat" method="POST">
+
+            <?php
+        } else if($include =="portofolio"){
+          ?>
+            <form action="index.php?include=konfirmasi-chat-admin-portofolio" method="POST">
+
+              <?php
+        } else if($include =="ulasan"){
+          ?>
+              <form action="index.php?include=konfirmasi-chat-admin-ulasan" method="POST">
+
+                <?php
+        }
+      } ?>
+                <div class="w-full flex flex-row px-6 py-6 justify-between">
+                  <textarea class="custom-chat" name="chat" id="chat" placeholder="Masukkan pesan kamu..."></textarea>
+                  <button
+                    class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
+                    type="submit">
+                    <span class="fill-text2">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </form>
     </div>
   </div>
   <!-- chat card end -->

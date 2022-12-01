@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET["data"])){
-$id_customer = $_GET["data"];
+$id_fotovideografer = $_GET["data"];
 }
 
 ?>
@@ -10,7 +10,7 @@ $id_customer = $_GET["data"];
     <div class="flex flex-col gap-8">
       <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
         <div class="flex flex-col">
-          <h3 class="text-text1 text-heading3 font-poppins">Chat Customer</h3>
+          <h3 class="text-text1 text-heading3 font-poppins">Chat Foto dan Videografer</h3>
         </div>
         <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
@@ -41,24 +41,23 @@ $id_customer = $_GET["data"];
           <!-- chat content -->
           <div class="flex flex-col px-6 py-4 h-[406px] gap-6 overflow-auto custom-scrollbar">
             <?php
-            $sql_chat = "SELECT `fv`.`id_fotovideografer`, `fv`.`foto`, `fv`.`nama`,  DATE_FORMAT(`c`.`waktu`,'%Y-%m-%d'), `caf`.`pengirim`
+            $sql_chat = "SELECT `fv`.`id_fotovideografer`, `c`.`chat` , `fv`.`foto`, `fv`.`nama`,  DATE_FORMAT(`c`.`waktu`,'%H.%i'), `caf`.`pengirim`
             FROM `chat_admin_fotovideografer` `caf`           
             JOIN `fotovideografer` `fv` ON `caf`.`id_fotovideografer` = `fv`.`id_fotovideografer`
             JOIN `chat_admin` `c` ON `caf`.`id_chat` = `c`.`id_chat`
-            WHERE `caf`.`pengirim` = 'fotovideografer'
-            GROUP BY `fv`.`nama` 
-            ORDER BY `c`.`id_chat` DESC";
+            WHERE `fv`.`id_fotovideografer`= $id_fotovideografer";
             $query_chat = mysqli_query($koneksi, $sql_chat);
             while($data_chat = mysqli_fetch_row($query_chat)){
               $id_fotovideografer = $data_chat[0];
-              $foto = $data_chat[1];
-              $nama = $data_chat[2];
-              $waktu = $data_chat[3];
-              $pengirim = $data_chat[3];
+              $chat = $data_chat[1];
+              $foto = $data_chat[2];
+              $nama = $data_chat[3];
+              $waktu = $data_chat[4];
+              $pengirim = $data_chat[5];
 
               if($pengirim == "fotovideografer"){
                 ?>
-            <!-- chat customer -->
+            <!-- chat fotovideografer -->
             <div class="flex flex-row justify-start">
               <div class="flex flex-row w-1/2 gap-3">
                 <?php if($foto==null){?>
@@ -84,7 +83,7 @@ $id_customer = $_GET["data"];
                 </div>
               </div>
             </div>
-            <!-- chat customer end -->
+            <!-- chat fotovideografer end -->
             <?php } else if($pengirim == "admin") {?>
             <!-- chat admin  -->
             <div class="flex flex-row justify-end">
@@ -114,7 +113,7 @@ $id_customer = $_GET["data"];
           </div>
           <!-- chat content end -->
           <!-- kirim chat -->
-          <form method="POST" action="index.php?include=konfirmasi-kirim-chat-customer"
+          <form method="POST" action="index.php?include=konfirmasi-kirim-chat-fotovideografer"
             class="flex flex-row justify-between items-center">
             <input
               class="px-6 py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2"
@@ -122,7 +121,7 @@ $id_customer = $_GET["data"];
             <input
               class="px-6 hidden py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2"
               name="id" type="text" autocomplete="off" placeholder="Ketikan pesan Anda"
-              value="<?php echo $id_customer ?>" />
+              value="<?php echo $id_fotovideografer ?>" />
             <button
               class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:shadow-secondary hover:-translate-y-1 transition-default"
               type="submit">

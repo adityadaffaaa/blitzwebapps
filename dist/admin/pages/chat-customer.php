@@ -55,7 +55,7 @@
           <?php 
               if(mysqli_num_rows($query_chat)==1){?>
           <a href="index.php?include=detail-chat-customer&data=<?php echo $id_customer ?>"
-            class="flex flex-row bg-background1 gap-4 p-4 rounded-lg border-2 border-primary w-[95%] transition-default hover:scale-105 hover:border-transparent hover:rounded-lg hover:shadow-default hover:-translate-y-2">
+            class="flex flex-row bg-background1 items-center gap-4 p-4 rounded-lg border-2 border-primary w-[95%] transition-default hover:scale-105 hover:border-transparent hover:rounded-lg hover:shadow-default hover:-translate-y-2">
             <?php if($foto== null){?>
             <span class="fill-primary ">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
@@ -75,7 +75,6 @@
                   <?php if($date==$waktu){echo "Hari ini";}else if($kemarin== true){echo "kemarin";}else{ echo $waktu;}?>
                 </p>
               </div>
-              <p class="text-text4 text-paragraph2"></p>
             </div>
           </a>
           <?php }else{
