@@ -53,6 +53,8 @@ if(isset($_GET["include"])){
         include "pages/detail-chatcustomer.php" ;
       } else if ($include == "detail-chat-fotovideografer"){
         include "pages/detail-chatfotovideografer.php" ;
+      } else if ($include == "data-admin"){
+        include "pages/data-admin.php" ;
       }
     
     } else{

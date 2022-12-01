@@ -146,7 +146,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Konfirmasi</p>
     </a>
-    <a href="#"
+    <a href="index.php?include=data-admin"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
