@@ -38,7 +38,8 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
       </div>
       <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
         <div class="flex flex-row px-6 py-2 items-center justify-start border-b-2 border-primary">
-          <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
+          <form method="POST" action="index.php?include=konfirmasi-fotovideografer"
+            class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
             <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
               placeholder="Cari Foto/Videografer" autocomplete="off" />
             <button type="submit" class="fill-text4 cursor-pointer">
@@ -48,14 +49,13 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                   d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z" />
               </svg>
             </button>
-          </div>
+          </form>
         </div>
         <?php if(!empty($_GET['notif'])){?>
         <?php  if($_GET['notif']=="hapusberhasil"){?>
         <div class="px-6 py-4 items-center bg-primary" role="alert">
           <p class="text-text2 text-paragraph1 font-poppins">Data berhasil dihapus !</p>
         </div>
-
         <?php } ?>
         <?php }?>
         <div class="w-full p-6 h-[470px] overflow-y-auto custom-scrollbar">
@@ -124,16 +124,18 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                     <td class="text-center py-4"><?php echo $alamat  ?></td>
                     <td class="text-center py-4"><?php echo $role ?></td>
                     <td class="text-center py-4"><?php echo $status ?></td>
-                    <td class="flex justify-center py-4 px-4">
+                    <td class=" py-4 px-4">
                       <div class="flex flex-row gap-2">
-                        <a href="" class="hapus fill-primary cursor-pointer">
+                        <a href="index.php?include=detail-konfirmasi-fotovideografer&data=<?php echo $id_fotovideografer ?>"
+                          class="fill-primary cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
                               d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                           </svg>
                         </a>
-                        <a href="" class="hapus fill-secondary cursor-pointer">
+                        <a href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $nama; ?>?'))window.location.href='index.php?include=konfirmasi-fotovideografer&aksi=hapus&data=<?php echo $id_fotovideografer;?>&notif=hapusberhasil'"
+                          class="hapus fill-secondary cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path

@@ -913,6 +913,10 @@ video {
   height: 3.5rem;
 }
 
+.h-\[450px\] {
+  height: 450px;
+}
+
 .w-\[410px\] {
   width: 410px;
 }

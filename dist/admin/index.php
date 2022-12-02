@@ -17,6 +17,8 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-kirim-chat-fotovideografer.php";
   } else if($include =="konfirmasi-edit-admin"){
     include "confirm/konfirmasi-edit-admin.php";
+  } else if($include =="konfirmasi-verifikasi-fotovideografer"){
+    include "confirm/konfirmasi-verifikasi-fotovideografer.php";
   }
 }
 ?>
@@ -61,6 +63,8 @@ if(isset($_GET["include"])){
         include "pages/edit-admin.php" ;
       } else if ($include == "konfirmasi-fotovideografer"){
         include "pages/konfirmasi-fotovideografer.php" ;
+      } else if ($include == "detail-konfirmasi-fotovideografer"){
+        include "pages/detail-konfirmasi-fotovideografer.php" ;
       }
     
     } else{

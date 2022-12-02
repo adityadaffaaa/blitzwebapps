@@ -124,7 +124,7 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                     <td class="text-center py-4"><?php echo $alamat ?></td>
                     <td class="text-center py-4"><?php echo $role ?></td>
                     <td class="text-center py-4"><?php echo $status ?></td>
-                    <td class="h-full justify-center py-4 px-4">
+                    <td class="h-full py-4 px-4">
                       <div class="flex flex-row  gap-2">
                         <a href="" class="hapus fill-primary cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
