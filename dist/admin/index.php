@@ -69,6 +69,8 @@ if(isset($_GET["include"])){
         include "pages/detail-customer.php" ;
       } else if ($include == "detail-admin"){
         include "pages/detail-admin.php" ;
+      } else if ($include == "pemesanan"){
+        include "pages/pemesanan.php" ;
       }
     
     } else{
