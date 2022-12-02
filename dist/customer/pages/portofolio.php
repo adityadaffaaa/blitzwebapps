@@ -73,14 +73,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
           $desc_fotovideografer = $data_fotovideografer[5];
           $status_fotovideografer = $data_fotovideografer[6];
 
-          $sql_jum = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`";  
-                    if (!empty($katakunci_customer)){  
-                      $sql_jum .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'"; 
-                    }  
-                    $sql_jum .= " order by `nama`"; 
-                    $query_jum = mysqli_query($koneksi, $sql_jum); 
-                    $jum_data = mysqli_num_rows($query_jum); 
-                    $jum_halaman = ceil($jum_data/$batas); 
+          
         ?>
         <?php if($status_fotovideografer=="terverifikasi"){ ?>
         <a href="index.php?include=detail-portofolio&data=<?php echo $id_fotovideografer ?>"
@@ -118,6 +111,16 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
       <!-- list foto/videografer end -->
       <!-- paginasi portofolio -->
       <div class="flex flex-row gap-6 items-center">
+        <?php
+        $sql_jum = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`";  
+        if (!empty($katakunci_customer)){  
+          $sql_jum .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'"; 
+        }  
+        $sql_jum .= " order by `nama`"; 
+        $query_jum = mysqli_query($koneksi, $sql_jum); 
+        $jum_data = mysqli_num_rows($query_jum); 
+        $jum_halaman = ceil($jum_data/$batas); 
+        ?>
         <ul class="flex flex-row items-center gap-2">
           <?php if($jum_halaman==0){
                       //tidak ada halaman

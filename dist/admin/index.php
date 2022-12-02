@@ -59,6 +59,8 @@ if(isset($_GET["include"])){
         include "pages/data-admin.php" ;
       } else if ($include == "edit-admin"){
         include "pages/edit-admin.php" ;
+      } else if ($include == "konfirmasi-fotovideografer"){
+        include "pages/konfirmasi-fotovideografer.php" ;
       }
     
     } else{

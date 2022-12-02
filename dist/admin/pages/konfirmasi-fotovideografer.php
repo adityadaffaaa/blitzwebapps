@@ -1,28 +1,27 @@
 <?php
-$_SESSION["id_admin"];
 if((isset($_GET['aksi']))&&(isset($_GET['data']))){
   if($_GET['aksi']=="hapus"){
-    $id_customer = $_GET['data'];
+    $id_fotovideografer = $_GET['data'];
   
-    $sql_h = "DELETE FROM `customer` WHERE `id_customer` = '$id_customer'";
+    $sql_h = "DELETE FROM `fotovideografer` WHERE `id_fotovideografer` = '$id_fotovideografer'";
     mysqli_query($koneksi, $sql_h);
   }
 }
 if(isset($_POST["katakunci"])){
-  $katakunci_customer = $_POST["katakunci"];
-  $_SESSION['katakunci_customer'] = $katakunci_customer;
+  $katakunci_fotovideografer = $_POST["katakunci"];
+  $_SESSION['katakunci_fotovideografer'] = $katakunci_fotovideografer;
 }
-if(isset($_SESSION['katakunci_customer'])){
-  $katakunci_customer = $_SESSION['katakunci_customer'];
+if(isset($_SESSION['katakunci_fotovideografer'])){
+  $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
 }
 ?>
-<!-- content data customer -->
+<!-- content edit profil -->
 <section class="w-full flex justify-center">
   <div class="flex flex-col w-full justify-between">
     <div class="flex flex-col gap-8">
       <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
         <div class="flex flex-col">
-          <h3 class="text-text1 text-heading3 font-poppins">Data Customer</h3>
+          <h3 class="text-text1 text-heading3 font-poppins">Konfirmasi Foto dan Videografer</h3>
         </div>
         <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
@@ -38,11 +37,10 @@ if(isset($_SESSION['katakunci_customer'])){
         </a>
       </div>
       <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
-        <div class="flex flex-row px-6 py-2 items-center justify-between border-b-2 border-primary">
-          <form method="POST" action="index.php?include=data-customer"
-            class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
-            <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
-              placeholder="Cari Customer" autocomplete="off" />
+        <div class="flex flex-row px-6 py-2 items-center justify-start border-b-2 border-primary">
+          <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
+            <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text"
+              placeholder="Cari..." autocomplete="off" />
             <button type="submit" class="fill-text4 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z" />
@@ -50,8 +48,7 @@ if(isset($_SESSION['katakunci_customer'])){
                   d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z" />
               </svg>
             </button>
-          </form>
-
+          </div>
         </div>
         <?php if(!empty($_GET['notif'])){?>
         <?php  if($_GET['notif']=="hapusberhasil"){?>
@@ -70,10 +67,12 @@ if(isset($_SESSION['katakunci_customer'])){
                   <tr>
                     <th width="5%" class="rounded-tl-lg py-[14px] px-2">No</th>
                     <th width="15%" class="px-2">Nama</th>
-                    <th width="15%" class="px-2">Email</th>
+                    <th width="10%" class="px-2">Email</th>
+                    <th width="15%" class="px-2">Jenis Kelamin</th>
                     <th width="15%" class="px-2">No Telepon</th>
-                    <th width="20%" class="px-2">Alamat</th>
-                    <th width="15%" class="px-2">Tanggal Bergabung</th>
+                    <th width="15%" class="px-2">Alamat</th>
+                    <th width="10%" class="px-2">Role</th>
+                    <th width="15%" class="px-2">Status</th>
                     <th width="5%" class="rounded-tr-lg px-3">
                       <p class="hidden"></p>
                     </th>
@@ -93,28 +92,38 @@ if(isset($_SESSION['katakunci_customer'])){
                   }  
 
                   //query sql
-                  $sql_customer = "SELECT `id_customer`, `nama`,`email`,`no_telp`,`alamat`,DATE_FORMAT(`tanggal_signup`,'%d %M %Y') FROM `customer` "; 
-                  if (!empty($katakunci_customer)){ 
-                    $sql_customer .= " WHERE `nama` LIKE '%$katakunci_customer%'";
+                  $sql_fotovideografer = "SELECT `id_fotovideografer`, `nama`,`email`,`jenis_kelamin`,`no_telp`,`alamat`,`role`,`status`FROM `fotovideografer` "; 
+                  if (!empty($katakunci_fotovideografer)){ 
+                    $sql_fotovideografer .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'
+                    AND `status`= 'belum verifikasi'";
+                  } else{
+                    $sql_fotovideografer .= "
+                    WHERE `status`= 'belum verifikasi' 
+                    ORDER BY `nama` limit $posisi, $batas ";                  
                   }
-                  $sql_customer .= " ORDER BY `nama` limit $posisi, $batas ";
-                  $query_customer = mysqli_query($koneksi,$sql_customer); 
+                  $query_fotovideografer = mysqli_query($koneksi,$sql_fotovideografer); 
                   $posisi += 1; 
-                  while($data_customer = mysqli_fetch_row($query_customer)){ 
-                    $id_customer = $data_customer[0]; 
-                    $nama = $data_customer[1]; 
-                    $email = $data_customer[2]; 
-                    $no_telp = $data_customer[3]; 
-                    $alamat = $data_customer[4]; 
-                    $bergabung = $data_customer[5];                                           
+                  while($data_fotovideografer = mysqli_fetch_row($query_fotovideografer)){ 
+                    $id_fotovideografer = $data_fotovideografer[0]; 
+                    $nama = $data_fotovideografer[1]; 
+                    $email = $data_fotovideografer[2]; 
+                    $jenis_kelamin = $data_fotovideografer[3]; 
+                    $no_telp = $data_fotovideografer[4]; 
+                    $alamat = $data_fotovideografer[5]; 
+                    $role = $data_fotovideografer[6]; 
+                    $status = $data_fotovideografer[7];                
+                     
+                                     
                   ?>
                   <tr class="baris border-b-[1px] border-b-text3">
                     <td class="text-center py-4"><?php echo $posisi ?></td>
                     <td class="text-center py-4"><?php echo $nama ?></td>
                     <td class="text-center py-4"><?php echo $email ?></td>
-                    <td class="text-center py-4"><?php if($no_telp==null){echo"-";}else{echo $no_telp;} ?></td>
-                    <td class="text-center py-4"><?php if($alamat==null){echo"-";}else{echo $alamat;} ?></td>
-                    <td class="text-center py-4"><?php echo $bergabung ?></td>
+                    <td class="text-center py-4"><?php echo $jenis_kelamin  ?></td>
+                    <td class="text-center py-4"><?php echo $no_telp ?></td>
+                    <td class="text-center py-4"><?php echo $alamat  ?></td>
+                    <td class="text-center py-4"><?php echo $role ?></td>
+                    <td class="text-center py-4"><?php echo $status ?></td>
                     <td class="flex justify-center py-4 px-4">
                       <div class="flex flex-row gap-2">
                         <a href="" class="hapus fill-primary cursor-pointer">
@@ -124,8 +133,7 @@ if(isset($_SESSION['katakunci_customer'])){
                               d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                           </svg>
                         </a>
-                        <a href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $nama; ?>?'))window.location.href='index.php?include=data-customer&aksi=hapus&data=<?php echo $id_customer;?>&notif=hapusberhasil'"
-                          class="hapus fill-secondary cursor-pointer">
+                        <a href="" class="hapus fill-secondary cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
@@ -135,24 +143,27 @@ if(isset($_SESSION['katakunci_customer'])){
                       </div>
                     </td>
                   </tr>
-                  <?php $posisi++;} ?>
+                  <?php $posisi++; }?>
                 </tbody>
                 <!-- data riwayat end -->
               </table>
               <!-- paginasi riwayat -->
               <div class="flex flex-row gap-6 items-center">
                 <?php
-$sql_jum = "SELECT `id_customer`, `nama`,`email`,`no_telp`,`alamat`, DATE_FORMAT(`tanggal_signup`,'%d %M %Y') FROM `customer`  ";  
-if (!empty($katakunci_customer)){  
-  $sql_jum .= " where `nama` LIKE '%$katakunci_customer%'"; 
-}  
-$sql_jum .= " order by `nama`"; 
-$query_jum = mysqli_query($koneksi,$sql_jum); 
-$jum_data = mysqli_num_rows($query_jum); 
-$jum_halaman = ceil($jum_data/$batas); 
+                $sql_jum = "SELECT `id_fotovideografer`, `nama`,`email`,`jenis_kelamin`,`no_telp`,`alamat`,`role`,`status`FROM `fotovideografer`  ";  
+                if (!empty($katakunci_fotovideografer)){  
+                  $sql_jum .= " where `nama` LIKE '%$katakunci_fotovideografer%'
+                  AND `status`= 'belum verifikasi'"; 
+                }else{                    
+                  $sql_jum .= " 
+                  WHERE `status`= 'belum verifikasi' 
+                  order by `nama`"; 
+                }
+                $query_jum = mysqli_query($koneksi,$sql_jum); 
+                $jum_data = mysqli_num_rows($query_jum); 
+                $jum_halaman = ceil($jum_data/$batas);
 
-?>
-
+                ?>
                 <ul class="flex flex-row items-center gap-2">
                   <?php if($jum_halaman==0){
                       //tidak ada halaman
@@ -169,7 +180,7 @@ $jum_halaman = ceil($jum_data/$batas);
                       $setelah = $halaman+1;
                       if($halaman!=1){
                         
-                      echo "<a  href='index.php?include=data-customer&halaman=$sebelum' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
+                      echo "<a  href='index.php?include=konfirmasi-fotovideografer&halaman=$sebelum' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
                       <span class='fill-text2'>
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
                           <path fill='none' d='M0 0h24v24H0z' />
@@ -177,20 +188,12 @@ $jum_halaman = ceil($jum_data/$batas);
                         </svg>
                       </span>
                     </a>" ;  
-                    // echo" <li>
-                    //     <a href='index.php?include=data-customer&halaman=1'>
-                    //       <div
-                    //         class='flex justify-center text-text2 items-center w-9 h-9 bg-background2 hover:bg-primary rounded-lg transition-default'>
-                    //         1</div>
-                    //     </a>
-                    //   </li> ";              
-                      
                     }
                     for($i=1; $i<=$jum_halaman; $i++){
                       if ($i > $halaman - 5 and $i < $halaman + 5 ) {
                         if($i!=$halaman){
                           echo" <li>
-                        <a href='index.php?include=data-customer&halaman=$i'>
+                        <a href='index.php?include=konfirmasi-fotovideografer&halaman=$i'>
                           <div
                             class='flex justify-center text-text2 items-center w-9 h-9 bg-background2 hover:bg-primary rounded-lg transition-default'>
                             $i</div>
@@ -210,7 +213,7 @@ $jum_halaman = ceil($jum_data/$batas);
                       }
                     }
                       if($halaman!=$jum_halaman){
-                        echo"<a  href='index.php?include=data-customer&halaman=$setelah' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
+                        echo"<a  href='index.php?include=konfirmasi-fotovideografer&halaman=$setelah' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
                         <span class='fill-text2'>
                           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
                             <path fill='none' d='M0 0h24v24H0z' />
@@ -222,11 +225,7 @@ $jum_halaman = ceil($jum_data/$batas);
                     
                       }
                     }?>
-
-
                 </ul>
-
-
               </div>
               <!-- paginasi riwayat end -->
             </div>
@@ -238,4 +237,4 @@ $jum_halaman = ceil($jum_data/$batas);
     <?php include "includes/footer.php" ?>
   </div>
 </section>
-<!-- content data customer end -->
+<!-- content edit profil end -->

@@ -96,9 +96,13 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                   //query sql
                   $sql_fotovideografer = "SELECT `id_fotovideografer`, `nama`,`email`,`jenis_kelamin`,`no_telp`,`alamat`,`role`,`status`FROM `fotovideografer` "; 
                   if (!empty($katakunci_fotovideografer)){ 
-                    $sql_fotovideografer .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'";
+                    $sql_fotovideografer .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'
+                    AND `status`= 'terverifikasi'";
+                  } else{
+                    $sql_fotovideografer .= "
+                    WHERE `status`= 'terverifikasi' 
+                    ORDER BY `nama` limit $posisi, $batas ";                  
                   }
-                  $sql_fotovideografer .= " ORDER BY `nama` limit $posisi, $batas ";
                   $query_fotovideografer = mysqli_query($koneksi,$sql_fotovideografer); 
                   $posisi += 1; 
                   while($data_fotovideografer = mysqli_fetch_row($query_fotovideografer)){ 
@@ -109,18 +113,7 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                     $no_telp = $data_fotovideografer[4]; 
                     $alamat = $data_fotovideografer[5]; 
                     $role = $data_fotovideografer[6]; 
-                    $status = $data_fotovideografer[7]; 
-                  ?>
-                  <?php  
-                    $sql_jum = "SELECT `id_fotovideografer`, `nama`,`email`,`jenis_kelamin`,`no_telp`,`alamat`,`role`,`status`FROM `fotovideografer`  ";  
-                    if (!empty($katakunci_fotovideografer)){  
-                      $sql_jum .= " where `nama` LIKE '%$katakunci_fotovideografer%'"; 
-                    }  
-                    $sql_jum .= " order by `nama`"; 
-                    $query_jum = mysqli_query($koneksi,$sql_jum); 
-                    $jum_data = mysqli_num_rows($query_jum); 
-                    $jum_halaman = ceil($jum_data/$batas); 
-                    if($status == "terverifikasi"){                  
+                    $status = $data_fotovideografer[7];                                     
                   ?>
                   <tr class="baris border-b-[1px] border-b-text3">
                     <td class="text-center py-4"><?php echo $posisi ?></td>
@@ -151,14 +144,26 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
                       </div>
                     </td>
                   </tr>
-                  <?php }?>
                   <?php $posisi++; }?>
                 </tbody>
                 <!-- data riwayat end -->
               </table>
               <!-- paginasi riwayat -->
               <div class="flex flex-row gap-6 items-center">
-
+                <?php
+  $sql_jum = "SELECT `id_fotovideografer`, `nama`,`email`,`jenis_kelamin`,`no_telp`,`alamat`,`role`,`status`FROM `fotovideografer`  ";  
+  if (!empty($katakunci_fotovideografer)){  
+    $sql_jum .= " where `nama` LIKE '%$katakunci_fotovideografer%'
+    AND `status`= 'terverifikasi'"; 
+  } else{
+    $sql_jum .= " 
+    WHERE `status`= 'terverifikasi'
+    order by `nama`";                   
+  }
+  $query_jum = mysqli_query($koneksi,$sql_jum); 
+  $jum_data = mysqli_num_rows($query_jum); 
+  $jum_halaman = ceil($jum_data/$batas); 
+?>
                 <ul class="flex flex-row items-center gap-2">
                   <?php if($jum_halaman==0){
                       //tidak ada halaman
