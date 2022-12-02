@@ -65,6 +65,10 @@ if(isset($_GET["include"])){
         include "pages/konfirmasi-fotovideografer.php" ;
       } else if ($include == "detail-konfirmasi-fotovideografer"){
         include "pages/detail-konfirmasi-fotovideografer.php" ;
+      } else if ($include == "detail-customer"){
+        include "pages/detail-customer.php" ;
+      } else if ($include == "detail-admin"){
+        include "pages/detail-admin.php" ;
       }
     
     } else{

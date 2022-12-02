@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET["data"])){
 $id_admin = $_GET["data"];
-$sql_admin = "SELECT `id_admin`,`nama`,`username`,`email`,`no_telp` 
+$sql_admin = "SELECT `id_admin`,`nama`,`username`,`email`,`no_telp`,`level` 
 FROM `admin` WHERE `id_admin`= $id_admin";
 $query_admin = mysqli_query($koneksi, $sql_admin);
 
@@ -11,8 +11,11 @@ while($data = mysqli_fetch_row($query_admin)){
   $username = $data[2];
   $email = $data[3];
   $no_telp = $data[4];
+  $level = $data[5];
 }
 }
+
+$list_level = ["superadmin","admin"];
 ?>
 
 <!-- content edit profil -->
@@ -93,6 +96,23 @@ while($data = mysqli_fetch_row($query_admin)){
             <div class="flex justify-start mr-40">
               <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]"
                 name="notelepon" id="notelepon" type="text" value="<?php echo $no_telp ?>" />
+            </div>
+          </div>
+          <div class="flex flex-row w-full justify-between items-center">
+            <p class="text-text1 text-paragraph1">Level</p>
+            <div class="flex justify-start w-[800px] mr-40">
+              <select name="list_level"
+                class="p-[10px] h-[50px] bg-primary cursor-pointer text-text2 rounded-lg outline-none w-[300px]"
+                name="fotografer" id="fotografer">
+                <option value="-">Pilih Level</option>
+                <?php
+                foreach($list_level as $list){
+                ?>
+                <option value="<?php echo $list ?>" <?php if($list==$level){?> selected <?php } ?>><?php echo $list ?>
+                </option>
+                <?php }
+                ?>
+              </select>
             </div>
           </div>
           <div class="flex flex-row w-full justify-end">

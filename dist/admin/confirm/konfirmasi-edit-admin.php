@@ -5,6 +5,7 @@ if(isset($_POST["simpan"])){
   $username = $_POST["username"];
   $email = $_POST["email"];
   $no_telp = $_POST["notelepon"];
+  $level = $_POST["list_level"];
   
   $sql_foto = "SELECT `foto` FROM `admin` WHERE `id_admin` = '$id_admin'";
   $query_foto = mysqli_query($koneksi, $sql_foto);
@@ -28,12 +29,12 @@ if(isset($_POST["simpan"])){
                    unlink("./assets/img/$foto");
                 }
      $sql = "update `admin` set `nama`='$nama', `username`='$username', 
-                `email`='$email',`no_telp`= $no_telp, `foto`='$nama_file' 
+                `email`='$email',`no_telp`= $no_telp, `foto`='$nama_file' ,`level`= '$level'
                 where `id_admin`='$id_admin'";
                 //echo $sql;
      mysqli_query($koneksi,$sql);
   }else{
-     $sql = "update `admin` set `nama`='$nama',`username`='$username',  `email`='$email',`no_telp`= $no_telp
+     $sql = "update `admin` set `nama`='$nama',`username`='$username',  `email`='$email',`no_telp`= $no_telp,`level` = '$level'
                 where `id_admin`='$id_admin'";
                 //echo $sql;
      mysqli_query($koneksi,$sql);
