@@ -1,6 +1,6 @@
 <?php
-if(isset($_SESSION["id_admin"])){
-  $id_admin = $_SESSION["id_admin"];
+if(isset($_POST["simpan"])){
+  $id_admin = $_POST["simpan"];
   $nama= $_POST["nama"];
   $username = $_POST["username"];
   $email = $_POST["email"];
@@ -12,13 +12,13 @@ if(isset($_SESSION["id_admin"])){
     $foto=$data_foto[0];
   }
   if(empty($nama)){
-    header("Location:index.php?include=edit-profil&notif=editkosong&jenis=nama");
+    header("Location:index.php?include=edit-admin&notif=editkosong&jenis=nama");
 }else if(empty($username)){
-    header("Location:index.php?include=edit-profil&notif=editkosong&jenis=username");
+    header("Location:index.php?include=edit-admin&notif=editkosong&jenis=username");
 }else if(empty($email)){
-    header("Location:index.php?include=edit-profil&notif=editkosong&jenis=email");
+    header("Location:index.php?include=edit-admin&notif=editkosong&jenis=email");
 }else if(empty($no_telp)){
-    header("Location:index.php?include=edit-profil&notif=editkosong&jenis=no telepon");
+    header("Location:index.php?include=edit-admin&notif=editkosong&jenis=no telepon");
 }else{
       $lokasi_file = $_FILES['foto']['tmp_name'];
   $nama_file = $_FILES['foto']['name'];
@@ -39,7 +39,7 @@ if(isset($_SESSION["id_admin"])){
      mysqli_query($koneksi,$sql);
     }
    
-          header("Location:index.php?include=profil&notif=editberhasil");
+          header("Location:index.php?include=data-admin&notif=editberhasil");
 }
 }
 ?>
