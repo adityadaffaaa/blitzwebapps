@@ -39,8 +39,8 @@ if(isset($_SESSION['katakunci_fotovideografer'])){
       <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
         <div class="flex flex-row px-6 py-2 items-center justify-start border-b-2 border-primary">
           <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
-            <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text"
-              placeholder="Cari..." autocomplete="off" />
+            <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
+              placeholder="Cari Foto/Videografer" autocomplete="off" />
             <button type="submit" class="fill-text4 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z" />
