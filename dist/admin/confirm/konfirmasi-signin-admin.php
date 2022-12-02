@@ -17,7 +17,7 @@ include("../koneksi/koneksi.php");
           $id_admin = $data[0];
           $level = $data[1];
           $_SESSION["id_admin"] = $id_admin;
-          $_SESSION["level"]  = $level;
+          $_SESSION["level_admin"]  = $level;
           header("Location:index.php?include=profil");
         }
 

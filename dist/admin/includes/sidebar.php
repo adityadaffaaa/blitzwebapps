@@ -131,7 +131,7 @@
         Pemesanan</p>
     </a>
     <?php
-    if($_SESSION["level"]=="superadmin"){
+    if($_SESSION["level_admin"]=="superadmin"){
     ?>
     <a href="#"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
