@@ -57,7 +57,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
           $posisi = ($halaman-1) * $batas; 
         } 
 
-        $sql_fotovideografer = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi` FROM `fotovideografer`"; 
+        $sql_fotovideografer = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`"; 
         if (!empty($katakunci_fotovideografer)){ 
           $sql_fotovideografer .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'";
         }
@@ -71,8 +71,9 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
           $ig_fotovideografer = $data_fotovideografer[3];
           $alamat_fotovideografer = $data_fotovideografer[4];
           $desc_fotovideografer = $data_fotovideografer[5];
+          $status_fotovideografer = $data_fotovideografer[6];
 
-          $sql_jum = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi` FROM `fotovideografer`";  
+          $sql_jum = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`";  
                     if (!empty($katakunci_customer)){  
                       $sql_jum .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'"; 
                     }  
@@ -81,6 +82,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
                     $jum_data = mysqli_num_rows($query_jum); 
                     $jum_halaman = ceil($jum_data/$batas); 
         ?>
+        <?php if($status_fotovideografer=="terverifikasi"){ ?>
         <a href="index.php?include=detail-portofolio&data=<?php echo $id_fotovideografer ?>"
           class="w-[357px] cursor-pointer flex items-center justify-center p-6 bg-background1 border-4 transition-default rounded-2xl hover:border-secondary hover:shadow-default hover:scale-105">
           <div class="flex flex-col gap-4">
@@ -108,7 +110,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
               <?php if($desc_fotovideografer== null){echo"-";}else{echo $desc_fotovideografer ;} ?></p>
           </div>
         </a>
-
+        <?php } ?>
         <?php
         }
         ?>

@@ -119,7 +119,7 @@ if(isset($_SESSION['katakunci_admin'])){
                     $query_jum = mysqli_query($koneksi,$sql_jum); 
                     $jum_data = mysqli_num_rows($query_jum); 
                     $jum_halaman = ceil($jum_data/$batas); 
-
+                    
                   ?>
                   <tr class="baris border-b-[1px] border-b-text3">
                     <td class="text-center py-4"><?php echo $posisi ?></td>
