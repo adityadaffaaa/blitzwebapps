@@ -20,7 +20,8 @@
           <p class="text-text1 text-paragraph2">Sudah terdaftar menjadi foto/videografer? <a
               class="text-primary text-paragraph1" href="index.php?include=signin">Sign In</a></p>
         </div>
-        <form method="" action="" class="flex flex-col overflow-y-auto h-[500px] gap-6 w-[367px] p-6 custom-scrollbar">
+        <form method="POST" action="index.php?include=konfirmasi-signup"
+          class="flex flex-col overflow-y-auto h-[500px] gap-6 w-[367px] p-6 custom-scrollbar">
           <div class="flex flex-row px-[14px] py-[10px] h-10 bg-secondary rounded-lg">
             <input
               class="w-full h-full outline-none text-text2 bg-secondary text-paragraph2 placeholder:text-text2 placeholder:text-paragraph2"
@@ -46,12 +47,12 @@
               <p class="text-text1 text-paragraph1">Jenis Kelamin</p>
               <div class="flex flex-row gap-7">
                 <label class="radio flex flex-row cursor-pointer items-center gap-2" for="pria">
-                  <input class="hidden peer" type="radio" name="jeniskelamin" id="pria" />
+                  <input class="hidden peer" type="radio" name="jeniskelamin" id="pria" value="pria" />
                   <div class="rounded-full w-6 h-6 border-[6px] border-text3 peer-checked:border-primary"></div>
                   <p class="text-text3 peer-checked:text-primary text-paragraph2">Pria</p>
                 </label>
                 <label class="radio flex flex-row cursor-pointer items-center gap-2" for="wanita">
-                  <input class="hidden peer" type="radio" name="jeniskelamin" id="wanita" />
+                  <input class="hidden peer" type="radio" name="jeniskelamin" id="wanita" value="wanita" />
                   <div class="rounded-full w-6 h-6 border-[6px] border-text3 peer-checked:border-primary"></div>
                   <p class="text-text3 peer-checked:text-primary text-paragraph2">Wanita</p>
                 </label>
@@ -79,18 +80,19 @@
             <p class="text-text1 text-paragraph1">Pilih Role</p>
             <div class="flex flex-row gap-7">
               <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotografer">
-                <input class="hidden peer" type="radio" name="role" id="fotografer" />
+                <input class="hidden peer" type="radio" name="role" id="fotografer" value="fotografer" />
                 <div class="rounded-full w-6 h-6 border-[6px] border-text3 peer-checked:border-primary"></div>
                 <p class="text-text3 peer-checked:text-primary text-paragraph2">Fotografer</p>
               </label>
               <label class="radio flex flex-row cursor-pointer items-center gap-2" for="videografer">
-                <input class="hidden peer" type="radio" name="role" id="videografer" />
+                <input class="hidden peer" type="radio" name="role" id="videografer" value="videografer" />
                 <div class="rounded-full w-6 h-6 border-[6px] border-text3 peer-checked:border-primary"></div>
                 <p class="text-text3 peer-checked:text-primary text-paragraph2">Videografer</p>
               </label>
             </div>
             <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotovideografer">
-              <input class="hidden peer" type="radio" name="role" id="fotovideografer" />
+              <input class="hidden peer" type="radio" name="role" id="fotovideografer"
+                value="fotografer dan videografer" />
               <div class="rounded-full w-6 h-6 border-[6px] border-text3 peer-checked:border-primary"></div>
               <p class="text-text3 peer-checked:text-primary text-paragraph2">Foto dan Videografer</p>
             </label>
@@ -117,10 +119,155 @@
           </div>
           <button
             class="text-text2 p-[10px] bg-primary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-primary"
-            type="submit">Sign In</button>
+            type="submit" name="signup">Sign Up</button>
         </form>
       </div>
       <img class="h-[30px]" src="./assets/Blitz Logo.png" alt="" />
     </div>
   </div>
 </section>
+<?php
+if(!empty($_GET["notif"])){
+  if ($_GET["notif"]== "Nama kosong") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Nama harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Username kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Email kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Email harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "No telepon kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "No telepon harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Jenis kelamin kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Jenis kelamin harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Usia kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Usia harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Role kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Role harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Portofolio kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Portofolio harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Konfirmasi password kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Konfirmasi password tidak sama"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Konfirmasi password harus sama!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php }
+}
+?>

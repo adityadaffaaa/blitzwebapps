@@ -3,10 +3,10 @@ session_start();
 include("../koneksi/koneksi.php");
 if(isset($_GET["include"])){
   $include = $_GET["include"];
-  if($include == "konfirmasi-signin-fotovideografer"){
-    include "confirm/konfirmasi-signin-fotovideografer.php";
-  } else if($include =="logout"){
-    include "confirm/logout.php";
+  if($include == "konfirmasi-signup"){
+    include "confirm/konfirmasi-signup.php";
+  } else if($include =="konfirmasi-signin"){
+    include "confirm/konfirmasi-signup.php";
   } 
 }
 ?>
@@ -22,25 +22,32 @@ if(isset($_GET["include"])){
   if(isset($_GET["include"])){
     $include = $_GET["include"];
     if(isset($_SESSION["id_fotovideografer"])){
-      ?>
+      
+      if($include == "beranda"){
+        ?>
 
 <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
   <?php
-      include "includes/sidebar.php";
-      if($include == "profil"){
-        include "pages/profil.php";
-      } 
-    } else if($include == "signup"){
-      ?>
+  include "includes/sidebar.php";
+        include "pages/beranda.php";
+      } else if($include == "sign-in-verifikasi"){
+        ?>
 
   <body class="font-lora h-[100vh] w-full">
     <?php
-    include "pages/signup.php";
-    } else {
+      include "pages/sign-in-verifikasi.php";
+      }
+    } else if($include == "signup"){
       ?>
 
     <body class="font-lora h-[100vh] w-full">
       <?php
+    include "pages/signup.php";
+    } else {
+      ?>
+
+      <body class="font-lora h-[100vh] w-full relative">
+        <?php
     include "pages/signin.php";
       
   }
@@ -48,15 +55,15 @@ if(isset($_GET["include"])){
 } else {
   ?>
 
-      <body class="font-lora h-[100vh] w-full">
-        <?php
+        <body class="font-lora h-[100vh] w-full relative">
+          <?php
 include "pages/signin.php";
   
   }
 ?>
 
-      </body>
+        </body>
 
-      <?php include "includes/script.php" ?>
+        <?php include "includes/script.php" ?>
 
 </html>
