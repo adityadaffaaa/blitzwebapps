@@ -71,6 +71,8 @@ if(isset($_GET["include"])){
         include "pages/detail-admin.php" ;
       } else if ($include == "pemesanan"){
         include "pages/pemesanan.php" ;
+      } else if ($include == "detail-pemesanan"){
+        include "pages/detail-pemesanan.php" ;
       }
     
     } else{
