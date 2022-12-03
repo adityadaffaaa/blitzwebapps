@@ -36,8 +36,13 @@
                   <p class="text-text2 text-paragraph2 w-[484px]">Eksplorasi Kemampuan Fotografi Dalam Setiap Bidikan
                     Kamera</p>
                   <div class="wrapbtn">
+                    <?php if(isset($_SESSION["id_customer"])){?>
                     <a class="inline-block px-6 py-4 bg-secondary text-text2 text-paragraph1 rounded-[8px] hover:bg-primary transition-all ease-in-out duration-200"
-                      href="/dist/fotovideografer/pages/signin.html">Mulai sebagai fotografer</a>
+                      href="index.php?include=portofolio">Lihat Portofolio</a>
+                    <?php } else { ?>
+                    <a class="inline-block px-6 py-4 bg-secondary text-text2 text-paragraph1 rounded-[8px] hover:bg-primary transition-all ease-in-out duration-200"
+                      href="../fotovideografer/index.php">Mulai sebagai fotografer</a>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
@@ -54,8 +59,13 @@
                   <p class="text-text2 text-paragraph2 w-[484px]">Ciptakan karya memukau untuk kesan indah bagi setiap
                     klien Blitz</p>
                   <div class="wrapbtn">
+                    <?php if (isset($_SESSION["id_customer"])) { ?>
                     <a class="inline-block px-6 py-4 bg-secondary text-text2 text-paragraph1 rounded-[8px] hover:bg-primary transition-all ease-in-out duration-200"
-                      href="/dist/fotovideografer/pages/signin.html">Mulai sebagai videografer</a>
+                      href="index.php?include=ulasan">Beri Ulasan</a>
+                    <?php } else { ?>
+                    <a class="inline-block px-6 py-4 bg-secondary text-text2 text-paragraph1 rounded-[8px] hover:bg-primary transition-all ease-in-out duration-200"
+                      href="../fotovideografer/index.php">Mulai sebagai videografer</a>
+                    <?php } ?>
                   </div>
                 </div>
               </div>

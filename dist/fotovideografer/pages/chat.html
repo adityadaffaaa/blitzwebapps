@@ -106,8 +106,7 @@
         <div class="flex flex-col gap-8">
           <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
             <div class="flex flex-col">
-              <h3 class="text-text1 text-heading3 font-poppins">Beranda</h3>
-              <p class="text-text1 text-paragraph2">Selamat Datang, <a class="text-primary text-paragraph1">Daffa</a></p>
+              <h3 class="text-text1 text-heading3 font-poppins">Chat Admin</h3>
             </div>
             <a href="./signin.html" class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
               <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
@@ -119,68 +118,107 @@
               <p id="menu-desc" class="text-paragraph1 text-[rgba(0,0,0,0.5)] transition-default group-hover:text-text1">Log Out</p>
             </a>
           </div>
-          <div class="flex flex-row p-6 gap-6 justify-between bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary h-[550px] overflow-auto custom-scrollbar">
-            <div class="flex flex-col gap-4">
-              <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
-                <h5 class="text-primary text-heading5 font-poppins">Pendapatan Anda</h5>
-                <p class="text-text1 text-paragraph2">IDR 2.000.000</p>
-              </div>
-              <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
-                <h5 class="text-primary text-heading5 font-poppins">Portofolio Anda</h5>
-                <div class="flex flex-col gap-3">
-                  <a href="#" class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group" style="background-image: url('../../customer/assets/img/portfolio1.png')">
-                    <div class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                      <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
-                    </div>
-                  </a>
-                  <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary" href="#">Edit Portofolio</a>
-                </div>
-              </div>
+          <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
+            <div class="flex flex-row px-6 py-4 items-center justify-between border-b-2 border-primary">
+              <h5 class="text-text1 text-heading5 font-poppins">Chat Admin</h5>
             </div>
-            <div class="flex flex-col w-full gap-4">
-              <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
-                <h5 class="text-primary text-heading5 font-poppins">Selasa, 19 Januari 2022</h5>
-                <p class="text-primary text-paragraph1 flex items-center gap-1">
-                  12
-                  <a class="text-paragraph2 text-text4">Pesanan belum dikerjakan</a>
-                </p>
-              </div>
-              <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col justify-center items-center gap-4">
-                <h5 class="text-primary text-heading5 font-poppins">Pesanan Terbaru</h5>
-                <table class="w-full text-center">
-                  <thead class="text-text1 text-paragraph1">
-                    <tr>
-                      <th class="py-2">Nama</th>
-                      <th class="py-2">Kategori</th>
-                      <th class="py-2">Tanggal Mulai</th>
-                      <th class="py-2">Total Harga</th>
-                    </tr>
-                  </thead>
-                  <tbody class="text-text1 text-paragraph2">
-                    <tr>
-                      <td class="py-2">Daffa</td>
-                      <td class="py-2">Kelulusan</td>
-                      <td class="py-2">20 Januari 2022</td>
-                      <td class="py-2">IDR 1.600.000</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2">Daffa</td>
-                      <td class="py-2">Kelulusan</td>
-                      <td class="py-2">20 Januari 2022</td>
-                      <td class="py-2">IDR 1.600.000</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2">Daffa</td>
-                      <td class="py-2">Kelulusan</td>
-                      <td class="py-2">20 Januari 2022</td>
-                      <td class="py-2">IDR 1.600.000</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="w-full flex justify-end">
-                  <a class="py-[10px] px-6 bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary" href="#">Cek Detail</a>
+            <div class="px-6 py-2 flex flex-col">
+              <!-- chat content -->
+              <div class="flex flex-col px-6 py-4 h-[406px] gap-6 overflow-auto custom-scrollbar">
+                <!-- chat customer -->
+                <div class="flex flex-row justify-start">
+                  <div class="flex flex-row w-1/2 gap-3">
+                    <span class="fill-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                          d="M19.938 8H21a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1.062A8.001 8.001 0 0 1 12 23v-2a6 6 0 0 0 6-6V9A6 6 0 1 0 6 9v7H3a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1.062a8.001 8.001 0 0 1 15.876 0zM3 10v4h1v-4H3zm17 0v4h1v-4h-1zM7.76 15.785l1.06-1.696A5.972 5.972 0 0 0 12 15a5.972 5.972 0 0 0 3.18-.911l1.06 1.696A7.963 7.963 0 0 1 12 17a7.963 7.963 0 0 1-4.24-1.215z"
+                        />
+                      </svg>
+                    </span>
+
+                    <div class="flex flex-col gap-2">
+                      <div class="p-6 bg-background1 rounded-lg shadow-default">
+                        <p class="text-text1 text-paragraph4">
+                          Selamat siang, Admin Blitz! Saya ingin pesan jasa fotografi untuk acara wisuda kuliah saya di Oxford. Apakah Blitz bisa menyediakan fotografer yang bisa saya angkut ke Oxford ya? xixii trims yhhhh
+                        </p>
+                      </div>
+                      <div class="flex flex-row justify-start">
+                        <p class="text-text3 text-paragraph4">11.20</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <!-- chat customer end -->
+                <!-- chat admin  -->
+                <div class="flex flex-row justify-end">
+                  <div class="flex flex-row w-1/2 justify-end gap-3">
+                    <div class="flex flex-col gap-2">
+                      <div class="p-6 bg-background1 rounded-lg shadow-default">
+                        <p class="text-text1 text-paragraph4">Halo Kak!</p>
+                      </div>
+                      <div class="flex flex-row justify-end">
+                        <p class="text-text3 text-paragraph4">11.20</p>
+                      </div>
+                    </div>
+                    <img class="h-14 rounded-full" src="../../admin/assets/img/fotoadmin.png" alt="" />
+                  </div>
+                </div>
+                <!-- chat admin end -->
+                <!-- chat customer -->
+                <div class="flex flex-row justify-start">
+                  <div class="flex flex-row w-1/2 gap-3">
+                    <span class="fill-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                          d="M19.938 8H21a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1.062A8.001 8.001 0 0 1 12 23v-2a6 6 0 0 0 6-6V9A6 6 0 1 0 6 9v7H3a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1.062a8.001 8.001 0 0 1 15.876 0zM3 10v4h1v-4H3zm17 0v4h1v-4h-1zM7.76 15.785l1.06-1.696A5.972 5.972 0 0 0 12 15a5.972 5.972 0 0 0 3.18-.911l1.06 1.696A7.963 7.963 0 0 1 12 17a7.963 7.963 0 0 1-4.24-1.215z"
+                        />
+                      </svg>
+                    </span>
+                    <div class="flex flex-col gap-2">
+                      <div class="p-6 bg-background1 rounded-lg shadow-default">
+                        <p class="text-text1 text-paragraph4">
+                          Selamat siang, Admin Blitz! Saya ingin pesan jasa fotografi untuk acara wisuda kuliah saya di Oxford. Apakah Blitz bisa menyediakan fotografer yang bisa saya angkut ke Oxford ya? xixii trims yhhhh
+                        </p>
+                      </div>
+                      <div class="flex flex-row justify-start">
+                        <p class="text-text3 text-paragraph4">11.20</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- chat customer end -->
+                <!-- chat admin  -->
+                <div class="flex flex-row justify-end">
+                  <div class="flex flex-row w-1/2 justify-end gap-3">
+                    <div class="flex flex-col gap-2">
+                      <div class="p-6 bg-background1 rounded-lg shadow-default">
+                        <p class="text-text1 text-paragraph4">Nanti gini ya kak</p>
+                      </div>
+                      <div class="flex flex-row justify-end">
+                        <p class="text-text3 text-paragraph4">11.20</p>
+                      </div>
+                    </div>
+                    <img class="h-14 rounded-full" src="../../admin/assets/img/fotoadmin.png" alt="" />
+                  </div>
+                </div>
+                <!-- chat admin end -->
               </div>
+              <!-- chat content end -->
+              <!-- kirim chat -->
+              <form method="" action="" class="flex flex-row justify-between items-center">
+                <input class="px-6 py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2" name="chat" type="text" autocomplete="off" placeholder="Ketikan pesan Anda" />
+                <button class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:shadow-secondary hover:-translate-y-1 transition-default" type="submit">
+                  <span class="fill-text2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="none" d="M0 0h24v24H0z" />
+                      <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+              <!-- kirim chat end -->
             </div>
           </div>
         </div>

@@ -71,7 +71,8 @@
               <div
                 class="p-6 w-full bg-background1 border-2 flex flex-row justify-between shadow-default border-secondary rounded-lg">
                 <div class="flex flex-col gap-4 items-start">
-                  <p class="text-text2 p-[10px] bg-primary rounded-lg text-paragraph1 font-poppins">Deskripsi
+                  <p class="text-text2 p-[10px] bg-primary rounded-lg text-paragraph1 w-full text-center font-poppins">
+                    Deskripsi
                     Pemesanan</p>
                   <div class="flex flex-row gap-8">
                     <div class="flex flex-col gap-4">
