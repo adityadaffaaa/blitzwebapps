@@ -20,7 +20,7 @@
           <p class="text-text1 text-paragraph2">Belum mendaftar menjadi foto/videografer? <a
               class="text-primary text-paragraph1" href="index.php?include=signup">Sign Up</a></p>
         </div>
-        <form method="" action="" class="flex flex-col gap-6 w-[367px]">
+        <form method="POST" action="index.php?include=konfirmasi-signin" class="flex flex-col gap-6 w-[367px]">
           <div class="flex flex-row px-[14px] py-[10px] h-10 bg-secondary rounded-lg">
             <input
               class="w-full h-full outline-none text-text2 bg-secondary text-paragraph2 placeholder:text-text2 placeholder:text-paragraph2"
@@ -43,7 +43,7 @@
           </div>
           <button
             class="text-text2 p-[10px] bg-primary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-primary"
-            type="submit">Sign In</button>
+            type="submit" name="signin">Sign In</button>
         </form>
       </div>
       <img class="h-[30px]" src="./assets/Blitz Logo.png" alt="" />

@@ -42,7 +42,7 @@
             <a class="text-primary text-paragraph1" href="#">Lupa Password Anda?</a>
           </div>
           <a href="#"
-            class="text-text2 p-[10px] bg-primary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-primary"
+            class="text-text2 p-[10px] flex justify-center bg-primary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-primary"
             type="submit">Sign In</a>
         </div>
       </div>
@@ -50,10 +50,20 @@
     </div>
   </div>
 </section>
+<?php 
+if(isset($_SESSION["id_fotovideografer"])){
+  $id_fotovideografer = $_SESSION["id_fotovideografer"];
+  $sql = "SELECT `token` FROM `fotovideografer` WHERE `id_fotovideografer` = $id_fotovideografer";
+  $query = mysqli_query($koneksi, $sql);
+  while($data = mysqli_fetch_row($query)){
+    $token = $data[0];
+  }
+}
+?>
 <!-- pop up token -->
 <div
   class="token-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
-  <form method="POST" action=""
+  <form method="POST" action="index.php?include=konfirmasi-verifikasi"
     class="token-popup p-6 bg-background1 relative shadow-default flex flex-col items-center gap-4 rounded-lg transition-all ease-in-out duration-500 translate-y-64">
     <a
       class="close-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
@@ -68,12 +78,16 @@
     <h3 class="text-text1 text-heading3 font-poppins">Selamat Anda Lolos Seleksi!</h3>
     <div class="flex flex-col items-center gap-1">
       <p class="text-text1 text-paragraph2">Silakan masukkan API key/token dibawahi ini untuk verifikasi akun</p>
-      <p class="text-text1 text-paragraph2">Token: <a class="text-paragraph1">230129832714813958</a></p>
-      <p class="text-secondary font-poppins font-bold">Maaf token yang kamu masukkan salah!</p>
+      <p class="text-text1 text-paragraph2">Token: <a class="text-paragraph1"><?php echo $token ?></a></p>
+      <?php if(!empty($_GET["notif"]) && !empty($_GET["jenis"])){?>
+      <?php if($_GET["notif"] == "kesalahan"){?>
+      <p class="text-secondary font-poppins font-bold">Maaf <?php echo $_GET["jenis"] ?>!</p>
+      <?php } ?>
+      <?php } ?>
     </div>
     <input
       class="w-full outline-none py-[10px] px-6 border-2 border-primary rounded-lg text-text1 text-paragraph2 placeholder:text-text4 placeholder:text-paragraph2"
-      type="text" placeholder="Masukkan API key/token kamu" autocomplete="off" />
+      type="text" name="token" placeholder="Masukkan API key/token kamu" autocomplete="off" />
     <button
       class="py-[10px] text-text2 text-paragraph1 w-full px-6 rounded-lg bg-primary transition-default hover:bg-secondary"
       type="submit">Submit</button>
@@ -91,7 +105,7 @@ setTimeout(() => {
     tokenPopup.classList.remove("opacity-0");
     tokenPopup.firstElementChild.classList.remove("translate-y-64");
   }, 100);
-}, 1000);
+}, 10);
 // filter close
 closePopup.addEventListener("click", () => {
   tokenPopup.classList.add("opacity-0");
@@ -99,6 +113,9 @@ closePopup.addEventListener("click", () => {
   setTimeout(() => {
     tokenPopup.classList.remove("flex");
     tokenPopup.classList.add("hidden");
+  }, 300)
+  setTimeout(() => {
+    window.location.href = "index.php?include=logout"
   }, 300);
 });
 </script>

@@ -6,7 +6,11 @@ if(isset($_GET["include"])){
   if($include == "konfirmasi-signup"){
     include "confirm/konfirmasi-signup.php";
   } else if($include =="konfirmasi-signin"){
-    include "confirm/konfirmasi-signup.php";
+    include "confirm/konfirmasi-signin.php";
+  } else if($include =="konfirmasi-verifikasi"){
+    include "confirm/konfirmasi-verifikasi.php";
+  } else if($include =="logout"){
+    include "confirm/logout.php";
   } 
 }
 ?>

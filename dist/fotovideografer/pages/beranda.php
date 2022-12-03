@@ -7,7 +7,7 @@
           <h3 class="text-text1 text-heading3 font-poppins">Beranda</h3>
           <p class="text-text1 text-paragraph2">Selamat Datang, <a class="text-primary text-paragraph1">Daffa</a></p>
         </div>
-        <a href="./signin.html"
+        <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
           <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -31,7 +31,7 @@
             <h5 class="text-primary text-heading5 font-poppins">Portofolio Anda</h5>
             <div class="flex flex-col gap-3">
               <a href="#" class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
-                style="background-image: url('../../customer/assets/img/portfolio1.png')">
+                style="background-image: url('./../customer/assets/img/portfolio1.png')">
                 <div
                   class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
                   <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
@@ -97,3 +97,21 @@
   </div>
 </section>
 <!-- content edit profil end -->
+<?php
+if(!empty($_GET["notif"])){
+if ($_GET["notif"]== "terverifikasi") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "success",
+    iconColor: "#034C5F",
+    title: "Data Anda sudah terverifikasi!",
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=beranda')
+  })
+}, 10)
+</script>
+<?php }?>
+<?php }?>
