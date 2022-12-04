@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION["id_fotovideografer"])){
+  $id_fotovideografer = $_SESSION["id_fotovideografer"];
+}
+?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
   <div class="flex flex-col w-full justify-between">
@@ -91,9 +96,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row bg-text2 px-6 py-4 items-center justify-start shadow-default">
-      <p class="text-text1 text-paragraph2">© 2022 Blitz by Kelompok 3 SI-3B</p>
-    </div>
+    <?php include "includes/footer.php" ?>
   </div>
 </section>
 <!-- content edit profil end -->

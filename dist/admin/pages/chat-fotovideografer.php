@@ -37,7 +37,6 @@
           <?php 
             $time = time();
             $date = date("Y-m-d", $time);
-            $kemarin = date("Y-m-d", strtotime('-1 days', strtotime($date)));
             $sql_chat = "SELECT `fv`.`id_fotovideografer`, `fv`.`foto`, `fv`.`nama`,  DATE_FORMAT(`c`.`waktu`,'%Y-%m-%d')
             FROM `chat_admin_fotovideografer` `caf`           
             JOIN `fotovideografer` `fv` ON `caf`.`id_fotovideografer` = `fv`.`id_fotovideografer`
@@ -72,7 +71,7 @@
               <div class="flex flex-row justify-between">
                 <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>
                 <p class="text-text4 text-paragraph2">
-                  <?php if($date==$waktu){echo "Hari ini";}else if($kemarin== true){echo "Kemarin";}else{ echo $waktu;}?>
+                  <?php if($date==$waktu){echo "Hari ini";}else{ echo $waktu;}?>
                 </p>
               </div>
             </div>
@@ -96,7 +95,7 @@
             <div class="flex flex-row justify-between w-full">
               <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>
               <p class="text-text4 text-paragraph2">
-                <?php if($date==$waktu){echo "Hari ini";}else if($kemarin== true){echo "Kemarin";}else{ echo $waktu;}?>
+                <?php if($date==$waktu){echo "Hari ini";}else{ echo $waktu;}?>
               </p>
             </div>
           </a>

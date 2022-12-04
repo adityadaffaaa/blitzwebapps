@@ -95,15 +95,20 @@
                 id="videografer">
                 <option value="0">Pilih Videografer</option>
                 <?php
-                $sql_videografer = "SELECT `id_fotovideografer`, `nama` FROM `fotovideografer` WHERE `role` = 'videografer' ORDER BY `nama`";
+                $sql_videografer = "SELECT `id_fotovideografer`, `nama`,`foto`,`deskripsi_pribadi`,`instagram`,`status` FROM `fotovideografer` WHERE `role` = 'videografer' ORDER BY `nama`";
                 $query_videografer = mysqli_query($koneksi, $sql_videografer);
                 while($data_videografer = mysqli_fetch_row($query_videografer)){
                   $id_videografer = $data_videografer[0]; 
-                  $nama = $data_videografer[1]; 
+                  $nama = $data_videografer[1];
+                  $foto = $data_videografer[2];
+                  $deskripsi_pribadi = $data_videografer[3];
+                  $instagram = $data_videografer[4];
+                  $status = $data_videografer[5]; 
                   ?>
+                <?php if($status == "terverifikasi"&& $foto != null && $deskripsi_pribadi != null && $instagram != null){ ?>
                 <option value="<?php echo $id_videografer ?>"><?php echo $nama ?></option>
                 <?php } ?>
-
+                <?php } ?>
               </select>
             </div>
             <div class="flex flex-col gap-1">

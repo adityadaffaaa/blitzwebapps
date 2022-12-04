@@ -43,7 +43,7 @@ if(isset($_GET["data"])){
             </svg>
           </span>
           <?php } else{?>
-          <img class="h-[314px] rounded-full" src="./assets/img/<?php echo $foto ?>" alt="" />
+          <img class="h-[314px] rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
           <?php }?>
           <h1 class="text-text2 text-heading1 font-poppins"><?php echo $nama ?></h1>
         </div>

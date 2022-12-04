@@ -75,7 +75,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
 
           
         ?>
-        <?php if($status_fotovideografer=="terverifikasi"){ ?>
+        <?php if($status_fotovideografer=="terverifikasi" && $foto_fotovideografer != null && $ig_fotovideografer != null && $desc_fotovideografer != null){ ?>
         <a href="index.php?include=detail-portofolio&data=<?php echo $id_fotovideografer ?>"
           class="w-[357px] cursor-pointer flex items-center justify-center p-6 bg-background1 border-4 transition-default rounded-2xl hover:border-secondary hover:shadow-default hover:scale-105">
           <div class="flex flex-col gap-4">
@@ -89,7 +89,8 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
                 </svg>
               </span>
               <?php } else{ ?>
-              <img class="rounded-full h-[164px]" src="./assets/img/hery.png" alt="" />
+              <img class="rounded-full h-[164px]"
+                src="./../fotovideografer/assets/img/<?php echo $foto_fotovideografer ?>" alt="" />
               <?php } ?>
               <div class="flex flex-col gap-[2px] items-center">
                 <h5 class="text-primary text-heading5 font-poppins"><?php echo $nama_fotovideografer ?></h5>

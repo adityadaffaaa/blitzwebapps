@@ -3,7 +3,7 @@
   class="h-[100vh] w-[300px] hover:w-[300px] group/nav py-8 transition-all ease-in-out duration-500 bg-secondary shadow-default shadow-secondary">
   <div class="ml-[26px] flex flex-col gap-4">
     <img id="toggle-menu" class="w-7 scale-[200%] mb-8 cursor-pointer" src="./assets/Blitz Logo White.png" alt="" />
-    <a href="#"
+    <a href="index.php?include=beranda"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -16,7 +16,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Beranda
       </p>
     </a>
-    <a href="./portofolio.html"
+    <a href="index.php?include=riwayat"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -29,7 +29,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">Riwayat
       </p>
     </a>
-    <a href="./ulasan.html"
+    <a href="index.php?include=chat"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -54,7 +54,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Portofolio</p>
     </a>
-    <a href="#"
+    <a href="index.php?include=pemesanan"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -67,7 +67,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Pemesanan</p>
     </a>
-    <a href="#"
+    <a href="index.php?include=pengaturan"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -80,7 +80,7 @@
         class="text-paragraph1 absolute left-[60px] transition-default opacity-100 group-hover/nav:opacity-100">
         Pengaturan</p>
     </a>
-    <a href="./ubah-password.html"
+    <a href="index.php?include=ubah-password"
       class="flex flex-row gap-3 group text-[rgba(255,255,255,0.8)] hover:text-text2 transition-default group">
       <span class="fill-[rgba(255,255,255,0.8)] transition-default group-hover:fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

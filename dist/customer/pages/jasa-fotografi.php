@@ -93,15 +93,21 @@
               <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Fotografer</label>
               <select class="p-[10px] bg-secondary cursor-pointer text-text2 rounded-lg outline-none" name="fotografer"
                 id="fotografer">
-                <option value="-">Pilih Fotografer</option>
+                <option value="0">Pilih Fotografer</option>
                 <?php
-                $sql_fotografer = "SELECT `id_fotovideografer`, `nama` FROM `fotovideografer` WHERE `role` = 'fotografer' ORDER BY `nama`";
+                $sql_fotografer = "SELECT `id_fotovideografer`, `nama`,`foto`,`deskripsi_pribadi`,`instagram`,`status` FROM `fotovideografer` WHERE `role` = 'fotografer' ORDER BY `nama`";
                 $query_fotografer = mysqli_query($koneksi, $sql_fotografer);
                 while($data_fotografer = mysqli_fetch_row($query_fotografer)){
                   $id_fotografer = $data_fotografer[0]; 
                   $nama = $data_fotografer[1]; 
+                  $foto = $data_fotografer[2];
+                  $deskripsi_pribadi = $data_fotografer[3];
+                  $instagram = $data_fotografer[4];
+                  $status = $data_fotografer[5];
                   ?>
+                <?php if($status == "terverifikasi"&& $foto != null && $deskripsi_pribadi != null && $instagram != null){ ?>
                 <option value="<?php echo $id_fotografer ?>"><?php echo $nama ?></option>
+                <?php } ?>
                 <?php } ?>
               </select>
             </div>
