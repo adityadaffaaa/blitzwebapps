@@ -76,25 +76,65 @@
     if($_GET["notif"]=="username kosong"){
     ?>
   <script>
-alert("username tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-in-customer')
+  })
+}, 10)
   </script>
   <?php
     } else if ($_GET["notif"]=="password kosong"){
       ?>
   <script>
-alert("password tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-in-customer')
+  })
+}, 10)
   </script>
   <?php
     }else if ($_GET["notif"]=="username dan password salah"){
       ?>
   <script>
-alert("username dan password Anda salah!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username dan password salah!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-in-customer')
+  })
+}, 10)
   </script>
   <?php
     }else if ($_GET["notif"]=="daftar berhasil"){
       ?>
   <script>
-alert("Berhasil membuat data baru")
+setTimeout(() => {
+  swal.fire({
+    icon: "success",
+    iconColor: "#034C5F",
+    title: "Daftar berhasil!",
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-in-customer')
+  })
+}, 10)
   </script>
   <?php
     

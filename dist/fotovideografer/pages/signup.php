@@ -240,13 +240,27 @@ setTimeout(() => {
   })
 }, 10)
 </script>
-<?php } else if ($_GET["notif"] == "Konfirmasi password kosong"){?>
+<?php } else if ($_GET["notif"] == "Password kosong"){?>
 <script>
 setTimeout(() => {
   swal.fire({
     icon: "error",
     iconColor: "#EE6457",
     title: "Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=signup')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Konfirmasi password kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Konfirmasi Password harus diisi!",
     confirmButtonText: "Siap kak",
     confirmButtonColor: "#034C5F",
   }).then(() => {

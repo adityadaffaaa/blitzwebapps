@@ -97,37 +97,97 @@
     if($_GET["notif"]=="nama kosong"){
     ?>
 <script>
-alert("Nama tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Nama harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     } else if ($_GET["notif"]=="username kosong"){
       ?>
 <script>
-alert("Username tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     }else if ($_GET["notif"]=="email kosong"){
       ?>
 <script>
-alert("Email tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Email harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     } else if ($_GET["notif"]=="password kosong"){
       ?>
 <script>
-alert("Password tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     } else if ($_GET["notif"]=="Konfirmasi password kosong"){
       ?>
 <script>
-alert("Konfirmasi password tidak boleh kosong!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Konfirmasi Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     } else if ($_GET["notif"]=="konfirmasi password tidak sama"){
       ?>
 <script>
-alert("Konfirmasi tidak valid!")
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Konfirmasi Password harus sama!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=sign-up-customer')
+  })
+}, 10)
 </script>
 <?php
     }
