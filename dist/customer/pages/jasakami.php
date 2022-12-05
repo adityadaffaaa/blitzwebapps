@@ -27,7 +27,11 @@
               <h3 class="text-text1 text-heading3 font-poppins">Fotografi</h3>
               <p class="text-text4 text-paragraph2">Ciptakan hasil bidikan foto yang memukau dalam tiap bingkai
                 gambar.</p>
+              <?php if(isset($_SESSION["id_customer"])) { ?>
               <a class="btn-primary" href="index.php?include=jasa-fotografi">Pesan sekarang</a>
+              <?php } else {?>
+              <a class="pilih cursor-pointer btn-primary">Pesan sekarang</a>
+              <?php }?>
             </div>
           </div>
           <!-- jasa fotografi end -->
@@ -40,15 +44,20 @@
               <h3 class="text-text1 text-heading3 font-poppins">Videografi</h3>
               <p class="text-text4 text-paragraph2">Rekam tiap momen berharga Anda dalam satu sinema yang berkesan dan
                 tak terlupakan.</p>
+              <?php if (isset($_SESSION["id_customer"])) { ?>
               <a class="btn-primary" href="index.php?include=jasa-videografi">Pesan sekarang</a>
+              <?php } else { ?>
+              <a class="pilih cursor-pointer btn-primary">Pesan sekarang</a>
+              <?php } ?>
             </div>
           </div>
           <!-- jasa videografi end -->
         </div>
+        <!-- jasa foto dan videografi -->
         <div
           class="relative w-full h-[545px] flex flex-row items-center bg-background1 overflow-hidden border-4 hover:border-secondary rounded-[16px] transition-default hover:shadow-default">
-          <div id="lock-jasafotovideografi"
-            class="w-full h-full absolute bg-[rgba(255,255,255,0.8)] flex items-center justify-center">
+          <div
+            class="w-full h-full absolute bg-[rgba(255,255,255,0.8)] flex items-center justify-center <?php if ($_SESSION["level"] == "gold") { ?> hidden <?php } ?>">
             <div class="flex flex-col items-center">
               <span class="fill-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96">
@@ -70,8 +79,29 @@
             <a class="btn-primary" href="index.php?include=jasa-fotovideografi">Pesan sekarang</a>
           </div>
         </div>
+        <!-- jasa foto dan videografi end -->
       </div>
     </div>
   </section>
   <!-- pilih jasa end -->
 </div>
+<script>
+const btnPilih = document.querySelectorAll(".pilih");
+btnPilih.forEach((evt) => {
+  evt.addEventListener("click", () => {
+    swal.fire({
+      title: "Anda harus Sign In terlebih dahulu!",
+      icon: "info",
+      iconColor: "#97BEC6",
+      confirmButtonText: "Siap kak!",
+      confirmButtonColor: "#034C5F",
+      showCancelButton: true,
+      cancelButtonText: "Nanti dulu deh"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "index.php?include=sign-in-customer";
+      }
+    });
+  });
+})
+</script>
