@@ -1,3 +1,31 @@
+<?php 
+if(isset($_GET["data"])){
+  $id_pemesanan = $_GET["data"];  
+  $sql = "SELECT `cust`.`foto`, `cust`.`nama`,`cust`.`no_telp`,`cust`.`email`,`cust`.`alamat`, `k`.`kategori`, `j`.`jasa`,
+   DATE_FORMAT(`p`.`tanggal_pesan`,'%d/%m/%Y'), DATE_FORMAT(`p`.`jadwal_mulai`,'%d/%m/%Y'),DATE_FORMAT(`p`.`jadwal_selesai`,'%d/%m/%Y') ,`p`.`foto_pembayaran`, `fv`.`nama`
+  FROM `pemesanan` `p`
+  JOIN `customer` `cust` ON `p`.`id_customer` = `cust`.`id_customer`
+  JOIN `fotovideografer` `fv` ON `p`.`id_fotovideografer` = `fv`.`id_fotovideografer`
+  JOIN `kategori_event` `k` ON `p`.`id_kategori` = `k`.`id_kategori`
+  JOIN `jasa` `j` ON `p`.`id_jasa` = `j`.`id_jasa`
+  WHERE `p`.`id_pemesanan` = $id_pemesanan";
+  $query = mysqli_query($koneksi, $sql);
+  while($data = mysqli_fetch_row($query)){
+  $foto_cust = $data[0];
+  $nama_cust = $data[1];
+  $no_telp = $data[2];
+  $email = $data[3];
+  $alamat = $data[4];
+  $kategori = $data[5];
+  $jasa = $data[6];
+  $tanggal_pesan = $data[7];
+  $tanggal_mulai = $data[8];
+  $tanggal_selesai = $data[9];
+  $foto_pembayaran = $data[10];
+  $nama_fotovideografer = $data[11];
+  }
+}
+?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
   <div class="flex flex-col w-full justify-between">
@@ -38,7 +66,17 @@
               <div class="flex flex-row w-full justify-between items-center">
                 <p class="text-text1 text-paragraph1">Foto Customer</p>
                 <div class="flex w-[800px] justify-start mr-16">
-                  <img class="h-52 rounded-lg" src="./../customer/assets/img/daffa.png" alt="" />
+                  <?php if ($foto_cust == null) { ?>
+                  <span class="fill-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="208" height="208">
+                      <path fill="none" d="M0 0h24v24H0z" />
+                      <path
+                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-4.987-3.744A7.966 7.966 0 0 0 12 20c1.97 0 3.773-.712 5.167-1.892A6.979 6.979 0 0 0 12.16 16a6.981 6.981 0 0 0-5.147 2.256zM5.616 16.82A8.975 8.975 0 0 1 12.16 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187zM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                    </svg>
+                  </span>
+                  <?php } else {?>
+                  <img class="h-52 rounded-lg" src="./../customer/assets/img/<?php echo $foto_cust ?>" alt="" />
+                  <?php } ?>
                 </div>
               </div>
               <div class="flex flex-row w-full justify-between items-center">
@@ -46,7 +84,7 @@
                 <div class="flex justify-start mr-16">
                   <input readonly
                     class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="nama"
-                    id="nama" type="text" value="Daffa Fawwaz Aditya" />
+                    id="nama" type="text" value="<?php echo $nama_cust ?>" />
                 </div>
               </div>
               <div class="flex flex-row w-full justify-between items-center">
@@ -54,7 +92,10 @@
                 <div class="flex justify-start mr-16">
                   <input readonly
                     class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]"
-                    name="username" id="username" type="text" value="daffaaditya" />
+                    name="username" id="username" type="text" value="<?php if ($no_telp == null) {
+                      echo "-";
+                    } else {
+                      echo $no_telp;} ?>" />
                 </div>
               </div>
               <div class="flex flex-row w-full justify-between items-center">
@@ -62,14 +103,18 @@
                 <div class="flex justify-start mr-16">
                   <input readonly
                     class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]"
-                    name="email" id="email" type="text" value="daffa@gmail.com" />
+                    name="email" id="email" type="text" value="<?php echo $email ?>" />
                 </div>
               </div>
               <div class="flex flex-row w-full justify-between items-center">
                 <p class="text-text1 text-paragraph1">Alamat</p>
                 <div class="flex justify-start mr-16">
                   <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]"
-                    name="notelepon" id="notelepon" type="text" value="081807866444" />
+                    name="notelepon" id="notelepon" type="text" value="<?php if ($alamat == null) {
+                      echo "-";
+                    } else {
+                      echo $alamat;
+                    } ?>" />
                 </div>
               </div>
             </div>
@@ -89,22 +134,45 @@
                       <p class="text-text1 text-paragraph1">Fotografer / Videografer</p>
                     </div>
                     <div class="flex flex-col gap-4">
-                      <p class="text-text1 text-paragraph1">Fotografi</p>
-                      <p class="text-text1 text-paragraph1">Ulang Tahun</p>
-                      <p class="text-text1 text-paragraph1">20/01/2022</p>
-                      <p class="text-text1 text-paragraph1">21/01/2022</p>
-                      <p class="text-text1 text-paragraph1">22/01/2022</p>
-                      <p class="text-text1 text-paragraph1">Hery Taufan</p>
+                      <p class="text-text1 text-paragraph1"><?php echo $jasa ?></p>
+                      <p class="text-text1 text-paragraph1"><?php echo $kategori ?></p>
+                      <p class="text-text1 text-paragraph1"><?php echo $tanggal_pesan ?></p>
+                      <p class="text-text1 text-paragraph1"><?php echo $tanggal_mulai ?></p>
+                      <p class="text-text1 text-paragraph1"><?php echo $tanggal_selesai ?></p>
+                      <p class="text-text1 text-paragraph1"><?php echo $nama_fotovideografer ?></p>
                     </div>
                   </div>
                 </div>
                 <div class="flex flex-col items-center h-full justify-between">
+                  <?php if($kategori == "Ulang tahun (fotografi)" || $kategori == "Ulang tahun (videografi)" || $kategori == "Ulang tahun (foto dan videografi)"){?>
                   <div class="h-[205px] w-[300px] overflow-hidden bg-cover rounded-lg ring-2 ring-secondary"
                     style="background-image: url('./../customer/assets/img/kategori-ulangtahun.png')">
                     <div class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center">
                       <h5 class="text-text2 text-heading5 font-poppins">Ulang Tahun</h5>
                     </div>
                   </div>
+                  <?php } else if($kategori == "Kelulusan (fotografi)" || $kategori == "Kelulusan (videografi)" || $kategori == "Kelulusan (foto dan videografi)") { ?>
+                  <div class="h-[205px] w-[300px] overflow-hidden bg-cover rounded-lg ring-2 ring-secondary"
+                    style="background-image: url('./../customer/assets/img/kategori-kelulusan.png')">
+                    <div class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center">
+                      <h5 class="text-text2 text-heading5 font-poppins">Kelulusan</h5>
+                    </div>
+                  </div>
+                  <?php } else if($kategori == "Pra Nikah (fotografi)" || $kategori == "Pra Nikah (videografi)" || $kategori == "Pra Nikah (foto dan videografi)") { ?>
+                  <div class="h-[205px] w-[300px] overflow-hidden bg-cover rounded-lg ring-2 ring-secondary"
+                    style="background-image: url('./../customer/assets/img/kategori-wedding.png')">
+                    <div class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center">
+                      <h5 class="text-text2 text-heading5 font-poppins">Pra Nikah</h5>
+                    </div>
+                  </div>
+                  <?php } else if($kategori == "Liburan (fotografi)" || $kategori == "Liburan (videografi)" || $kategori == "Liburan (foto dan videografi)") { ?>
+                  <div class="h-[205px] w-[300px] overflow-hidden bg-cover rounded-lg ring-2 ring-secondary"
+                    style="background-image: url('./../customer/assets/img/kategori-liburan.png')">
+                    <div class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center">
+                      <h5 class="text-text2 text-heading5 font-poppins">Liburan</h5>
+                    </div>
+                  </div>
+                  <?php } ?>
                   <a class="px-4 py-[10px] w-full justify-center bg-secondary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-background2"
                     href="#">Cek Bukti Pembayaran</a>
                 </div>

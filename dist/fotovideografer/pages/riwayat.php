@@ -1,3 +1,15 @@
+<?php
+if(isset($_SESSION["id_fotovideografer"])){
+  $id_fotovideografer = $_SESSION["id_fotovideografer"];
+}
+if(isset($_POST["katakunci"])){
+  $katakunci_riwayat = $_POST["katakunci"];
+  $_SESSION['katakunci_riwayat'] = $katakunci_riwayat;
+}
+if(isset($_SESSION['katakunci_riwayat'])){
+  $katakunci_riwayat = $_SESSION['katakunci_riwayat'];
+}
+?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
   <div class="flex flex-col w-full justify-between">
@@ -18,7 +30,8 @@
         </a>
       </div>
       <div class="flex flex-col bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary">
-        <form method="" action="" class="flex flex-row px-6 py-2 items-center justify-start border-b-2 border-primary">
+        <form method="POST" action="index.php?include=riwayat"
+          class="flex flex-row px-6 py-2 items-center justify-start border-b-2 border-primary">
           <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
             <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
               placeholder="Cari Riwayat" autocomplete="off" />
@@ -54,21 +67,63 @@
                 </thead>
                 <!-- data riwayat -->
                 <tbody class="text-text1 text-paragraph1 font-lora">
-                  <tr class="baris border-b-[1px] border-b-text3">
-                    <td class="text-center py-4">1</td>
-                    <td class="text-center py-4">Daffa</td>
-                    <td class="text-center py-4">Liburan</td>
-                    <td class="text-center py-4">Fotografi</td>
-                    <td class="text-center py-4">07/01/2022</td>
-                    <td class="text-center py-4">07/01/2022</td>
-                    <td class="text-center py-4">07/01/2022</td>
+                  <?php  
 
-                    <td class="text-center py-4">IDR 350.000</td>
+                $batas = 6; 
+                if(!isset($_GET['halaman'])){ 
+                  $posisi = 0; 
+                  $halaman = 1; 
+                }else{ 
+                  $halaman = $_GET['halaman']; 
+                  $posisi = ($halaman-1) * $batas; 
+                }  
+
+                //query sql
+                $sql_riwayat = "SELECT `p`.`id_pemesanan`, `cust`.`nama`, `k`.`kategori`, `j`.`jasa`, DATE_FORMAT(`p`.`tanggal_pesan`,'%d/%m/%Y') , DATE_FORMAT(`p`.`jadwal_mulai`,'%d/%m/%Y') , DATE_FORMAT(`p`.`jadwal_selesai`,'%d/%m/%Y') , `p`.`harga`, `p`.`status`
+                FROM `pemesanan` `p`
+                JOIN `customer` `cust` ON `p`.`id_customer` = `cust`.`id_customer`
+                JOIN `kategori_event` `k` ON `p`.`id_kategori` = `k`.`id_kategori`
+                JOIN `jasa` `j` ON `p`.`id_jasa` = `j`.`id_jasa`";                
+                if (!empty($katakunci_riwayat)){ 
+                  $sql_riwayat .= " WHERE `nama` LIKE '%$katakunci_riwayat%'
+                  AND `p`.`status` = 'selesai' 
+                  AND `p`.`id_fotovideografer` = $id_fotovideografer
+                  ORDER BY `cust`.`nama`  limit $posisi, $batas ";
+                } else{
+                  $sql_riwayat .= "
+                  WHERE `p`.`status` = 'selesai' 
+                AND `p`.`id_fotovideografer` = $id_fotovideografer
+                ORDER BY `cust`.`nama`  limit $posisi, $batas ";                  
+                }
+                $query_riwayat = mysqli_query($koneksi,$sql_riwayat); 
+                $posisi += 1; 
+                while($data_riwayat = mysqli_fetch_row($query_riwayat)){ 
+                  $id_pemesanan = $data_riwayat[0]; 
+                  $nama = $data_riwayat[1]; 
+                  $kategori = $data_riwayat[2]; 
+                  $jasa = $data_riwayat[3]; 
+                  $tgl_pesan = $data_riwayat[4]; 
+                  $tgl_mulai = $data_riwayat[5]; 
+                  $tgl_selesai = $data_riwayat[6]; 
+                  $harga = $data_riwayat[7];                                     
+                  $status = $data_riwayat[8];
+                    $total_h = number_format($harga,0,',','.');                                   
+                ?>
+                  <tr class="baris border-b-[1px] border-b-text3">
+                    <td class="text-center py-4"><?php echo $posisi ?></td>
+                    <td class="text-center py-4"><?php echo $nama ?></td>
+                    <td class="text-center py-4"><?php echo $kategori ?></td>
+                    <td class="text-center py-4"><?php echo $jasa ?></td>
+                    <td class="text-center py-4"><?php echo $tgl_pesan ?></td>
+                    <td class="text-center py-4"><?php echo $tgl_mulai ?></td>
+                    <td class="text-center py-4"><?php echo $tgl_selesai ?></td>
+                    <td class="text-center py-4">IDR <?php echo $total_h ?></td>
                     <td class="text-center py-4">
-                      <p class="text-text2 py-1 px-3 bg-primary rounded-lg">Selesai</p>
+                      <p class="text-text2 py-1 px-3 bg-primary rounded-lg"><?php echo $status ?></p>
                     </td>
                     <td class="py-4 px-4">
-                      <a href="index.php?include=detail-riwayat" class="fill-primary cursor-pointer">
+                      <a href="index.php?include=detail-riwayat&data=<?php echo $id_pemesanan ?>"
+                        class="fill-primary cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                           <path fill="none" d="M0 0h24v24H0z" />
                           <path
@@ -77,33 +132,95 @@
                       </a>
                     </td>
                   </tr>
+                  <?php $posisi++; }?>
                 </tbody>
                 <!-- data riwayat end -->
               </table>
               <!-- paginasi riwayat -->
               <div class="flex flex-row gap-6 items-center">
+                <?php
+                $sql_jum = "SELECT `p`.`id_pemesanan`, `cust`.`nama`, `k`.`kategori`, `j`.`jasa`, `p`.`tanggal_pesan`, `p`.`jadwal_mulai`, `p`.`jadwal_selesai`, `p`.`harga`, `p`.`status`
+                FROM `pemesanan` `p`
+                JOIN `customer` `cust` ON `p`.`id_customer` = `cust`.`id_customer`
+                JOIN `kategori_event` `k` ON `p`.`id_kategori` = `k`.`id_kategori`
+                JOIN `jasa` `j` ON `p`.`id_jasa` = `j`.`id_jasa`";  
+                if (!empty($katakunci_riwayat)){  
+                  $sql_jum .= " where `nama` LIKE '%$katakunci_riwayat%'
+                  AND `p`.`status` = 'selesai' 
+                  AND `p`.`id_fotovideografer` = $id_fotovideografer
+                  ORDER BY `cust`.`nama`"; 
+                } else{
+                  $sql_jum .= " 
+                  WHERE `p`.`status` = 'selesai' 
+                AND `p`.`id_fotovideografer` = $id_fotovideografer
+                ORDER BY `cust`.`nama`";                   
+                }
+                $query_jum = mysqli_query($koneksi,$sql_jum); 
+                $jum_data = mysqli_num_rows($query_jum); 
+                $jum_halaman = ceil($jum_data/$batas); 
+              ?>
+
                 <ul class="flex flex-row items-center gap-2">
-                  <li>
-                    <a href="#">
-                      <div
-                        class="flex justify-center text-text2 items-center w-9 h-9 bg-primary rounded-lg transition-default">
-                        1</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div
-                        class="flex justify-center text-text2 items-center w-9 h-9 bg-background2 rounded-lg transition-default hover:bg-primary">
-                        2</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div
-                        class="flex justify-center text-text2 items-center w-9 h-9 bg-background2 rounded-lg transition-default hover:bg-primary">
-                        3</div>
-                    </a>
-                  </li>
+                  <?php if($jum_halaman==0){
+                      //tidak ada halaman
+                    }else if($jum_halaman==1){
+                      echo "  <li>
+                      <a>
+                        <div
+                          class='flex justify-center text-text2 items-center w-9 h-9 bg-primary rounded-lg transition-default'>
+                          1</div>
+                      </a>
+                    </li>";
+                    }else{
+                      $sebelum = $halaman-1;
+                      $setelah = $halaman+1;
+                      if($halaman!=1){
+                        
+                      echo "<a  href='index.php?include=riwayat&halaman=$sebelum' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
+                      <span class='fill-text2'>
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
+                          <path fill='none' d='M0 0h24v24H0z' />
+                          <path d='M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z' />
+                        </svg>
+                      </span>
+                    </a>" ;                          
+                    }
+                    for($i=1; $i<=$jum_halaman; $i++){
+                      if ($i > $halaman - 5 and $i < $halaman + 5 ) {
+                        if($i!=$halaman){
+                          echo" <li>
+                        <a href='index.php?include=riwayat&halaman=$i'>
+                          <div
+                            class='flex justify-center text-text2 items-center w-9 h-9 bg-background2 hover:bg-primary rounded-lg transition-default'>
+                            $i</div>
+                        </a>
+                      </li> ";
+                         
+                        }else{
+                         
+                          echo" <li>
+                        <a>
+                          <div
+                            class='flex justify-center text-text2 items-center w-9 h-9  bg-primary rounded-lg transition-default'>
+                            $i</div>
+                        </a>
+                      </li> ";
+                        }
+                      }
+                    }
+                      if($halaman!=$jum_halaman){
+                        echo"<a  href='index.php?include=riwayat&halaman=$setelah' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
+                        <span class='fill-text2'>
+                          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
+                            <path fill='none' d='M0 0h24v24H0z' />
+                            <path d='M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z' />
+                          </svg>
+                        </span>
+                      </a>";
+                      
+                    
+                      }
+                    }?>
                 </ul>
               </div>
               <!-- paginasi riwayat end -->

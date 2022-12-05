@@ -108,13 +108,13 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
             <h5 class="text-primary text-heading5 font-poppins">Portofolio Anda</h5>
             <!-- portofolio -->
             <?php if (empty($foto_portof) || empty($video_portof)) { ?>
-            <div class="flex flex-col gap-3">
-              <div class="flex flex-col items-center">
-                <span class="fill-secondary">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="300" height="300">
+            <div class="flex flex-col w-[500px] gap-3">
+              <div class="flex flex-col  items-center">
+                <span class="fill-secondary ">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="260" height="260">
                     <path fill="none" d="M0 0h24v24H0z" />
                     <path
-                      d="M12 2c5.523 0 10 4.477 10 10 0 .727-.077 1.435-.225 2.118l-1.782-1.783a8 8 0 1 0-4.375 6.801 3.997 3.997 0 0 0 1.555 1.423A9.956 9.956 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2zm7 12.172l1.414 1.414a2 2 0 1 1-2.93.11l.102-.11L19 14.172zM12 15c1.466 0 2.785.631 3.7 1.637l-.945.86C13.965 17.182 13.018 17 12 17c-1.018 0-1.965.183-2.755.496l-.945-.86A4.987 4.987 0 0 1 12 15zm-3.5-5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" />
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-3a5 5 0 0 1 10 0h-2a3 3 0 0 0-6 0H7zm1-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                   </svg>
                 </span>
                 <h5 class="text-secondary text-heading5 font-poppins">Portofolio mu belum ada!</h5>
@@ -156,8 +156,21 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
           <div
             class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col justify-center items-center gap-4">
             <h5 class="text-primary text-heading5 font-poppins">Pesanan Terbaru</h5>
+            <?php if (mysqli_num_rows($query_pesanan) == 0) { ?>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col items-center">
+                <span class="fill-secondary ">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="260" height="260">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-3a5 5 0 0 1 10 0h-2a3 3 0 0 0-6 0H7zm1-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                  </svg>
+                </span>
+                <h5 class="text-secondary text-heading5 font-poppins">Pesanan mu belum ada!</h5>
+              </div>
+            </div>
+            <?php } else{?>
             <table class="w-full text-center">
-
               <thead class="text-text1 text-paragraph1">
                 <tr>
                   <th class="py-2">Nama</th>
@@ -190,6 +203,7 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
               <a class="py-[10px] px-6 bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
                 href="index.php?include=pemesanan">Cek Detail</a>
             </div>
+            <?php } ?>
           </div>
         </div>
       </div>

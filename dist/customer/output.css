@@ -945,6 +945,22 @@ video {
   height: 240px;
 }
 
+.h-\[120px\] {
+  height: 120px;
+}
+
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[90px\] {
+  height: 90px;
+}
+
+.h-44 {
+  height: 11rem;
+}
+
 .w-\[410px\] {
   width: 410px;
 }
@@ -1183,6 +1199,27 @@ video {
 
 .animate-\[wiggle_1s_ease-in-out_infinite\] {
   animation: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .cursor-pointer {
@@ -1756,6 +1793,15 @@ video {
   font-weight: 600;
 }
 
+.text-\[300px\] {
+  font-size: 300px;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1912,6 +1958,10 @@ video {
 
 .duration-200 {
   transition-duration: 200ms;
+}
+
+.duration-700 {
+  transition-duration: 700ms;
 }
 
 .ease-in-out {
