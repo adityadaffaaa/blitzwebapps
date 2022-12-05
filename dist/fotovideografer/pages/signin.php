@@ -66,5 +66,61 @@ setTimeout(() => {
   })
 }, 10)
 </script>
+<?php } else if ($_GET["notif"] == "Username kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Password kosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Password harus diisi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "username dan password salah"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Username dan password salah!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php')
+  })
+}, 10)
+</script>
+<?php } else if ($_GET["notif"] == "Data belum divalidasi"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "warning",
+    iconColor: "#D7A151",
+    title: "Maaf data Anda belum divalidasi!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php')
+  })
+}, 10)
+</script>
 <?php }?>
 <?php }?>

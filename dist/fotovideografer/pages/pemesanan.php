@@ -4,7 +4,7 @@
     <div class="flex flex-col gap-8">
       <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
         <h3 class="text-text1 text-heading3 font-poppins">Pemesanan</h3>
-        <a href="./signin.html"
+        <a href="index.php?include=logout"
           class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
           <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

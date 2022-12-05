@@ -109,16 +109,7 @@ if(isset($_SESSION['katakunci_admin'])){
                     $username = $data_admin[2]; 
                     $email = $data_admin[3]; 
                     $no_telp = $data_admin[4]; 
-                    $level = $data_admin[5]; 
-
-                    $sql_jum = "SELECT `id_admin`, `nama`,`username`,`email`,`no_telp`,`level` FROM `admin`  ";  
-                    if (!empty($katakunci_admin)){  
-                      $sql_jum .= " where `nama` LIKE '%$katakunci_admin%'"; 
-                    }  
-                    $sql_jum .= " order by `nama`"; 
-                    $query_jum = mysqli_query($koneksi,$sql_jum); 
-                    $jum_data = mysqli_num_rows($query_jum); 
-                    $jum_halaman = ceil($jum_data/$batas); 
+                    $level = $data_admin[5];                    
                     
                   ?>
                   <tr class="baris border-b-[1px] border-b-text3">
@@ -163,6 +154,16 @@ if(isset($_SESSION['katakunci_admin'])){
               </table>
               <!-- paginasi riwayat -->
               <div class="flex flex-row gap-6 items-center">
+                <?php
+               $sql_jum = "SELECT `id_admin`, `nama`,`username`,`email`,`no_telp`,`level` FROM `admin`  ";  
+               if (!empty($katakunci_admin)){  
+                 $sql_jum .= " where `nama` LIKE '%$katakunci_admin%'"; 
+               }  
+               $sql_jum .= " order by `nama`"; 
+               $query_jum = mysqli_query($koneksi,$sql_jum); 
+               $jum_data = mysqli_num_rows($query_jum); 
+               $jum_halaman = ceil($jum_data/$batas); 
+              ?>
                 <ul class="flex flex-row items-center gap-2">
                   <li>
                     <?php if($jum_halaman==0){
