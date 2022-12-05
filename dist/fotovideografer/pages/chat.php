@@ -100,7 +100,8 @@ if(isset($_SESSION["id_fotovideografer"])){
           </div>
           <!-- chat content end -->
           <!-- kirim chat -->
-          <form method="" action="" class="flex flex-row justify-between items-center">
+          <form method="POST" action="index.php?include=konfirmasi-chat"
+            class="flex flex-row justify-between items-center">
             <input
               class="px-6 py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2"
               name="chat" type="text" autocomplete="off" placeholder="Ketikan pesan Anda" />
