@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-pagination-bullet {
-  @apply bg-secondary;
-}
-
 .btn-primary {
   @apply inline-block px-6 py-4 bg-primary text-text2 text-paragraph1 rounded-[8px] hover:bg-secondary transition-default;
 }

@@ -15,6 +15,8 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-ubah-password.php";
   } else if($include =="konfirmasi-chat"){
     include "confirm/konfirmasi-chat.php";
+  } else if($include =="konfirmasi-tambah-portofolio"){
+    include "confirm/konfirmasi-tambah-portofolio.php";
   } else if($include =="logout"){
     include "confirm/logout.php";
   } 

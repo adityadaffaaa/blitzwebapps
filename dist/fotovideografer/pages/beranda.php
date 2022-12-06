@@ -28,6 +28,8 @@ while($data_verif = mysqli_fetch_row($query_verif)){
   $instagram_verif = $data_verif[2];
 }
 // mengambil data portofolio 
+$foto_portof = null;
+$video_portof = null;
 $sql_portof = "SELECT `p`.`portof_foto`, `p`.`portof_video`
 FROM `portofolio` `p` 
 JOIN `fotovideografer` `fv` ON `p`.`id_fotovideografer` = `fv`.`id_fotovideografer`
@@ -111,22 +113,7 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
           <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
             <h5 class="text-primary text-heading5 font-poppins">Portofolio Anda</h5>
             <!-- portofolio -->
-            <?php if (empty($foto_portof) || empty($video_portof)) { ?>
-            <div class="flex flex-col w-[500px] gap-3">
-              <div class="flex flex-col  items-center">
-                <span class="fill-secondary ">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="260" height="260">
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-3a5 5 0 0 1 10 0h-2a3 3 0 0 0-6 0H7zm1-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                  </svg>
-                </span>
-                <h5 class="text-secondary text-heading5 font-poppins">Portofolio mu belum ada!</h5>
-              </div>
-              <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
-                href="#">Isi Portofolio</a>
-            </div>
-            <?php } else {?>
+            <?php if ($foto_portof!=null || $video_portof!=null) { ?>
             <div class="flex flex-col gap-3">
               <a href="#" class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
                 style="background-image: url('./../customer/assets/img/portfolio1.png')">
@@ -137,6 +124,15 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
               </a>
               <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
                 href="#">Edit Portofolio</a>
+            </div>
+            <?php } else {?>
+            <div class="flex flex-col w-[500px] gap-3">
+              <div class="flex flex-col  items-center">
+                <iframe src="https://embed.lottiefiles.com/animation/51936" style="height: 240px;"></iframe>
+                <h5 class="text-secondary text-heading5 font-poppins">Portofolio mu belum ada!</h5>
+              </div>
+              <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
+                href="index.php?include=portofolio">Isi Portofolio</a>
             </div>
             <?php }?>
             <!-- portofolio end -->
@@ -160,8 +156,18 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
               <?php } ?>
             </div>
             <a href="index.php?include=pengaturan">
+              <?php if ($foto_fotovideo == null) { ?>
+              <span class="fill-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-4.987-3.744A7.966 7.966 0 0 0 12 20c1.97 0 3.773-.712 5.167-1.892A6.979 6.979 0 0 0 12.16 16a6.981 6.981 0 0 0-5.147 2.256zM5.616 16.82A8.975 8.975 0 0 1 12.16 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187zM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                </svg>
+              </span>
+              <?php } else { ?>
               <img class="rounded-full border-2  border-secondary" style="height: 64px;"
                 src="./assets/img/<?php echo $foto_fotovideo ?>" alt="">
+              <?php } ?>
             </a>
           </div>
           <div
@@ -170,13 +176,7 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
             <?php if (mysqli_num_rows($query_pesanan) == 0) { ?>
             <div class="flex flex-col gap-3">
               <div class="flex flex-col items-center">
-                <span class="fill-secondary ">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="260" height="260">
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-3a5 5 0 0 1 10 0h-2a3 3 0 0 0-6 0H7zm1-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                  </svg>
-                </span>
+                <iframe src="https://embed.lottiefiles.com/animation/84655" style="height: 240px;"></iframe>
                 <h5 class="text-secondary text-heading5 font-poppins">Pesanan mu belum ada!</h5>
               </div>
             </div>
