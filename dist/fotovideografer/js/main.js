@@ -51,3 +51,4 @@ closeBuktiPopup.addEventListener("click", () => {
     buktiPopup.classList.add("hidden");
   }, 300);
 });
+
