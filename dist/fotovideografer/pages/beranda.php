@@ -3,10 +3,11 @@
 if(isset($_SESSION["id_fotovideografer"])){
   $id_fotovideografer = $_SESSION["id_fotovideografer"];
   
-  $sql_header = "SELECT SUBSTRING_INDEX(`nama`,' ',1)FROM `fotovideografer` WHERE `id_fotovideografer`= $id_fotovideografer";
+  $sql_header = "SELECT SUBSTRING_INDEX(`nama`,' ',1), `foto`FROM `fotovideografer` WHERE `id_fotovideografer`= $id_fotovideografer";
   $query_header = mysqli_query($koneksi, $sql_header);
 while($data_header=mysqli_fetch_row($query_header)){
   $nama_header = $data_header[0];
+  $foto_fotovideo = $data_header[1];
 }
 // format tanggal
 }
@@ -97,12 +98,15 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
       <div
         class="flex flex-row p-6 gap-6 justify-between bg-background1 shadow-default rounded-lg mx-1 border-2 border-primary h-[550px] overflow-auto custom-scrollbar">
         <div class="flex flex-col gap-4">
-          <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
-            <h5 class="text-primary text-heading5 font-poppins">Pendapatan Anda</h5>
-            <p class="text-text1 text-paragraph2">IDR <?php if ($pendapatan == null) {
+          <div
+            class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-row items-center justify-between">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-primary text-heading5 font-poppins">Pendapatan Anda</h5>
+              <p class="text-text1 text-paragraph2">IDR <?php if ($pendapatan == null) {
               echo 0;
             } else {
               echo $total_pend; }?></p>
+            </div>
           </div>
           <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
             <h5 class="text-primary text-heading5 font-poppins">Portofolio Anda</h5>
@@ -139,19 +143,26 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
           </div>
         </div>
         <div class="flex flex-col w-full gap-4">
-          <div class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col gap-4">
-            <h5 class="text-primary text-heading5 font-poppins">
-              <?php echo $hari_indo,', ', $waktu_sekarang,' ',$bulan_indo,' ',$tahun_sekarang ?></h5>
-            <?php if($jml_pesanan == 0){ ?>
-            <p class="text-text4 text-paragraph2 flex items-center gap-1">
-              Belum ada pesanan
-            </p>
-            <?php } else { ?>
-            <p class="text-primary text-paragraph1 flex items-center gap-1">
-              <?php echo $jml_pesanan ?>
-              <a class="text-paragraph2 text-text4">Pesanan belum dikerjakan</a>
-            </p>
-            <?php } ?>
+          <div
+            class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-row items-center justify-between">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-primary text-heading5 font-poppins">
+                <?php echo $hari_indo,', ', $waktu_sekarang,' ',$bulan_indo,' ',$tahun_sekarang ?></h5>
+              <?php if($jml_pesanan == 0){ ?>
+              <p class="text-text4 text-paragraph2 flex items-center gap-1">
+                Belum ada pesanan
+              </p>
+              <?php } else { ?>
+              <p class="text-primary text-paragraph1 flex items-center gap-1">
+                <?php echo $jml_pesanan ?>
+                <a class="text-paragraph2 text-text4">Pesanan belum dikerjakan</a>
+              </p>
+              <?php } ?>
+            </div>
+            <a href="index.php?include=pengaturan">
+              <img class="rounded-full border-2  border-secondary" style="height: 64px;"
+                src="./assets/img/<?php echo $foto_fotovideo ?>" alt="">
+            </a>
           </div>
           <div
             class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-col justify-center items-center gap-4">

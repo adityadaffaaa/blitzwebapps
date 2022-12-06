@@ -173,8 +173,9 @@ if(isset($_GET["data"])){
                     </div>
                   </div>
                   <?php } ?>
-                  <a class="px-4 py-[10px] w-full justify-center bg-secondary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-background2"
-                    href="#">Cek Bukti Pembayaran</a>
+                  <a
+                    class="bukti cursor-pointer px-4 py-[10px] w-full justify-center bg-secondary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-background2">Cek
+                    Bukti Pembayaran</a>
                 </div>
               </div>
             </div>
@@ -186,3 +187,21 @@ if(isset($_GET["data"])){
   </div>
 </section>
 <!-- content edit profil end -->
+<!-- bukti pop up -->
+<div
+  class="bukti-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
+  <div class="bukti-popup relative shadow-default transition-all ease-in-out duration-500 translate-y-64">
+    <img class="h-[500px] w-auto" src="./assets/img/buktipembayaran.jpeg" alt="" />
+    <div
+      class="close-bukti-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
+      <span class="fill-text2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+<!-- bukti pop up end -->

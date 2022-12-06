@@ -132,7 +132,7 @@ if(isset($_SESSION['katakunci_pemesanan'])){
                     <td class="text-center py-4"><?php echo $jasa ?></td>
                     <td class="text-center py-4"><?php echo $tgl_pesan ?></td>
                     <td class="text-center py-4"><?php echo $tgl_mulai ?></td>
-                    <td class="flex justify-center py-4">
+                    <td class=" py-4">
                       <div class="flex flex-row items-center gap-2">
                         <?php if ($foto_fotovideografer == null) { ?>
                         <span class="fill-primary">
@@ -144,7 +144,7 @@ if(isset($_SESSION['katakunci_pemesanan'])){
                         </span>
                         <?php } else { ?>
                         <img class="h-[42px] rounded-full"
-                          src="./../customer/assets/img/<?php echo $foto_fotovideografer ?>" alt="" />
+                          src="./../fotovideografer/assets/img/<?php echo $foto_fotovideografer ?>" alt="" />
                         <?php } ?>
                         <div class="flex flex-col gap-[2px]">
                           <p><?php echo $nama_fotovideografer ?></p>

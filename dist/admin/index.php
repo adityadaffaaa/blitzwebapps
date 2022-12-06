@@ -19,6 +19,8 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-edit-admin.php";
   } else if($include =="konfirmasi-verifikasi-fotovideografer"){
     include "confirm/konfirmasi-verifikasi-fotovideografer.php";
+  } else if($include =="konfirmasi-pemesanan"){
+    include "confirm/konfirmasi-pemesanan.php";
   }
 }
 ?>
