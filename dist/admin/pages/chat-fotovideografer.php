@@ -65,7 +65,7 @@
             </span>
             <?php }else{ 
             ?>
-            <img class="h-16 rounded-full" src="../customer/assets/img/<?php echo $foto ?>" alt="" />
+            <img class="h-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
             <?php }?>
             <div class="flex flex-col justify-between w-full">
               <div class="flex flex-row justify-between">
@@ -78,7 +78,7 @@
           </a>
           <?php }else{
             ?>
-          <a href="index.php?include=detail-chat-customer&data=<?php echo $id_customer ?>"
+          <a href="index.php?include=detail-chat-fotovideografer&data=<?php echo $id_fotovideografer ?>"
             class="flex flex-row bg-background1 items-center gap-4 p-4 border-t-2 border-primary w-[95%] transition-default hover:scale-105 hover:border-transparent hover:rounded-lg hover:shadow-default hover:-translate-y-2">
             <?php if($foto== null){?>
             <span class="fill-primary ">
@@ -90,7 +90,7 @@
             </span>
             <?php }else{ 
             ?>
-            <img class="h-16 rounded-full" src="../customer/assets/img/<?php echo $foto ?>" alt="" />
+            <img class="h-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
             <?php }?>
             <div class="flex flex-row justify-between w-full">
               <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>
