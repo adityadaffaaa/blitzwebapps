@@ -901,10 +901,6 @@ video {
   height: 550px;
 }
 
-.h-56 {
-  height: 14rem;
-}
-
 .h-\[406px\] {
   height: 406px;
 }
@@ -955,10 +951,6 @@ video {
 
 .h-\[240px\] {
   height: 240px;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .w-\[410px\] {
@@ -1992,11 +1984,6 @@ video {
 
 .scrollbar-thin.overflow-x-hidden {
   overflow-x: hidden;
-}
-
-.swiper-pagination-bullet {
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 100 87 / var(--tw-bg-opacity));
 }
 
 .btn-primary {

@@ -33,12 +33,21 @@ $video_portof = null;
 $sql_portof = "SELECT `p`.`portof_foto`, `p`.`portof_video`
 FROM `portofolio` `p` 
 JOIN `fotovideografer` `fv` ON `p`.`id_fotovideografer` = `fv`.`id_fotovideografer`
-WHERE `p`.`id_fotovideografer` = $id_fotovideografer";
+WHERE `p`.`id_fotovideografer` = $id_fotovideografer ORDER BY `id_portofolio` 
+LIMIT 1";
 $query_portof = mysqli_query($koneksi, $sql_portof);
 while($data_portof = mysqli_fetch_row($query_portof)){
   $foto_portof = $data_portof[0];
   $video_portof = $data_portof[1];
 }
+// mengambil jumlah portof
+$sql_jml_portof = "SELECT COUNT(`id_portofolio`) FROM `portofolio`
+WHERE `id_fotovideografer` = $id_fotovideografer";
+$query_jml_portof = mysqli_query($koneksi, $sql_jml_portof);
+while($data_jml_portof= mysqli_fetch_row($query_jml_portof)){
+  $jml_portof = $data_jml_portof[0];
+}
+
 // mengambil data pesanan customer
 $sql_pesanan = "SELECT `cust`.`nama`,`k`.`kategori`, `p`.`jadwal_mulai`, `p`.`harga`
 FROM `pemesanan` `p`
@@ -115,15 +124,16 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
             <!-- portofolio -->
             <?php if ($foto_portof!=null || $video_portof!=null) { ?>
             <div class="flex flex-col gap-3">
-              <a href="#" class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
-                style="background-image: url('./../customer/assets/img/portfolio1.png')">
+              <a href="index.php?include=portofolio"
+                class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
+                style="background-image: url('./assets/img/<?php echo $foto_portof ?>')">
                 <div
                   class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                  <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_portof ?></h3>
                 </div>
               </a>
               <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
-                href="#">Edit Portofolio</a>
+                href="index.php?include=portofolio">Edit Portofolio</a>
             </div>
             <?php } else {?>
             <div class="flex flex-col w-[500px] gap-3">

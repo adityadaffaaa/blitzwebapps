@@ -13,6 +13,18 @@ $sql_portof = "SELECT `id_portofolio`, `portof_foto`, `portof_video`
 FROM `portofolio` 
 WHERE `id_fotovideografer` = $id_fotovideografer";
 $query_portof = mysqli_query($koneksi, $sql_portof);
+$sql_portof_video = "SELECT `id_portofolio`, `portof_video`
+FROM `portofolio` 
+WHERE `id_fotovideografer` = $id_fotovideografer";
+$query_portof_video = mysqli_query($koneksi, $sql_portof_video);
+
+if((isset($_GET['aksi']))&&(isset($_GET['data']))){
+  if($_GET['aksi']=="hapus"){
+    $id_portof = $_GET['data'];    
+    $sql_h = "DELETE FROM `portofolio` WHERE `id_portofolio` = '$id_portof'";
+    mysqli_query($koneksi, $sql_h);
+  }
+}
 ?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
@@ -43,18 +55,21 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
             <div class="flex flex-col gap-4">
               <h5 class="text-primary text-heading5 font-poppins">Portofolio Foto</h5>
               <div class="grid grid-cols-4 gap-6 mr-6">
-                <?php while($data_portof_foto = mysqli_fetch_row($query_portof)){
-                  $foto = $data_portof_foto[1];?>
+                <?php 
+                while($data_portof_foto = mysqli_fetch_row($query_portof)){
+                  $id_portof_foto = $data_portof_foto[0];
+                  $foto = $data_portof_foto[1];
+                  ?>
                 <div class="flex flex-col gap-2">
-                  <div class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
-                    style="background-image: url(./assets/img/porto1.png)">
+                  <a class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
+                    style="background-image: url(./assets/img/<?php echo $foto ?>)">
                     <div
                       class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
                       <p class="text-text2 text-paragraph1">Lihat detail</p>
                     </div>
-                  </div>
+                  </a>
                   <a class="h-9 w-9 bg-primary rounded-lg flex justify-center items-center fill-text2 transition-default hover:bg-secondary"
-                    href="#">
+                    href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $foto; ?>?'))window.location.href='index.php?include=portofolio&aksi=hapus&data=<?php echo $id_portof_foto;?>&notif=hapusberhasil'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path fill="none" d="M0 0h24v24H0z" />
                       <path
@@ -70,17 +85,14 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
               <h5 class="text-primary text-heading5 font-poppins">Portofolio Video</h5>
               <div class="grid grid-cols-4 gap-6 mr-6">
                 <?php while ($data_portof_video = mysqli_fetch_row($query_portof)) {
+                $id_portof_video = $data_portof_video[0];
                 $video = $data_portof_video[2]; ?>
                 <div class="flex flex-col gap-2">
-                  <div class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
-                    style="background-image: url(./assets/img/porto1.png)">
-                    <div
-                      class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                      <p class="text-text2 text-paragraph1">Lihat detail</p>
-                    </div>
-                  </div>
+                  <video class="rounded-lg" width="280" controls>
+                    <source src="./assets/img/<?php echo $video?>">
+                  </video>
                   <a class="h-9 w-9 bg-primary rounded-lg flex justify-center items-center fill-text2 transition-default hover:bg-secondary"
-                    href="#">
+                    href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $video; ?>?'))window.location.href='index.php?include=portofolio&aksi=hapus&data=<?php echo $id_portof_video;?>&notif=hapusberhasil'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path fill="none" d="M0 0h24v24H0z" />
                       <path
@@ -96,17 +108,19 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
               <h5 class="text-primary text-heading5 font-poppins">Portofolio Foto</h5>
               <div class="grid grid-cols-4 gap-6 mr-6">
                 <?php while ($data_portof_fotovideo_foto = mysqli_fetch_row($query_portof)) {
+                $id_fotovideo_foto = $data_portof_fotovideo_foto[0];
                 $fotovideo_foto = $data_portof_fotovideo_foto[1]; ?>
+                <?php if ($fotovideo_foto != null) { ?>
                 <div class="flex flex-col gap-2">
                   <div class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
-                    style="background-image: url(./assets/img/porto1.png)">
+                    style="background-image: url(./assets/img/<?php echo $fotovideo_foto ?>)">
                     <div
                       class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
                       <p class="text-text2 text-paragraph1">Lihat detail</p>
                     </div>
                   </div>
                   <a class="h-9 w-9 bg-primary rounded-lg flex justify-center items-center fill-text2 transition-default hover:bg-secondary"
-                    href="#">
+                    href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $fotovideo_foto; ?>?'))window.location.href='index.php?include=portofolio&aksi=hapus&data=<?php echo $id_fotovideo_foto;?>&notif=hapusberhasil'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path fill="none" d="M0 0h24v24H0z" />
                       <path
@@ -115,23 +129,22 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
                   </a>
                 </div>
                 <?php } ?>
+                <?php } ?>
               </div>
             </div>
             <div class="flex flex-col gap-4">
               <h5 class="text-primary text-heading5 font-poppins">Portofolio Video</h5>
               <div class="grid grid-cols-4 gap-6 mr-6">
-                <?php while ($data_portof_fotovideo_video = mysqli_fetch_row($query_portof)) {
-                $fotovideo_video = $data_portof_fotovideo_video[2]; ?>
+                <?php while ($data_portof_fotovideo_video = mysqli_fetch_row($query_portof_video)) {
+                $id_fotovideo_video = $data_portof_fotovideo_video[0];
+                $fotovideo_video = $data_portof_fotovideo_video[1]; ?>
+                <?php if ($fotovideo_video != null) { ?>
                 <div class="flex flex-col gap-2">
-                  <div class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
-                    style="background-image: url(./assets/img/porto1.png)">
-                    <div
-                      class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                      <p class="text-text2 text-paragraph1">Lihat detail</p>
-                    </div>
-                  </div>
+                  <video class="rounded-lg" width="280" controls>
+                    <source src="./assets/img/<?php echo $fotovideo_video ?>">
+                  </video>
                   <a class="h-9 w-9 bg-primary rounded-lg flex justify-center items-center fill-text2 transition-default hover:bg-secondary"
-                    href="#">
+                    href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $fotovideo_video; ?>?'))window.location.href='index.php?include=portofolio&aksi=hapus&data=<?php echo $id_fotovideo_video?>&notif=hapusberhasil'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path fill="none" d="M0 0h24v24H0z" />
                       <path
@@ -139,6 +152,7 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
                     </svg>
                   </a>
                 </div>
+                <?php } ?>
                 <?php } ?>
               </div>
             </div>
@@ -173,7 +187,7 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
 <div
   class="detail-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
   <div class="detail-popup relative shadow-default transition-all ease-in-out duration-500 translate-y-64">
-    <img class="h-[500px] w-auto" src="./assets/img/porto1.png" alt="" />
+    <img class="h-[500px] w-auto" src="./assets/img/<?php echo $foto ?>" alt="" />
     <div
       class="close-detail-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
       <span class="fill-text2">
@@ -257,3 +271,48 @@ $query_portof = mysqli_query($koneksi, $sql_portof);
   </div>
 </div>
 <!-- tambah video pop up end -->
+<?php if (!empty($_GET["notif"])) { ?>
+<?php if($_GET["notif"] =="hapusberhasil"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "success",
+    iconColor: "#034C5F",
+    title: "Hapus data berhasil!",
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=portofolio')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="fotoberhasil") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "success",
+    iconColor: "#034C5F",
+    title: "Foto berhasil ditambahkan!",
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=portofolio')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="videoberhasil") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "success",
+    iconColor: "#034C5F",
+    title: "Video berhasil ditambahkan!",
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=portofolio')
+  })
+}, 10)
+</script>
+<?php } ?>
+<?php } ?>
