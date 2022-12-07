@@ -17,7 +17,12 @@
                     style="background-image: url('./assets/img/kategori-ulangtahun.png')">
                     <div
                       class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                      <h4 class="text-text2 text-heading4 font-poppins">IDR 550.000/hari</h4>
+                      <div class="flex flex-col items-center gap-1">
+                        <h4 class="text-text2 text-heading4 font-poppins">IDR 550.000/hari</h4>
+                        <p class="text-text2 text-paragraph2 text-center w-4/5">Harga untuk satu kali
+                          sesi acara serta termasuk
+                          berkas foto</p>
+                      </div>
                     </div>
                   </div>
                   <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pesta Ulang Tahun</p>
@@ -33,7 +38,12 @@
                     style="background-image: url('./assets/img/kategori-kelulusan.png')">
                     <div
                       class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                      <h4 class="text-text2 text-heading4 font-poppins">IDR 750.000/hari</h4>
+                      <div class="flex flex-col items-center gap-1">
+                        <h4 class="text-text2 text-heading4 font-poppins">IDR 750.000/hari</h4>
+                        <p class="text-text2 text-paragraph2 text-center w-4/5">Harga untuk satu kali
+                          sesi acara serta termasuk
+                          berkas foto</p>
+                      </div>
                     </div>
                   </div>
                   <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Kelulusan</p>
@@ -49,7 +59,12 @@
                     style="background-image: url('./assets/img/kategori-liburan.png')">
                     <div
                       class="hover-kategori group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                      <h4 class="text-text2 text-heading4 font-poppins">IDR 850.000/hari</h4>
+                      <div class="flex flex-col items-center gap-1">
+                        <h4 class="text-text2 text-heading4 font-poppins">IDR 850.000/hari</h4>
+                        <p class="text-text2 text-paragraph2 text-center w-4/5">Harga untuk satu kali
+                          sesi acara serta termasuk
+                          berkas foto</p>
+                      </div>
                     </div>
                   </div>
                   <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Liburan</p>
@@ -65,7 +80,12 @@
                     style="background-image: url('./assets/img/kategori-wedding.png')">
                     <div
                       class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
-                      <h4 class="text-text2 text-heading4 font-poppins">IDR 1.470.000/hari</h4>
+                      <div class="flex flex-col items-center gap-1">
+                        <h4 class="text-text2 text-heading4 font-poppins">IDR 1.470.000/hari</h4>
+                        <p class="text-text2 text-paragraph2 text-center w-4/5">Harga untuk satu kali
+                          sesi acara serta termasuk
+                          berkas foto</p>
+                      </div>
                     </div>
                   </div>
                   <p class="text-text3 text-paragraph1 peer-checked:text-secondary">Pra Nikah</p>

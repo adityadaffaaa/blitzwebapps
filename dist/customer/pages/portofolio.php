@@ -97,7 +97,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
                 </svg>
               </span>
               <?php } else{ ?>
-              <img class="rounded-full h-[164px]"
+              <img class="rounded-full h-[164px] w-[164px]"
                 src="./../fotovideografer/assets/img/<?php echo $foto_fotovideografer ?>" alt="" />
               <?php } ?>
               <div class="flex flex-col gap-[2px] items-center">

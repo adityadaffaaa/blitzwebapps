@@ -89,7 +89,7 @@ if(isset($_SESSION["id_fotovideografer"])){
                   </svg>
                 </span>
                 <?php } else {?>
-                <img class="h-14 rounded-full" src="./assets/img/<?php echo $foto ?>" alt="" />
+                <img class="h-14 w-14 rounded-full" src="./assets/img/<?php echo $foto ?>" alt="" />
                 <?php }?>
               </div>
             </div>

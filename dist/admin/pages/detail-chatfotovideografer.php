@@ -69,7 +69,7 @@ $id_fotovideografer = $_GET["data"];
                   </svg>
                 </span>
                 <?php }else { ?>
-                <img class="h-14 rounded-full" src="../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
+                <img class="h-14 w-14 rounded-full" src="../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
                 <?php } ?>
                 <div class="flex flex-col gap-2">
                   <div class="p-6 bg-background1 rounded-lg shadow-default">

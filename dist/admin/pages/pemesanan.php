@@ -143,7 +143,7 @@ if(isset($_SESSION['katakunci_pemesanan'])){
                           </svg>
                         </span>
                         <?php } else { ?>
-                        <img class="h-[42px] rounded-full"
+                        <img class="h-[42px] w-[42px] rounded-full"
                           src="./../fotovideografer/assets/img/<?php echo $foto_fotovideografer ?>" alt="" />
                         <?php } ?>
                         <div class="flex flex-col gap-[2px]">

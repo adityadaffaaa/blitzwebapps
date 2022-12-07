@@ -7,7 +7,7 @@ if(isset($_SESSION["id_fotovideografer"])){
   $query_header = mysqli_query($koneksi, $sql_header);
 while($data_header=mysqli_fetch_row($query_header)){
   $nama_header = $data_header[0];
-  $foto_fotovideo = $data_header[1];
+  $foto_header = $data_header[1];
 }
 // format tanggal
 }
@@ -18,7 +18,7 @@ $bulan_indo = $bulan[date('n')];
 $waktu_sekarang = date("d");
 $tahun_sekarang = date("Y");
 // mengambil data verifikasi untuk mengecek data sudah lengkap atau belum
-$sql_verif = "SELECT `foto`, `deskripsi_pribadi`, `instagram` 
+$sql_verif = "SELECT `foto`, `deskripsi_pribadi`, `instagram`, `role`
 FROM `fotovideografer` 
 WHERE `id_fotovideografer` = '$id_fotovideografer'";
 $query_verif = mysqli_query($koneksi, $sql_verif);
@@ -26,6 +26,7 @@ while($data_verif = mysqli_fetch_row($query_verif)){
   $foto_verif = $data_verif[0];
   $deskripsi_pribadi_verif = $data_verif[1];
   $instagram_verif = $data_verif[2];
+  $role_verif = $data_verif[3];
 }
 // mengambil data portofolio 
 $foto_portof = null;
@@ -124,14 +125,78 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
             <!-- portofolio -->
             <?php if ($foto_portof!=null || $video_portof!=null) { ?>
             <div class="flex flex-col gap-3">
+              <?php if ($role_verif == "fotografer") { ?>
               <a href="index.php?include=portofolio"
                 class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
                 style="background-image: url('./assets/img/<?php echo $foto_portof ?>')">
                 <div
                   class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                  <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_portof ?></h3>
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_portof > 10) {
+                  echo '10+';
+                }else {
+                  echo $jml_portof;
+                }  ?></h3>
                 </div>
               </a>
+              <?php } else if($role_verif == "videografer"){?>
+              <a href="index.php?include=portofolio"
+                class="w-[500px] h-[380px] relative rounded-lg overflow-hidden group">
+                <video class="w-full h-full">
+                  <source src="./assets/img/<?php echo $video_portof ?>">
+                </video>
+                <div
+                  class="w-full h-full absolute z-50 top-0 gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_portof > 10) {
+                  echo '10+';
+                }else {
+                  echo $jml_portof;
+                }  ?></h3>
+                </div>
+              </a>
+              <?php } else if($role_verif == "fotografer dan videografer"){?>
+              <?php if ($foto_portof == null) { ?>
+              <a href="index.php?include=portofolio"
+                class="w-[500px] h-[380px] relative rounded-lg overflow-hidden group">
+                <video class="w-full h-full">
+                  <source src="./assets/img/<?php echo $video_portof ?>">
+                </video>
+                <div
+                  class="w-full h-full absolute z-50 top-0 gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_portof > 10) {
+                  echo '10+';
+                }else {
+                  echo $jml_portof;
+                }  ?></h3>
+                </div>
+              </a>
+              <?php } else if ($video_portof == null) { ?>
+              <a href="index.php?include=portofolio"
+                class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
+                style="background-image: url('./assets/img/<?php echo $foto_portof ?>')">
+                <div
+                  class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_portof > 10) {
+                  echo '10+';
+                }else {
+                  echo $jml_portof;
+                }  ?></h3>
+                </div>
+              </a>
+              <?php } else { ?>
+              <a href="index.php?include=portofolio"
+                class="w-[500px] h-[380px] bg-cover rounded-lg overflow-hidden group"
+                style="background-image: url('./assets/img/<?php echo $foto_portof ?>')">
+                <div
+                  class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                  <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_portof > 10) {
+                    echo '10+';
+                  }else {
+                    echo $jml_portof;
+                  }  ?></h3>
+                </div>
+              </a>
+              <?php }?>
+              <?php } ?>
               <a class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph1 flex flex-row justify-center transition-default hover:bg-secondary"
                 href="index.php?include=portofolio">Edit Portofolio</a>
             </div>
@@ -166,7 +231,7 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
               <?php } ?>
             </div>
             <a href="index.php?include=pengaturan">
-              <?php if ($foto_fotovideo == null) { ?>
+              <?php if ($foto_header == null) { ?>
               <span class="fill-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
                   <path fill="none" d="M0 0h24v24H0z" />
@@ -175,8 +240,8 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
                 </svg>
               </span>
               <?php } else { ?>
-              <img class="rounded-full border-2  border-secondary" style="height: 64px;"
-                src="./assets/img/<?php echo $foto_fotovideo ?>" alt="">
+              <img class="rounded-full border-2  border-secondary" style="height: 64px; width: 64px;"
+                src="./assets/img/<?php echo $foto_header ?>" alt="">
               <?php } ?>
             </a>
           </div>
@@ -269,6 +334,26 @@ setTimeout(() => {
       window.location.href = "index.php?include=pengaturan";
     }
   });
-})
+}, 30)
+</script>
+<?php } ?>
+<?php if ($jml_portof==0) {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    title: "Isi portofolio Anda!",
+    text: "Segera isi portofolio anda agar customer dapat melihat hasil karya mu",
+    icon: "info",
+    iconColor: "#97BEC6",
+    confirmButtonText: "Siap kak!",
+    confirmButtonColor: "#034C5F",
+    showCancelButton: true,
+    cancelButtonText: "Nanti dulu deh"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "index.php?include=portofolio";
+    }
+  });
+}, 20)
 </script>
 <?php } ?>

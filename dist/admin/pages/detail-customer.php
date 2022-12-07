@@ -68,7 +68,7 @@ if (isset($_GET["data"])) {
                 </span>
                 <?php
                 } else { ?>
-                <img class="h-52 rounded-lg" src="../customer/assets/img/<?php echo $foto ?>" alt="" />
+                <img class="h-52 w-52 rounded-lg" src="../customer/assets/img/<?php echo $foto ?>" alt="" />
                 <?php } ?>
               </div>
             </div>

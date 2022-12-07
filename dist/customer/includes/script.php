@@ -11,6 +11,15 @@
 <script src="./js/beranda.js"></script>
 <script src="./js/riwayat.js"></script>
 
+<!-- carousel foto -->
+<script src="./js/carousel-portofolio-foto.js"></script>
+<!-- carousel video -->
+<script src="./js/carousel-portofolio-video.js"></script>
+<!-- script -->
+<script src="./js/detail-portofolio-foto.js"></script>
+<!-- script -->
+<script src="./js/detail-portofolio-video.js"></script>
+
 <!-- sweet alert -->
 <script src="../../sweatalert/sweetalert2.all.min.js"></script>
 

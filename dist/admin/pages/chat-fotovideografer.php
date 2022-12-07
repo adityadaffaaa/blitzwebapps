@@ -65,7 +65,7 @@
             </span>
             <?php }else{ 
             ?>
-            <img class="h-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
+            <img class="h-16 w-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
             <?php }?>
             <div class="flex flex-col justify-between w-full">
               <div class="flex flex-row justify-between">
@@ -90,7 +90,7 @@
             </span>
             <?php }else{ 
             ?>
-            <img class="h-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
+            <img class="h-16 w-16 rounded-full" src="./../fotovideografer/assets/img/<?php echo $foto ?>" alt="" />
             <?php }?>
             <div class="flex flex-row justify-between w-full">
               <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>

@@ -55,3 +55,21 @@
 ::-webkit-scrollbar-thumb {
   @apply rounded-full;
 }
+
+.portof-foto-popup .carousel-portof-foto .swiper-button-next,
+.portof-foto-popup .carousel-portof-foto .swiper-button-prev {
+  @apply text-text2 transition-default hover:text-secondary rounded-full  mx-6;
+}
+
+.portof-foto-popup .swiper-pagination {
+  @apply text-text2 text-heading5 font-poppins;
+}
+
+.portof-video-popup .carousel-portof-video .swiper-button-next,
+.portof-video-popup .carousel-portof-video .swiper-button-prev {
+  @apply text-text2 transition-default hover:text-secondary rounded-full mx-6;
+}
+
+.portof-video-popup .swiper-pagination {
+  @apply text-text2 text-heading5 font-poppins;
+}
