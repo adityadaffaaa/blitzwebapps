@@ -24,6 +24,18 @@ if(isset($_GET['data'])){
     $status = $data_grafer[14];
   }
 }
+// mengambil jumlah portof foto
+$sql_jml_foto = "SELECT COUNT(`portof_foto`) FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer";
+$query_jml_foto = mysqli_query($koneksi, $sql_jml_foto);
+while($data_jml_foto= mysqli_fetch_row($query_jml_foto)){
+  $jml_foto = $data_jml_foto[0];
+}
+// mengambil jumlah portof video
+$sql_jml_video = "SELECT COUNT(`portof_video`) FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer";
+$query_jml_video = mysqli_query($koneksi, $sql_jml_video);
+while($data_jml_video= mysqli_fetch_row($query_jml_video)){
+  $jml_video = $data_jml_video[0];
+}
 ?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
@@ -184,7 +196,7 @@ if(isset($_GET['data'])){
                   style="background-image: url('./../customer/assets/img/portfolio1.png')">
                   <div
                     class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                    <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
+                    <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_foto ?></h3>
                   </div>
                 </a>
               </div>
@@ -196,7 +208,7 @@ if(isset($_GET['data'])){
                   style="background-image: url('./../customer/assets/img/portfolio1.png')">
                   <div
                     class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                    <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
+                    <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_video ?></h3>
                   </div>
                 </a>
               </div>
