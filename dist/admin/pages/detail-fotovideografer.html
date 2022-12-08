@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../style/swiper-bundle.min.css" />
   </head>
   <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
     <!-- side bar -->
@@ -164,7 +165,7 @@
         <div class="flex flex-col gap-8">
           <div class="flex flex-row bg-text2 px-6 py-1 items-center justify-between shadow-default">
             <div class="flex flex-col">
-              <h3 class="text-text1 text-heading3 font-poppins">Data Customer</h3>
+              <h3 class="text-text1 text-heading3 font-poppins">Data Fotografer dan Videografer</h3>
             </div>
             <a href="./signin.html" class="flex flex-row gap-3 group text-[rgba(0,0,0,0.5)] hover:text-text1 transition-default group">
               <span class="fill-[rgba(0,0,0,0.5)] transition-default group-hover:fill-text1">
@@ -212,7 +213,7 @@
                 <div class="flex flex-row w-full justify-between items-center">
                   <p class="text-text1 text-paragraph1">Email</p>
                   <div class="flex justify-start mr-40">
-                    <input class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
                   </div>
                 </div>
                 <div class="flex flex-row w-full justify-between items-center">
@@ -228,15 +229,77 @@
                   </div>
                 </div>
                 <div class="flex flex-row w-full justify-between items-center">
-                  <p class="text-text1 text-paragraph1">Level</p>
+                  <p class="text-text1 text-paragraph1">Jenis Kelamin</p>
                   <div class="flex justify-start mr-40">
                     <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
                   </div>
                 </div>
                 <div class="flex flex-row w-full justify-between items-center">
-                  <p class="text-text1 text-paragraph1">Tanggal Bergabung</p>
+                  <p class="text-text1 text-paragraph1">NIK</p>
                   <div class="flex justify-start mr-40">
                     <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Usia</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Role</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Link Portofolio</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Instagram</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Deskripsi Pribadi</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Token</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Status</p>
+                  <div class="flex justify-start mr-40">
+                    <input readonly class="p-[10px] bg-primary rounded-lg text-text2 text-paragraph2 outline-none w-[800px]" name="notelepon" id="notelepon" type="text" value="081807866444" />
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Portofolio Foto</p>
+                  <div class="flex w-[800px] justify-start mr-40">
+                    <a class="portof-foto w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group" style="background-image: url('../../customer/assets/img/portfolio1.png')">
+                      <div class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                        <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="flex flex-row w-full justify-between items-center">
+                  <p class="text-text1 text-paragraph1">Portofolio Video</p>
+                  <div class="flex w-[800px] justify-start mr-40">
+                    <a class="portof-video w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group" style="background-image: url('../../customer/assets/img/portfolio1.png')">
+                      <div class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                        <h3 class="text-text2 text-heading3 font-poppins">10+</h3>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -249,7 +312,79 @@
       </div>
     </section>
     <!-- content edit profil end -->
+    <!-- portofolio foto -->
+    <div class="portof-foto-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
+      <div class="portof-foto-popup h-[80vh] w-full shadow-default transition-all justify-center items-center ease-in-out duration-500 translate-y-64">
+        <div
+          class="close-portof-foto-popup absolute z-[100] top-6 right-6 transition-all ease-in-out duration-200 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary"
+        >
+          <span class="fill-text2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </span>
+        </div>
+        <div class="swiper carousel-portof-foto h-full">
+          <div class="swiper-wrapper w-full h-full">
+            <div class="swiper-slide">
+              <div class="w-full h-full bg-cover" style="background-image: url('../../fotovideografer/assets/img/DSC_0384.JPG')"></div>
+            </div>
+            <div class="swiper-slide">
+              <div class="w-full h-full bg-cover" style="background-image: url('../../fotovideografer/assets/img/DSC_0355.JPG')"></div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <!-- portofolio foto end -->
+    <!-- portofolio video -->
+    <div class="portof-video-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
+      <div class="portof-video-popup bg-black h-[80vh] w-full shadow-default justify-center items-center transition-all ease-in-out duration-500 translate-y-64">
+        <div
+          class="close-portof-video-popup absolute z-[100] top-6 right-6 transition-all ease-in-out duration-200 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary"
+        >
+          <span class="fill-text2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </span>
+        </div>
+        <div class="swiper carousel-portof-video h-full">
+          <div class="swiper-wrapper w-full h-full">
+            <div class="swiper-slide">
+              <video class="w-full h-[75vh]" controls>
+                <source src="../../fotovideografer/assets/img/MAH07309.MP4" type="" />
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <video class="w-full h-[75vh]" controls>
+                <source src="../../fotovideografer/assets/img/kamera ngalam.mp4" type="" />
+              </video>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <!-- portofolio video end -->
   </body>
   <!-- script -->
   <script src="../js/main.js"></script>
+  <!-- swiper -->
+  <script src="../js/swiper-bundle.min.js"></script>
+  <!-- carousel foto -->
+  <script src="../js/carousel-portofolio-foto.js"></script>
+  <!-- carousel video -->
+  <script src="../js/carousel-portofolio-video.js"></script>
+  <!-- portof foto -->
+  <script src="../js/portof-foto.js"></script>
+  <!-- portof video -->
+  <script src="../js/portof-video.js"></script>
 </html>
