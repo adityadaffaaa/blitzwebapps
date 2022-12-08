@@ -61,8 +61,7 @@ if((isset($_GET['aksi']))&&(isset($_GET['data']))){
                   $foto = $data_portof_foto[1];
                   ?>
                 <div class="flex flex-col gap-2">
-                  <a href="index.php?include=detail-portofolio&data=<?php echo $id_portof_foto ?>"
-                    class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
+                  <a class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
                     style="background-image: url(./assets/img/<?php echo $foto ?>)">
                     <div
                       class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
@@ -113,14 +112,13 @@ if((isset($_GET['aksi']))&&(isset($_GET['data']))){
                 $fotovideo_foto = $data_portof_fotovideo_foto[1]; ?>
                 <?php if ($fotovideo_foto != null) { ?>
                 <div class="flex flex-col gap-2">
-                  <a href="index.php?include=detail-portofolio&data=<?php echo $id_fotovideo_foto ?>"
-                    class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
+                  <div class="detail w-[280px] h-[208px] bg-cover rounded-lg cursor-pointer overflow-hidden group"
                     style="background-image: url(./assets/img/<?php echo $fotovideo_foto ?>)">
                     <div
                       class="w-full h-full bg-[rgba(238,100,87,0.6)] flex justify-center items-center translate-y-56 transition-all ease-in-out duration-500 group-hover:translate-y-0">
                       <p class="text-text2 text-paragraph1">Lihat detail</p>
                     </div>
-                  </a>
+                  </div>
                   <a class="h-9 w-9 bg-primary rounded-lg flex justify-center items-center fill-text2 transition-default hover:bg-secondary"
                     href="javascript:if(confirm('Anda yakin ingin menghapus data <?php echo $fotovideo_foto; ?>?'))window.location.href='index.php?include=portofolio&aksi=hapus&data=<?php echo $id_fotovideo_foto;?>&notif=hapusberhasil'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -185,13 +183,23 @@ if((isset($_GET['aksi']))&&(isset($_GET['data']))){
   </div>
 </section>
 <!-- content edit profil end -->
-<!-- tambah foto pop up -->
+<?php 
+if(isset($_GET['data'])){
+  $id_portofolio = $_GET['data'];
+  $sql = "SELECT `portof_foto` FROM `portofolio` WHERE `id_portofolio` = $id_portofolio";
+  $query = mysqli_query($koneksi, $sql);
+  while($data = mysqli_fetch_row($query)){
+    $foto = $data[0];
+  }
+}
+?>
+<!-- detail pop up -->
 <div
-  class="tambah-foto-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
-  <div
-    class="tambah-foto-popup relative bg-text2 p-6 rounded-lg shadow-default flex flex-col gap-6 justify-center items-center transition-all ease-in-out duration-500 translate-y-64">
+  class="detail-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
+  <div class="detail-popup relative shadow-default transition-all ease-in-out duration-500 translate-y-64">
+    <img class="h-[500px] w-auto" src="./assets/img/<?php echo $foto ?>" alt="" />
     <div
-      class="close-foto-tambah-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
+      class="close-detail-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
       <span class="fill-text2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
           <path fill="none" d="M0 0h24v24H0z" />
@@ -200,103 +208,34 @@ if((isset($_GET['aksi']))&&(isset($_GET['data']))){
         </svg>
       </span>
     </div>
-    <span class="fill-primary">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="108" height="108">
-        <path fill="none" d="M0 0h24v24H0z" />
-        <path
-          d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993V13h-2V5H4v13.999L14 9l3 3v2.829l-3-3L6.827 19H14v2H2.992A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
-      </svg>
-    </span>
-    <h5 class="text-text1 text-heading5 font-poppins">Kirim portofolio foto Anda</h5>
-    <form method="POST" action="index.php?include=konfirmasi-tambah-portofolio" enctype="multipart/form-data"
-      class="flex flex-col gap-4">
-      <input
-        class="w-full cursor-pointer text-text2 bg-primary px-4 py-2 rounded-lg transition-default hover:bg-secondary"
-        type="file" name="foto" id="foto" />
-      <button
-        class="bg-secondary w-full px-4 py-2 rounded-lg transition-default hover:bg-background2 text-text2 text-paragraph1"
-        type="submit">Kirim</button>
-    </form>
   </div>
 </div>
-<!-- tambah foto pop up end -->
-<!-- tambah video pop up -->
-<div
-  class="tambah-video-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
-  <div
-    class="tambah-video-popup relative bg-text2 p-6 rounded-lg shadow-default flex flex-col gap-6 justify-center items-center transition-all ease-in-out duration-500 translate-y-64">
-    <div
-      class="close-video-tambah-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
-      <span class="fill-text2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path
-            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-        </svg>
-      </span>
-    </div>
-    <span class="fill-primary">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="108" height="108">
-        <path fill="none" d="M0 0H24V24H0z" />
-        <path
-          d="M16 4c.552 0 1 .448 1 1v4.2l5.213-3.65c.226-.158.538-.103.697.124.058.084.09.184.09.286v12.08c0 .276-.224.5-.5.5-.103 0-.203-.032-.287-.09L17 14.8V19c0 .552-.448 1-1 1H2c-.552 0-1-.448-1-1V5c0-.552.448-1 1-1h14zm-1 2H3v12h12V6zM8 8h2v3h3v2H9.999L10 16H8l-.001-3H5v-2h3V8zm13 .841l-4 2.8v.718l4 2.8V8.84z" />
-      </svg>
-    </span>
-    <h5 class="text-text1 text-heading5 font-poppins">Kirim portofolio video Anda</h5>
-    <form method="POST" action="index.php?include=konfirmasi-tambah-portofolio" enctype="multipart/form-data"
-      class="flex flex-col gap-4">
-      <input
-        class="w-full cursor-pointer text-text2 bg-primary px-4 py-2 rounded-lg transition-default hover:bg-secondary"
-        type="file" name="video" id="video" />
-      <button
-        class="bg-secondary w-full px-4 py-2 rounded-lg transition-default hover:bg-background2 text-text2 text-paragraph1"
-        type="submit">Kirim</button>
-    </form>
-  </div>
-</div>
-<!-- tambah video pop up end -->
-<?php if (!empty($_GET["notif"])) { ?>
-<?php if($_GET["notif"] =="hapusberhasil"){?>
+<!-- detail pop up end -->
 <script>
+// detail pop up
+const detailPopup = document.querySelector(".detail-popup-background");
+
+const closedetailPopup = document.querySelector(".close-detail-popup");
+
 setTimeout(() => {
-  swal.fire({
-    icon: "success",
-    iconColor: "#034C5F",
-    title: "Hapus data berhasil!",
-    confirmButtonText: "Okee kak",
-    confirmButtonColor: "#034C5F",
-  }).then(() => {
-    window.location.replace('index.php?include=portofolio')
-  })
-}, 10)
+  detailPopup.classList.add("flex");
+  detailPopup.classList.remove("hidden");
+  setTimeout(() => {
+    detailPopup.classList.remove("opacity-0");
+    detailPopup.firstElementChild.classList.remove("translate-y-64");
+  }, 300);
+});
+
+// detail close
+closedetailPopup.addEventListener("click", () => {
+  detailPopup.classList.add("opacity-0");
+  detailPopup.firstElementChild.classList.add("translate-y-64");
+  setTimeout(() => {
+    detailPopup.classList.remove("flex");
+    detailPopup.classList.add("hidden");
+  }, 100);
+  setTimeout(() => {
+    window.location.href = "index.php?include=portofolio";
+  }, 400);
+});
 </script>
-<?php }else if($_GET["notif"]=="fotoberhasil") {?>
-<script>
-setTimeout(() => {
-  swal.fire({
-    icon: "success",
-    iconColor: "#034C5F",
-    title: "Foto berhasil ditambahkan!",
-    confirmButtonText: "Okee kak",
-    confirmButtonColor: "#034C5F",
-  }).then(() => {
-    window.location.replace('index.php?include=portofolio')
-  })
-}, 10)
-</script>
-<?php }else if($_GET["notif"]=="videoberhasil") {?>
-<script>
-setTimeout(() => {
-  swal.fire({
-    icon: "success",
-    iconColor: "#034C5F",
-    title: "Video berhasil ditambahkan!",
-    confirmButtonText: "Okee kak",
-    confirmButtonColor: "#034C5F",
-  }).then(() => {
-    window.location.replace('index.php?include=portofolio')
-  })
-}, 10)
-</script>
-<?php } ?>
-<?php } ?>

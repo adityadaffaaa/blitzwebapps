@@ -63,59 +63,66 @@ if(isset($_GET["include"])){
         <?php
   include "includes/sidebar.php";
       include "pages/portofolio.php";
-      } else if($include == "pemesanan"){
+      } else if($include == "detail-portofolio"){
         ?>
 
         <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
           <?php
   include "includes/sidebar.php";
-      include "pages/pemesanan.php";
-      } else if($include == "pengaturan"){
+      include "pages/detail-portofolio.php";
+      } else if($include == "pemesanan"){
         ?>
 
           <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
             <?php
   include "includes/sidebar.php";
-      include "pages/pengaturan.php";
-      } else if($include == "ubah-password"){
+      include "pages/pemesanan.php";
+      } else if($include == "pengaturan"){
         ?>
 
             <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
               <?php
   include "includes/sidebar.php";
-      include "pages/ubah-password.php";
-      } else if($include == "detail-riwayat"){
+      include "pages/pengaturan.php";
+      } else if($include == "ubah-password"){
         ?>
 
               <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
                 <?php
   include "includes/sidebar.php";
-      include "pages/detail-riwayat.php";
-      } else if($include == "detail-pemesanan"){
+      include "pages/ubah-password.php";
+      } else if($include == "detail-riwayat"){
         ?>
 
                 <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
                   <?php
   include "includes/sidebar.php";
+      include "pages/detail-riwayat.php";
+      } else if($include == "detail-pemesanan"){
+        ?>
+
+                  <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
+                    <?php
+  include "includes/sidebar.php";
       include "pages/detail-pemesanan.php";
       } else if($include == "sign-in-verifikasi"){
         ?>
 
-                  <body class="font-lora h-[100vh] w-full">
-                    <?php
+                    <body class="font-lora h-[100vh] w-full">
+                      <?php
       include "pages/sign-in-verifikasi.php";
       }
     } else if($include == "signup"){
       ?>
 
-                    <body class="font-lora h-[100vh] w-full">
-                      <?php
+                      <body class="font-lora h-[100vh] w-full">
+                        <?php
     include "pages/signup.php";
     } else {
       ?>
 
-                      <body class="font-lora h-[100vh] w-full relative">
-                        <?php
+                        <body class="font-lora h-[100vh] w-full relative">
+                          <?php
     include "pages/signin.php";
       
   }
@@ -123,15 +130,15 @@ if(isset($_GET["include"])){
 } else {
   ?>
 
-                        <body class="font-lora h-[100vh] w-full relative">
-                          <?php
+                          <body class="font-lora h-[100vh] w-full relative">
+                            <?php
 include "pages/signin.php";
   
   }
 ?>
 
-                        </body>
+                          </body>
 
-                        <?php include "includes/script.php" ?>
+                          <?php include "includes/script.php" ?>
 
 </html>
