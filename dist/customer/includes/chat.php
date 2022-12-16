@@ -110,7 +110,8 @@ $id_customer = $_SESSION["id_customer"];
         }
       } ?>
                 <div class="w-full flex flex-row px-6 py-6 justify-between">
-                  <textarea class="custom-chat" name="chat" id="chat" placeholder="Masukkan pesan kamu..."></textarea>
+                  <input type="text" autocomplete="off" class="custom-chat" name="chat" id="chat"
+                    placeholder="Masukkan pesan kamu..."></input>
                   <button
                     class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
                     type="submit">

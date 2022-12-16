@@ -21,6 +21,8 @@
 <script src="./js/detail-portofolio-video.js"></script>
 <!-- script ajax jasa fotografi -->
 <script src="./js/ajaxJasaFotografi.js"></script>
+<!-- script ajax portofolio -->
+<script src="./js/ajaxPortofolio.js"></script>
 <!-- sweet alert -->
 <script src="../../sweatalert/sweetalert2.all.min.js"></script>
 

@@ -1,13 +1,3 @@
-<?php
-if(isset($_POST["katakunci"])){
-$katakunci_fotovideografer = $_POST["katakunci"];
-$_SESSION['katakunci_fotovideografer'] = $katakunci_fotovideografer;
-}
-if(isset($_SESSION['katakunci_fotovideografer'])){
-$katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
-}
-?>
-
 <!-- Hero -->
 <section class="my-16">
   <div class="w-full h-[500px] bg-cover bg-fixed" style="background-image: url('./assets/img/hero-portofolio.png')">
@@ -22,7 +12,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
 <!-- Hero End -->
 <div class="container mx-auto">
   <!-- pencarian riwayat -->
-  <form action="index.php?include=portofolio" method="POST">
+  <div>
     <section class="mt-[50px] flex justify-center">
       <div class="flex flex-row w-4/5 justify-between">
         <h3 class="text-text1 text-heading3 font-poppins">Portofolio Kami</h3>
@@ -41,40 +31,21 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
         </div>
       </div>
     </section>
-  </form>
+  </div>
   <!-- pencarian riwayat end -->
   <section class="mt-[42px] flex justify-center">
-    <div class="flex flex-col items-center w-4/5 gap-6">
+    <div id="grid" class="flex flex-col items-center w-4/5 gap-6">
       <!-- list foto/videografer -->
       <div class="grid grid-cols-3 gap-10">
         <?php 
-        $batas = 6; 
-        if(!isset($_GET['halaman'])){ 
-          $posisi = 0; 
-          $halaman = 1; 
-        }else{ 
-          $halaman = $_GET['halaman']; 
-          $posisi = ($halaman-1) * $batas; 
-        } 
-
-        $sql_fotovideografer = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`"; 
-        if (!empty($katakunci_fotovideografer)){ 
-          $sql_fotovideografer .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'
-          AND `status` = 'terverifikasi'
-          AND `foto` <> 'null'
-          AND `instagram` <> 'null'
-          AND `deskripsi_pribadi` <> 'null'
-          ORDER BY `nama` LIMIT $posisi, $batas";
-        } else {
-          $sql_fotovideografer .= "
+          $sql_fotovideografer = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`       
           WHERE `status` = 'terverifikasi'
           AND `foto` <> 'null'
           AND `instagram` <> 'null'
           AND `deskripsi_pribadi` <> 'null'
-          ORDER BY `nama` LIMIT $posisi, $batas";
-        }
+          ORDER BY `nama`";        
+      
         $query_fotovideografer = mysqli_query($koneksi, $sql_fotovideografer);
-        $posisi += 1;
         while($data_fotovideografer = mysqli_fetch_row($query_fotovideografer)){
           $id_fotovideografer = $data_fotovideografer[0];
           $foto_fotovideografer = $data_fotovideografer[1];
@@ -115,91 +86,7 @@ $katakunci_fotovideografer = $_SESSION['katakunci_fotovideografer'];
         <?php } ?>
       </div>
       <!-- list foto/videografer end -->
-      <!-- paginasi portofolio -->
-      <div class="flex flex-row gap-6 items-center">
-        <?php
-        $sql_jum = "SELECT `id_fotovideografer`,`foto`,`nama`,`instagram`,`alamat`,`deskripsi_pribadi`,`status` FROM `fotovideografer`";  
-        if (!empty($katakunci_customer)){  
-          $sql_jum .= " WHERE `nama` LIKE '%$katakunci_fotovideografer%'
-          AND `status` = 'terverifikasi'
-          AND `foto` <> 'null'
-          AND `instagram` <> 'null'
-          AND `deskripsi_pribadi` <> 'null'
-          ORDER BY `nama`";
-        } else {
-          $sql_jum .= " 
-          WHERE `status` = 'terverifikasi'
-          AND `foto` <> 'null'
-          AND `instagram` <> 'null'
-          AND `deskripsi_pribadi` <> 'null'
-          order by `nama`"; 
-        } 
-        $query_jum = mysqli_query($koneksi, $sql_jum); 
-        $jum_data = mysqli_num_rows($query_jum); 
-        $jum_halaman = ceil($jum_data/$batas); 
-        ?>
-        <ul class="flex flex-row items-center gap-2">
-          <?php if($jum_halaman==0){
-                      //tidak ada halaman
-                    }else if($jum_halaman==1){
-                      echo "  <li>
-                      <a>
-                        <div
-                          class='flex justify-center text-text2 items-center w-9 h-9 bg-primary rounded-lg transition-default'>
-                          1</div>
-                      </a>
-                    </li>";
-                    }else{
-                      $sebelum = $halaman-1;
-                      $setelah = $halaman+1;
-                      if($halaman!=1){
-                        
-                      echo "<a  href='index.php?include=portofolio&halaman=$sebelum' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
-                      <span class='fill-text2'>
-                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
-                          <path fill='none' d='M0 0h24v24H0z' />
-                          <path d='M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z' />
-                        </svg>
-                      </span>
-                    </a>" ;                  
-                    }
-                    for($i=1; $i<=$jum_halaman; $i++){
-                      if ($i > $halaman - 5 and $i < $halaman + 5 ) {
-                        if($i!=$halaman){
-                          echo" <li>
-                        <a href='index.php?include=portofolio&halaman=$i'>
-                          <div
-                            class='flex justify-center text-text2 items-center w-9 h-9 bg-background2 hover:bg-primary rounded-lg transition-default'>
-                            $i</div>
-                        </a>
-                      </li> ";
-                         
-                        }else{
-                         
-                          echo" <li>
-                        <a>
-                          <div
-                            class='flex justify-center text-text2 items-center w-9 h-9  bg-primary rounded-lg transition-default'>
-                            $i</div>
-                        </a>
-                      </li> ";
-                        }
-                      }
-                    }
-                      if($halaman!=$jum_halaman){
-                        echo"<a  href='index.php?include=portofolio&halaman=$setelah' class='inline-block p-[4px] bg-secondary rounded-full transition-default hover:bg-primary'>
-                        <span class='fill-text2'>
-                          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
-                            <path fill='none' d='M0 0h24v24H0z' />
-                            <path d='M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z' />
-                          </svg>
-                        </span>
-                      </a>";                                        
-                      }
-                    }?>
-        </ul>
-      </div>
-      <!-- paginasi portofolio end -->
+
     </div>
   </section>
 </div>

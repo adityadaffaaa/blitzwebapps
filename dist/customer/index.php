@@ -69,6 +69,7 @@ if(isset($_GET["include"])){
     include "pages/portofolio.php";
     include "includes/chat.php";
     include "includes/footer.php";
+  
   } else if($include == "ulasan"){
     ?>
 

@@ -9,7 +9,7 @@
             <label class="text-text1 text-heading3 font-poppins" for="kategori">Kategori</label>
             <div class="grid grid-cols-2 gap-[42px]">
               <!-- ulang tahun -->
-              <label class="cursor-pointer" for="ulang-tahun">
+              <label id="tahun" class="cursor-pointer" for="ulang-tahun">
                 <div class="flex flex-col relative items-center gap-4">
                   <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="8" />
                   <div
