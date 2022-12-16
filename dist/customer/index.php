@@ -13,16 +13,6 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-ubah-password.php";
   } else if($include == "konfirmasi-ulasan"){
     include "confirm/konfirmasi-ulasan.php";
-  } else if($include == "konfirmasi-chat-admin-beranda"){
-    include "confirm/konfirmasi-chat-admin.php";
-  } else if($include == "konfirmasi-chat-admin-jasakami"){
-    include "confirm/konfirmasi-chat-admin.php";
-  } else if($include == "konfirmasi-chat-admin-riwayat"){
-    include "confirm/konfirmasi-chat-admin.php";
-  } else if($include == "konfirmasi-chat-admin-portofolio"){
-    include "confirm/konfirmasi-chat-admin.php";
-  } else if($include == "konfirmasi-chat-admin-ulasan"){
-    include "confirm/konfirmasi-chat-admin.php";
   } else if($include == "search-portofolio"){
     include "search/searchPortofolio.php";
   } else if($include == "insert-chat"){
