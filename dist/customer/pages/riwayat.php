@@ -1,7 +1,8 @@
 <?php
+$id_customer = null;
 if(isset($_SESSION['id_customer'])){
   $id_customer = $_SESSION['id_customer'];
-}
+} 
 
 
 if((isset($_GET['aksi']))&&(isset($_GET['data']))){
@@ -37,155 +38,28 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
 </section>
 <!-- Hero End -->
 <?php if (isset($_SESSION['id_customer'])) { ?>
-<form action="" method="">
+<form action="index.php?include=riwayat" method="POST">
   <div class="container mx-auto">
     <!-- pencarian riwayat -->
     <section class="mt-[50px] flex justify-center">
       <div class="flex flex-row w-4/5 justify-between">
-        <div class="flex flex-row gap-4">
-          <label class="cursor-pointer" for="lihat-semua">
-            <input class="peer sr-only" type="radio" name="kategori" id="lihat-semua" value="Lihat semua" checked />
-            <p
-              class="inline-block px-4 py-3 ring-2 ring-primary rounded-lg text-primary text-paragraph4 transition-default hover:bg-primary hover:text-text2 peer-checked:bg-primary peer-checked:text-text2">
-              Lihat Semua</p>
-          </label>
-          <label class="cursor-pointer" for="pesta-ulang-tahun">
-            <input class="peer sr-only" type="radio" name="kategori" id="pesta-ulang-tahun" value="Pesta ulang tahun" />
-            <p
-              class="inline-block px-4 py-3 ring-2 ring-primary rounded-lg text-primary text-paragraph4 transition-default hover:bg-primary hover:text-text2 peer-checked:bg-primary peer-checked:text-text2">
-              Pesta Ulang Tahun</p>
-          </label>
-          <label class="cursor-pointer" for="kelulusan">
-            <input class="peer sr-only" type="radio" name="kategori" id="kelulusan" value="Kelulusan" />
-            <p
-              class="inline-block px-4 py-3 ring-2 ring-primary rounded-lg text-primary text-paragraph4 transition-default hover:bg-primary hover:text-text2 peer-checked:bg-primary peer-checked:text-text2">
-              Kelulusan</p>
-          </label>
-          <label class="cursor-pointer" for="liburan">
-            <input class="peer sr-only" type="radio" name="kategori" id="liburan" value="Liburan" />
-            <p
-              class="inline-block px-4 py-3 ring-2 ring-primary rounded-lg text-primary text-paragraph4 transition-default hover:bg-primary hover:text-text2 peer-checked:bg-primary peer-checked:text-text2">
-              Liburan</p>
-          </label>
-          <label class="cursor-pointer" for="pra-nikah">
-            <input class="peer sr-only" type="radio" name="kategori" id="pra-nikah" value="Pra Nikah" />
-            <p
-              class="inline-block px-4 py-3 ring-2 ring-primary rounded-lg text-primary text-paragraph4 transition-default hover:bg-primary hover:text-text2 peer-checked:bg-primary peer-checked:text-text2">
-              Pra Nikah</p>
-          </label>
-        </div>
-        <div class="flex flex-row items-center gap-6">
-          <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
-            <input class="outline-none w-full text-text1 text-paragraph4" name="pencarian" id="pencarian" type="text"
-              placeholder="Cari Riwayat" autocomplete="off" />
-            <button type="submit" class="fill-text4 cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z" />
-              </svg>
-            </button>
-          </div>
-          <span class="filter fill-primary cursor-pointer">
+        <h3 class="text-text1 text-heading3 font-poppins">Cari Riwayat Pemesanan Anda</h3>
+        <div class="flex flex-row p-[10px] border-2 border-text4 rounded-lg w-[320px]">
+          <input class="outline-none w-full text-text1 text-paragraph4" name="katakunci" id="katakunci" type="text"
+            placeholder="Cari Riwayat" autocomplete="off" />
+          <button type="submit" class="fill-text4 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path fill="none" d="M0 0h24v24H0z" />
-              <path d="M14 14v6l-4 2v-8L4 5V3h16v2l-6 9zM6.404 5L12 13.394 17.596 5H6.404z" />
+              <path
+                d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z" />
             </svg>
-          </span>
+          </button>
         </div>
+
       </div>
     </section>
   </div>
-  <!-- filter pop up -->
-  <div
-    class="filter-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
-    <div
-      class="filter-popup p-6 bg-background1 relative shadow-default flex flex-col gap-4 rounded-lg transition-all ease-in-out duration-500 translate-y-64">
-      <div
-        class="close-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
-        <span class="fill-text2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-          </svg>
-        </span>
-      </div>
-      <div class="flex flex-row gap-4">
-        <div class="flex flex-col gap-3">
-          <div class="flex flex-col gap-2">
-            <p class="text-primary text-paragraph1">Jasa</p>
-            <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotografi">
-              <input class="hidden peer" type="radio" name="jasa" id="fotografi" />
-              <div
-                class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2">
-              </div>
-              <p class="text-text3 peer-checked:text-primary text-paragraph2">Fotografi</p>
-            </label>
-            <label class="radio flex flex-row cursor-pointer items-center gap-2" for="videografi">
-              <input class="hidden peer" type="radio" name="jasa" id="videografi" />
-              <div
-                class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2">
-              </div>
-              <p class="text-text3 peer-checked:text-primary text-paragraph2">Videografi</p>
-            </label>
-            <label class="radio flex flex-row cursor-pointer items-center gap-2" for="fotovideografi">
-              <input class="hidden peer" type="radio" name="jasa" id="fotovideografi" />
-              <div
-                class="rounded-full w-4 h-4 border-4 border-text3 peer-checked:border-secondary peer-checked:bg-background2">
-              </div>
-              <p class="text-text3 peer-checked:text-primary text-paragraph2">Foto dan Videografi</p>
-            </label>
-          </div>
-          <div class="flex flex-col gap-2">
-            <p class="text-primary text-paragraph1">Foto/Videografer</p>
-            <select class="p-1 bg-secondary cursor-pointer text-text2 text-paragraph4 rounded-lg outline-none"
-              name="fotovideografer" id="fotovideografer">
-              <option value="-">Pilih Foto/Videografer</option>
-              <option value="Hery Taufan">Hery Taufan</option>
-              <option value="Hery Taufan">Hery Taufan</option>
-            </select>
-          </div>
-          <div class="flex flex-col gap-2">
-            <p class="text-primary text-paragraph1">Tanggal Pesan</p>
-            <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg"
-              type="date" name="tanggal_pesan" id="tanggal_pesan" />
-          </div>
-        </div>
-        <div class="flex flex-col gap-3">
-          <div class="flex flex-col gap-2">
-            <p class="text-primary text-paragraph1">Tanggal Mulai</p>
-            <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg"
-              type="date" name="tanggal_mulai" id="tanggal_mulai" />
-          </div>
-          <div class="flex flex-col gap-2">
-            <p class="text-primary text-paragraph1">Tanggal Akhir</p>
-            <input class="p-1 cursor-pointer outline-none text-paragraph4 bg-secondary text-text2 rounded-lg"
-              type="date" name="tanggal_akhir" id="tanggal_akhir" />
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col gap-2">
-        <p class="text-primary text-paragraph1">Rentang Harga</p>
-        <div class="flex flex-row gap-2 items-center text-primary">
-          <div class="flex flex-row items-center gap-1">
-            <p class="text-primary text-paragraph4">Min</p>
-            <input placeholder="300000"
-              class="p-1 w-[100px] rounded-lg text-primary text-paragraph4 placeholder:text-paragraph4 outline-none border-2 border-primary"
-              type="text" name="min" id="min" value="" />
-          </div>
-          -
-          <div class="flex flex-row items-center gap-1">
-            <p class="text-primary text-paragraph4">Maks</p>
-            <input placeholder="2999999"
-              class="p-1 w-[100px] rounded-lg text-primary text-paragraph4 placeholder:text-paragraph4 outline-none border-2 border-primary"
-              type="text" name="min" id="min" value="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- filter pop up end -->
+
 </form>
 
 <!-- pencarian riwayat end -->
@@ -237,6 +111,13 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
           JOIN `fotovideografer` `fv` ON `p`.`id_fotovideografer` = `fv`.`id_fotovideografer`";
     if (!empty($katakunci_riwayat)) {
       $sql_riwayat .= "WHERE `k`.`kategori` LIKE '%$katakunci_riwayat%'
+      OR `j`.`jasa` LIKE '%$katakunci_riwayat%'
+      OR `fv`.`nama` LIKE '%$katakunci_riwayat%'
+      OR `p`.`tanggal_pesan` LIKE '%$katakunci_riwayat%'
+      OR `p`.`jadwal_mulai` LIKE '%$katakunci_riwayat%'
+      OR `p`.`jadwal_selesai` LIKE '%$katakunci_riwayat%'
+      OR `p`.`status` LIKE '%$katakunci_riwayat%'
+      OR `p`.`harga` LIKE '%$katakunci_riwayat%'
             AND `p`.`id_customer` = $id_customer
             ORDER BY `id_pemesanan` DESC limit $posisi, $batas ";
     } else {
@@ -246,7 +127,7 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
     $query_riwayat = mysqli_query($koneksi, $sql_riwayat);
     $posisi += 1;
     while ($data_riwayat = mysqli_fetch_row($query_riwayat)) {
-      $id_pemesanan = $data_riwayat[0];
+      $id_riwayat = $data_riwayat[0];
       $kategori = $data_riwayat[1];
       $jasa = $data_riwayat[2];
       $tanggal_pesan = $data_riwayat[3];
@@ -262,8 +143,8 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
           ?>
           <tr class="baris border-b-[1px] border-b-text3">
             <td class="text-center py-4"><?php echo $posisi ?></td>
-            <td class="text-center py-4"><?php echo $jasa ?></td>
             <td class="text-center py-4"><?php echo $kategori ?></td>
+            <td class="text-center py-4"><?php echo $jasa ?></td>
             <td class="text-center py-4"><?php echo $tanggal_pesan ?></td>
             <td class="text-center py-4"><?php echo $tanggal_mulai ?></td>
             <td class="text-center py-4"><?php echo $tanggal_selesai ?></td>
@@ -295,16 +176,17 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
       } ?> rounded-lg"><?php echo $status ?></p>
             </td>
             <td class="flex justify-center py-4 px-4 relative">
-              <span class="hapus fill-secondary absolute top-0 cursor-pointer">
+              <a href="javascript:if(confirm('Anda yakin ingin menghapus data pemesanan <?php echo $jasa; ?>?'))window.location.href='index.php?include=riwayat&aksi=hapus&data=<?php echo $id_riwayat;?>&notif=hapusberhasil'"
+                class="hapus fill-secondary absolute top-0 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path fill="none" d="M0 0h24v24H0z" />
                   <path
                     d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z" />
                 </svg>
-              </span>
+              </a>
             </td>
           </tr>
-          <?php } ?>
+          <?php $posisi++;} ?>
         </tbody>
         <!-- data riwayat end -->
       </table>
@@ -424,3 +306,20 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
   </div>
 </div>
 <!-- bukti pop up end -->
+<?php if (!empty($_GET['notif'])) { ?>
+<?php if($_GET['notif']=="hapusberhasil") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: 'success',
+    iconColor: "#034C5F",
+    title: 'Data berhasil dihapus!',
+    confirmButtonText: "Okee kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=riwayat')
+  })
+}, 10)
+</script>
+<?php }?>
+<?php }?>
