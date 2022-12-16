@@ -15,5 +15,5 @@ var keyword = document.querySelector("#katakunci");
 var grid = document.querySelector("#grid");
 
 keyword.addEventListener("keyup", () => {
-  ajaxConnection("./search/searchPortofolio.php?keyword=" + keyword.value);
+  ajaxConnection("index.php?include=search-portofolio&keyword=" + keyword.value);
 });

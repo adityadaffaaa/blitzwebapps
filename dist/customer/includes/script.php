@@ -23,6 +23,9 @@
 <script src="./js/ajaxJasaFotografi.js"></script>
 <!-- script ajax portofolio -->
 <script src="./js/ajaxPortofolio.js"></script>
+
+<!-- script ajax insert chat -->
+<script src="./js/ajaxInsertChat.js"></script>
 <!-- sweet alert -->
 <script src="../../sweatalert/sweetalert2.all.min.js"></script>
 

@@ -22,7 +22,7 @@ $id_customer = $_SESSION["id_customer"];
       </div>
       <!-- header chat end -->
       <!-- chat body -->
-      <div class="w-full h-[300px] px-2 py-6 overflow-auto custom-scrollbar bg-text2">
+      <div id="isi-chat" class="w-full h-[300px] px-2 py-6 overflow-auto custom-scrollbar bg-text2">
         <div class="flex flex-col gap-2">
           <?php 
           $sql_chat = "SELECT `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%H.%i'), `cac`.`pengirim`
@@ -79,52 +79,23 @@ $id_customer = $_SESSION["id_customer"];
         </div>
       </div>
       <!-- chat body end -->
-      <?php 
-      if(isset($_GET["include"])){
-        $include = $_GET["include"];
-        if($include == "beranda"){
-          ?>
-      <form action="index.php?include=konfirmasi-chat-admin-beranda" method="POST">
 
-        <?php
-        } else if($include =="jasa-kami"){
-          ?>
-        <form action="index.php?include=konfirmasi-chat-admin-jasakami" method="POST">
-
-          <?php
-        } else if($include =="riwayat"){
-          ?>
-          <form action="index.php?include=konfirmasi-chat-admin-riwayat" method="POST">
-
-            <?php
-        } else if($include =="portofolio"){
-          ?>
-            <form action="index.php?include=konfirmasi-chat-admin-portofolio" method="POST">
-
-              <?php
-        } else if($include =="ulasan"){
-          ?>
-              <form action="index.php?include=konfirmasi-chat-admin-ulasan" method="POST">
-
-                <?php
-        }
-      } ?>
-                <div class="w-full flex flex-row px-6 py-6 justify-between">
-                  <input type="text" autocomplete="off" class="custom-chat" name="chat" id="chat"
-                    placeholder="Masukkan pesan kamu..."></input>
-                  <button
-                    class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
-                    type="submit">
-                    <span class="fill-text2">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </form>
+      <div class="w-full flex flex-row px-6 py-6 justify-between">
+        <input type="text" autocomplete="off" class="custom-chat" name="chat" id="chat"
+          placeholder="Masukkan pesan kamu..."></input>
+        <button
+          class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:scale-110 transition-default"
+          type="submit" onclick="InsertChat()">
+          <span class="fill-text2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <!-- </form> -->
     </div>
   </div>
   <!-- chat card end -->
