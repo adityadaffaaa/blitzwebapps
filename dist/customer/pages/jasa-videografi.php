@@ -145,7 +145,7 @@
               <h5 class="text-text1 text-heading5 font-poppins">No. Rekening</h5>
               <h3 class="text-text1 text-paragraph2">123456789 (BNI)</h3>
             </div>
-            <a class="px-6 py-4 text-text2 text-paragraph1 flex justify-center bg-primary rounded-lg transition-default hover:bg-secondary"
+            <a class="pesan px-6 py-4 text-text2 text-paragraph1 flex justify-center bg-primary rounded-lg transition-default hover:bg-secondary"
               href="#">Pesan Sekarang
               <span class="fill-text2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -161,3 +161,23 @@
   </section>
   <!-- jasa videografi end -->
 </div>
+<script>
+const btnPesan = document.querySelector(".pesan");
+btnPesan.addEventListener("click", () => {
+  swal.fire({
+    title: "Pesanan berhasil!",
+    icon: "success",
+    iconColor: "#034C5F",
+    confirmButtonText: "Oke kak!",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    swal.fire({
+      title: "Tunggu dikonfirmasi oleh admin ya!",
+      icon: "info",
+      iconColor: "#97BEC6",
+      confirmButtonText: "Siap kak!",
+      confirmButtonColor: "#034C5F",
+    })
+  })
+});
+</script>

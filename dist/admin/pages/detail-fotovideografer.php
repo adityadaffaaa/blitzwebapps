@@ -36,6 +36,20 @@ $query_jml_video = mysqli_query($koneksi, $sql_jml_video);
 while($data_jml_video= mysqli_fetch_row($query_jml_video)){
   $jml_video = $data_jml_video[0];
 }
+
+// mengambil sample portofolio foto
+$sql_sample_foto = "SELECT `portof_foto` FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer AND `portof_foto` <> 'null' LIMIT 1";
+$query_sample_foto = mysqli_query($koneksi, $sql_sample_foto);
+while($data_sample_foto=mysqli_fetch_row($query_sample_foto)){
+  $sample_foto = $data_sample_foto[0];
+}
+
+// mengambil sample portofolio video
+$sql_sample_video = "SELECT `portof_video` FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer AND `portof_video`<>'null' LIMIT 1";
+$query_sample_video = mysqli_query($koneksi, $sql_sample_video);
+while($data_sample_video = mysqli_fetch_row($query_sample_video)){
+  $sample_video = $data_sample_video[0];
+}
 ?>
 <!-- content edit profil -->
 <section class="w-full flex justify-center">
@@ -189,30 +203,93 @@ while($data_jml_video= mysqli_fetch_row($query_jml_video)){
                   name="notelepon" id="notelepon" type="text" value="<?php echo $status ?>" />
               </div>
             </div>
+            <?php if($role == "fotografer"){ ?>
             <div class="flex flex-row w-full justify-between items-center">
               <p class="text-text1 text-paragraph1">Portofolio Foto</p>
               <div class="flex w-[800px] justify-start mr-40">
+                <?php if($jml_foto==0){?>
+                <p class="text-secondary text-paragraph1 font-poppins">Belum ada portofolio foto</p>
+                <?php } else { ?>
                 <a class="portof-foto w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group"
-                  style="background-image: url('./../customer/assets/img/portfolio1.png')">
+                  style="background-image: url('./../fotovideografer/assets/img/<?php echo $sample_foto ?>')">
                   <div
                     class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                    <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_foto ?></h3>
+                    <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_foto > 10) {
+                  echo '10+';
+                } else {
+                  echo $jml_foto;
+                } ?></h3>
                   </div>
                 </a>
+                <?php }?>
+              </div>
+            </div>
+            <?php } else if($role == "videografer") { ?>
+            <div class="flex flex-row w-full justify-between items-center">
+              <p class="text-text1 text-paragraph1">Portofolio Video</p>
+              <div class="flex w-[800px] justify-start mr-40">
+                <?php if($jml_video==0){?>
+                <p class="text-secondary text-paragraph1 font-poppins">Belum ada portofolio video</p>
+                <?php } else { ?>
+                <a
+                  class="portof-video w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group relative">
+                  <video class="w-full h-full">
+                    <source src="./../fotovideografer/assets/img/<?php echo $sample_video ?>">
+                  </video>
+                  <div
+                    class="w-full h-full gradient-primary absolute top-0 flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                    <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_video > 10) {
+                  echo '10+';
+                } else {
+                  echo $jml_video;} ?></h3>
+                  </div>
+                </a>
+                <?php }?>
+              </div>
+            </div>
+            <?php } else if($role == "fotografer dan videografer") {?>
+            <div class="flex flex-row w-full justify-between items-center">
+              <p class="text-text1 text-paragraph1">Portofolio Foto</p>
+              <div class="flex w-[800px] justify-start mr-40">
+                <?php if($jml_foto==0){?>
+                <p class="text-secondary text-paragraph1 font-poppins">Belum ada portofolio foto</p>
+                <?php } else { ?>
+                <a class="portof-foto w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group"
+                  style="background-image: url('./../fotovideografer/assets/img/<?php echo $sample_foto ?>')">
+                  <div
+                    class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                    <h3 class="text-text2 text-heading3 font-poppins">
+                      <?php if ($jml_foto > 10) {
+                  echo '10+';}else{echo $jml_foto;} ?></h3>
+                  </div>
+                </a>
+                <?php }?>
               </div>
             </div>
             <div class="flex flex-row w-full justify-between items-center">
               <p class="text-text1 text-paragraph1">Portofolio Video</p>
               <div class="flex w-[800px] justify-start mr-40">
-                <a class="portof-video w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group"
-                  style="background-image: url('./../customer/assets/img/portfolio1.png')">
+                <?php if($jml_video==0){?>
+                <p class="text-secondary text-paragraph1 font-poppins">Belum ada portofolio video</p>
+                <?php } else { ?>
+                <a
+                  class="portof-video w-[500px] h-[380px] cursor-pointer bg-cover rounded-lg overflow-hidden group relative">
+                  <video class="w-full h-full">
+                    <source src="./../fotovideografer/assets/img/<?php echo $sample_video ?>">
+                  </video>
                   <div
-                    class="w-full h-full gradient-primary flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
-                    <h3 class="text-text2 text-heading3 font-poppins"><?php echo $jml_video ?></h3>
+                    class="w-full h-full gradient-primary absolute top-0 flex justify-center items-center translate-y-96 transition-all ease-in-out duration-500 group-hover:translate-y-0">
+                    <h3 class="text-text2 text-heading3 font-poppins"><?php if ($jml_video > 10) {
+                  echo '10+';
+                } else {
+                  echo $jml_video;
+                } ?></h3>
                   </div>
                 </a>
+                <?php }?>
               </div>
             </div>
+            <?php }?>
           </div>
         </div>
       </div>
@@ -240,14 +317,21 @@ while($data_jml_video= mysqli_fetch_row($query_jml_video)){
     </div>
     <div class="swiper carousel-portof-foto h-full">
       <div class="swiper-wrapper w-full h-full">
+        <?php 
+        $sql_portof_foto = "SELECT `portof_foto` FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer";
+        $query_portof_foto = mysqli_query($koneksi, $sql_portof_foto);
+        while ($data_portof_foto = mysqli_fetch_row($query_portof_foto)) {
+          $portof_foto = $data_portof_foto[0];
+
+        ?>
+        <?php if($portof_foto != null){ ?>
         <div class="swiper-slide">
-          <div class="w-full h-full bg-cover"
-            style="background-image: url('./../fotovideografer/assets/img/DSC_0384.JPG')"></div>
+          <div class="flex justify-center w-full h-full">
+            <img class="h-[80vh]" src="./../fotovideografer/assets/img/<?php echo $portof_foto ?>" alt="">
+          </div>
         </div>
-        <div class="swiper-slide">
-          <div class="w-full h-full bg-cover"
-            style="background-image: url('./../fotovideografer/assets/img/DSC_0355.JPG')"></div>
-        </div>
+        <?php } ?>
+        <?php } ?>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -273,16 +357,20 @@ while($data_jml_video= mysqli_fetch_row($query_jml_video)){
     </div>
     <div class="swiper carousel-portof-video h-full">
       <div class="swiper-wrapper w-full h-full">
+        <?php
+        $sql_portof_video = "SELECT `portof_video` FROM `portofolio` WHERE `id_fotovideografer` = $id_fotovideografer";
+        $query_portof_video = mysqli_query($koneksi, $sql_portof_video);
+        while ($data_portof_video = mysqli_fetch_row($query_portof_video)) {
+          $portof_video = $data_portof_video[0];
+        ?>
+        <?php if($portof_video != null){ ?>
         <div class="swiper-slide">
           <video class="w-full h-[75vh]" controls>
-            <source src="./../fotovideografer/assets/img/MAH07309.MP4" type="" />
+            <source src="./../fotovideografer/assets/img/<?php echo $portof_video ?>" type="" />
           </video>
         </div>
-        <div class="swiper-slide">
-          <video class="w-full h-[75vh]" controls>
-            <source src="./../fotovideografer/assets/img/kamera ngalam.mp4" type="" />
-          </video>
-        </div>
+        <?php }?>
+        <?php }?>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>

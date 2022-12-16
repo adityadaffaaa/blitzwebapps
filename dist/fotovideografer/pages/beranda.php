@@ -217,8 +217,15 @@ $total_pend = number_format($pendapatan, 0, ',', '.');
           <div
             class="p-4 bg-background1 border-2 border-primary rounded-lg shadow-default flex flex-row items-center justify-between">
             <div class="flex flex-col gap-4">
-              <h5 class="text-primary text-heading5 font-poppins">
-                <?php echo $hari_indo,', ', $waktu_sekarang,' ',$bulan_indo,' ',$tahun_sekarang ?></h5>
+              <div class="flex flex-row gap-3">
+                <h5 class="text-primary text-heading5 font-poppins">
+                  <?php echo $hari_indo,', ', $waktu_sekarang,' ',$bulan_indo,' ',$tahun_sekarang ?></h5>
+                <div class="flex flex-row gap-1">
+                  <p id="jam" class="text-text1 text-heading5 font-poppins"></p>
+                  <p id="menit" class="text-text1 text-heading5 font-poppins"></p>
+                  <p id="detik" class="text-text1 text-heading5 font-poppins"></p>
+                </div>
+              </div>
               <?php if($jml_pesanan == 0){ ?>
               <p class="text-text4 text-paragraph2 flex items-center gap-1">
                 Belum ada pesanan
@@ -357,3 +364,24 @@ setTimeout(() => {
 }, 20)
 </script>
 <?php } ?>
+
+<script>
+setInterval(() => {
+  let date = new Date();
+  let jam = document.querySelector('#jam');
+  jam.innerHTML =
+    date.getHours() + " :"
+}, 1000)
+setInterval(() => {
+  let date = new Date();
+  let menit = document.querySelector('#menit');
+  menit.innerHTML =
+    date.getMinutes() + " :"
+}, 1000)
+setInterval(() => {
+  let date = new Date();
+  let detik = document.querySelector('#detik');
+  detik.innerHTML =
+    date.getSeconds()
+}, 1000)
+</script>

@@ -270,8 +270,6 @@ while($data_jml_video = mysqli_fetch_row($query_jml_video)){
           <div class="flex justify-center w-full h-full">
             <img class="h-[80vh]" src="./../fotovideografer/assets/img/<?php echo $portof_foto ?>" alt="">
           </div>
-          <!-- <div class="w-full h-full bg-cover"
-            style="background-image: url('./../fotovideografer/assets/img/<?php echo $portof_foto ?>')"></div> -->
         </div>
         <?php } ?>
         <?php } ?>

@@ -22,7 +22,7 @@
               <div class="wrap">
                 <ul class="flex flex-row gap-2">
                   <li>
-                    <a href="#">
+                    <a target="_blank" href="https://www.instagram.com/blitz_.id/">
                       <svg class="hover:scale-110 transition-default fill-text2" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24" width="32" height="32">
                         <path fill="none" d="M0 0h24v24H0z" />
