@@ -1,4 +1,5 @@
 <?php
+$id_customer = null;
 if(isset($_SESSION['id_customer'])){
   $id_customer = $_SESSION['id_customer'];
 }
