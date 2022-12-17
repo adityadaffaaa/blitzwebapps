@@ -21,6 +21,10 @@
 <script src="./js/detail-portofolio-video.js"></script>
 <!-- script ajax jasa fotografi -->
 <script src="./js/ajaxJasaFotografi.js"></script>
+<!-- script ajax jasa videografi -->
+<script src="./js/ajaxJasaVideografi.js"></script>
+<!-- script ajax jasa fotografi dan videografi -->
+<script src="./js/ajaxJasaFotoVideografi.js"></script>
 <!-- script ajax portofolio -->
 <script src="./js/ajaxPortofolio.js"></script>
 

@@ -1,8 +1,9 @@
 <?php
-$id_customer = null;
 if(isset($_SESSION['id_customer'])){
   $id_customer = $_SESSION['id_customer'];
-} 
+} else {
+  $id_customer = null;
+}
 
 
 if((isset($_GET['aksi']))&&(isset($_GET['data']))){
@@ -92,6 +93,7 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
             </th>
           </tr>
         </thead>
+
         <!-- data riwayat -->
         <tbody class="text-text1 text-paragraph1 font-lora">
           <?php
@@ -110,21 +112,22 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
           JOIN `jasa` `j` ON `p`.`id_jasa` = `j`.`id_jasa`
           JOIN `fotovideografer` `fv` ON `p`.`id_fotovideografer` = `fv`.`id_fotovideografer`";
     if (!empty($katakunci_riwayat)) {
-      $sql_riwayat .= "WHERE `k`.`kategori` LIKE '%$katakunci_riwayat%'
+      $sql_riwayat .= "WHERE `p`.`id_customer` = $id_customer
+      OR `k`.`kategori` LIKE '%$katakunci_riwayat%'
       OR `j`.`jasa` LIKE '%$katakunci_riwayat%'
       OR `fv`.`nama` LIKE '%$katakunci_riwayat%'
       OR `p`.`tanggal_pesan` LIKE '%$katakunci_riwayat%'
       OR `p`.`jadwal_mulai` LIKE '%$katakunci_riwayat%'
       OR `p`.`jadwal_selesai` LIKE '%$katakunci_riwayat%'
       OR `p`.`status` LIKE '%$katakunci_riwayat%'
-      OR `p`.`harga` LIKE '%$katakunci_riwayat%'
-            AND `p`.`id_customer` = $id_customer
-            ORDER BY `id_pemesanan` DESC limit $posisi, $batas ";
+      OR `p`.`harga` LIKE '%$katakunci_riwayat%'        
+            ORDER BY `p`.`id_pemesanan` DESC limit $posisi, $batas ";
+            $query_riwayat = mysqli_query($koneksi, $sql_riwayat);
     } else {
       $sql_riwayat .= "WHERE `p`.`id_customer` = $id_customer
-          ORDER BY `id_pemesanan` DESC limit $posisi, $batas ";
+          ORDER BY `p`.`id_pemesanan` DESC limit $posisi, $batas ";
+          $query_riwayat = mysqli_query($koneksi, $sql_riwayat);
     }
-    $query_riwayat = mysqli_query($koneksi, $sql_riwayat);
     $posisi += 1;
     while ($data_riwayat = mysqli_fetch_row($query_riwayat)) {
       $id_riwayat = $data_riwayat[0];
@@ -142,6 +145,7 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
       $total_h = number_format($harga, 0, ',', '.');
           ?>
           <tr class="baris border-b-[1px] border-b-text3">
+
             <td class="text-center py-4"><?php echo $posisi ?></td>
             <td class="text-center py-4"><?php echo $kategori ?></td>
             <td class="text-center py-4"><?php echo $jasa ?></td>
@@ -203,11 +207,12 @@ $query_validasi = mysqli_query($koneksi, $sql_validasi);
       $sql_jum .= "WHERE `k`.`kategori` LIKE '%$katakunci_riwayat%'
                  AND `p`.`id_customer` = $id_customer
                  ORDER BY `id_pemesanan` DESC";
+                 $query_jum = mysqli_query($koneksi, $sql_jum);
     } else {
       $sql_jum .= "WHERE `p`.`id_customer` = $id_customer
                 ORDER BY `id_pemesanan` DESC";
+                $query_jum = mysqli_query($koneksi, $sql_jum);
     }
-    $query_jum = mysqli_query($koneksi, $sql_jum);
     $jum_data = mysqli_num_rows($query_jum);
     $jum_halaman = ceil($jum_data / $batas);
         ?>

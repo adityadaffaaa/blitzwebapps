@@ -13,6 +13,12 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-ubah-password.php";
   } else if($include == "konfirmasi-ulasan"){
     include "confirm/konfirmasi-ulasan.php";
+  } else if($include == "konfirmasi-pemesanan-fotografi"){
+    include "confirm/konfirmasi-pemesanan-fotografi.php";
+  } else if($include == "konfirmasi-pemesanan-videografi"){
+    include "confirm/konfirmasi-pemesanan-videografi.php";
+  } else if($include == "konfirmasi-pemesanan-fotovideografi"){
+    include "confirm/konfirmasi-pemesanan-fotovideografi.php";
   } else if($include == "search-portofolio"){
     include "search/searchPortofolio.php";
   } else if($include == "insert-chat"){
@@ -21,6 +27,10 @@ if(isset($_GET["include"])){
     include "search/chatMasuk.php";
   } else if($include == "ajax-jasa-fotografi"){
     include "search/jasaFotografi.php";
+  } else if($include == "ajax-jasa-videografer"){
+    include "search/jasaVideografi.php";
+  } else if($include == "ajax-jasa-fotovideografi"){
+    include "search/jasaFotoVideografi.php";
   } else if($include == "logout"){
     include "confirm/logout.php";
   }

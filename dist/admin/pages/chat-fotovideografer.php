@@ -70,9 +70,7 @@
             <div class="flex flex-col justify-between w-full">
               <div class="flex flex-row justify-between">
                 <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>
-                <p class="text-text4 text-paragraph2">
-                  <?php if($date==$waktu){echo "Hari ini";}else{ echo $waktu;}?>
-                </p>
+
               </div>
             </div>
           </a>
@@ -94,9 +92,7 @@
             <?php }?>
             <div class="flex flex-row justify-between w-full">
               <h5 class="text-text1 text-heading5 font-poppins"><?php echo $nama ?></h5>
-              <p class="text-text4 text-paragraph2">
-                <?php if($date==$waktu){echo "Hari ini";}else{ echo $waktu;}?>
-              </p>
+
             </div>
           </a>
           <?php } ?>

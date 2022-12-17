@@ -39,7 +39,7 @@
                 </svg>
               </span>
             </div>
-            <a class="text-primary text-paragraph1" href="#">Lupa Password Anda?</a>
+            <!-- <a class="text-primary text-paragraph1" href="#">Lupa Password Anda?</a> -->
           </div>
           <button
             class="text-text2 p-[10px] bg-primary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-primary"

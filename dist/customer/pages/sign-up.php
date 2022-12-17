@@ -64,7 +64,7 @@
               <button
                 class="text-text2 p-[10px] bg-secondary rounded-lg transition-default hover:scale-105 hover:shadow-[0px_0px_24px] hover:shadow-secondary"
                 type="submit" name="signup" value="signup">Sign Up</button>
-              <div class="flex flex-row items-center">
+              <!-- <div class="flex flex-row items-center">
                 <hr class="border-t-2 border-text2 w-full" />
                 <p class="text-text2 mx-6 text-paragraph2">Atau</p>
                 <hr class="border-t-2 border-text2 w-full" />
@@ -79,7 +79,7 @@
                   </svg>
                 </span>
                 Masuk Dengan Google
-              </a>
+              </a> -->
             </div>
           </div>
         </div>

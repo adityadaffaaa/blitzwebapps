@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <!-- jasa fotografi -->
   <section class="mt-10">
-    <form method="" action="" enctype="multipart/form-data">
+    <form method="POST" action="index.php?include=konfirmasi-pemesanan-fotografi" enctype="multipart/form-data">
       <div class="flex flex-col items-center gap-[50px]">
         <h1 class="text-text1 text-heading1 font-poppins">Jasa Fotografi</h1>
         <div class="flex flex-row justify-evenly w-3/4">
@@ -85,7 +85,7 @@
                     <div
                       class="hover-kategori group-hover:translate-y-0 translate-y-96 w-full h-full bg-[rgba(238,100,87,0.6)] flex items-center justify-center transition-all ease-in-out duration-500">
                       <div class="flex flex-col items-center gap-1">
-                        <h4 class="text-text2 text-heading4 font-poppins">IDR 1.470.000/hari</h4>
+                        <h4 class="text-text2 text-heading4 font-poppins">IDR 1.500.000/hari</h4>
                         <p class="text-text2 text-paragraph2 text-center w-4/5">Harga untuk satu kali
                           sesi acara serta termasuk
                           berkas foto</p>
@@ -101,17 +101,22 @@
           <div class="flex flex-col gap-8">
             <div class="tanggal flex flex-col gap-4">
               <h3 class="text-text1 text-heading3 font-poppins">Pilih Jadwal</h3>
+
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_mulai">Tanggal Mulai</label>
                 <input class="p-[10px] w-[366px] cursor-pointer outline-none bg-secondary text-text2 rounded-lg"
-                  type="date" oninput="getInputTglMulai(this.value)" name="tanggal_mulai" id="tanggal_mulai" />
+                  type="date" name="tanggal_mulai" id="tanggal_mulai" />
               </div>
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_selesai">Tanggal Selesai</label>
                 <input
                   class="p-[10px] py-[10px] cursor-pointer w-[366px] outline-none bg-secondary text-text2 rounded-lg"
-                  type="date" oninput="getInputTglSelesai(this.value)" name="tanggal_selesai" id="tanggal_selesai" />
+                  type="date" name="tanggal_selesai" id="tanggal_selesai" />
               </div>
+              <p class="text-secondary text-paragraph4 italic font-bold  w-[366px]">*Jasa hanya dapat dipesan untuk
+                tanggal mulai
+                dan tanggal selesai yang berbeda
+              </p>
             </div>
             <div class="flex flex-col gap-4">
               <label class="text-text1 text-heading3 font-poppins" for="fotografer">Pilih Fotografer</label>
@@ -152,15 +157,16 @@
               <h5 class="text-text1 text-heading5 font-poppins">No. Rekening</h5>
               <h3 class="text-text1 text-paragraph2">123456789 (BNI)</h3>
             </div>
-            <a class="pesan px-6 py-4 text-text2 text-paragraph1 flex justify-center bg-primary rounded-lg transition-default hover:bg-secondary"
-              href="#">Pesan Sekarang
+            <button type="submit"
+              class="px-6 py-4 text-text2 text-paragraph1 flex justify-center bg-primary rounded-lg transition-default hover:bg-secondary">Pesan
+              Sekarang
               <span class="fill-text2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path fill="none" d="M0 0h24v24H0z" />
                   <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
                 </svg>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -168,9 +174,10 @@
   </section>
   <!-- jasa fotografi end -->
 </div>
+<?php if (!empty($_GET['notif'])) { ?>
+<?php if($_GET["notif"]=="pemesananberhasil"){ ?>
 <script>
-const btnPesan = document.querySelector(".pesan");
-btnPesan.addEventListener("click", () => {
+setTimeout(() => {
   swal.fire({
     title: "Pesanan berhasil!",
     icon: "success",
@@ -184,36 +191,95 @@ btnPesan.addEventListener("click", () => {
       iconColor: "#97BEC6",
       confirmButtonText: "Siap kak!",
       confirmButtonColor: "#034C5F",
+    }).then(() => {
+      window.location.replace('index.php?include=jasa-fotografi');
     })
   })
-});
+}, 10)
 </script>
-<!-- <script>
-var getInputKategori = (idKategori) => {
-  var kategori = idKategori;
-};
-
-var getInputTglMulai = (tglMulai) => {
-  var tgl_mulai = tglMulai;
-};
-
-var getInputTglSelesai = (tglSelesai) => {
-  var tgl_selesai = tglSelesai;
-};
-var totalHarga = document.querySelector("#total-harga");
-var xhr = new XMLHttpRequest();
-
-xhr.onreadystatechange = () => {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    console.log(getInputKategori());
-  }
-};
-var idkat = getInputKategori();
-var tgl_mulai = getInputTglMulai();
-var tgl_selesai = getInputTglSelesai();
-xhr.open("GET", "index.php?include=ajax-jasa-fotografi&idkat=" + idkat + "&tgl-mulai=" + tgl_mulai +
-  "&tgl-selesai=" + tgl_selesai, true);
-xhr.send();
-setInterval(() => {
-}, 10);
-</script> -->
+<?php }else if($_GET["notif"]=="pemesanangagal"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Pemesanan Anda gagal!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="kategorikosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Kategori kosong!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="tanggalmulaikosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Tanggal mulai kosong!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="tanggalselesaikosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Tanggal selesai kosong!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="fotograferkosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Fotografer kosong!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }else if($_GET["notif"]=="pembayarankosong"){?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    icon: "error",
+    iconColor: "#EE6457",
+    title: "Bukti pembayaran kosong!",
+    confirmButtonText: "Siap kak",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace('index.php?include=jasa-fotografi')
+  })
+}, 10)
+</script>
+<?php }?>
+<?php }?>

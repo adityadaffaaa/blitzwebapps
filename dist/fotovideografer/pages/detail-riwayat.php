@@ -191,7 +191,7 @@ if(isset($_GET["data"])){
 <div
   class="bukti-popup-background hidden w-full h-[100vh] z-[80] fixed top-0 items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 transition-all ease-in-out duration-500">
   <div class="bukti-popup relative shadow-default transition-all ease-in-out duration-500 translate-y-64">
-    <img class="h-[500px] w-auto" src="./assets/img/buktipembayaran.jpeg" alt="" />
+    <img class="h-[500px] w-auto" src="./../customer/assets/img/<?php echo $foto_pembayaran ?>" alt="" />
     <div
       class="close-bukti-popup absolute -top-4 transition-all ease-in-out duration-200 right-0 text-paragraph1 font-poppins w-8 h-8 flex items-center justify-center cursor-pointer rounded-lg bg-secondary hover:bg-primary">
       <span class="fill-text2">
