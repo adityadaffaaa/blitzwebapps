@@ -11,7 +11,8 @@
               <!-- ulang tahun -->
               <label id="tahun" class="cursor-pointer" for="ulang-tahun">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="ulang-tahun" class="peer hidden" type="radio" name="kategori" value="8" />
+                  <input id="ulang-tahun" onclick="getInputKategori(this.value)" class="peer hidden" type="radio"
+                    name="kategori" value="8" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-ulangtahun.png')">
@@ -32,7 +33,8 @@
               <!-- kelulusan -->
               <label class="cursor-pointer" for="kelulusan">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="kelulusan" class="peer sr-only" type="radio" name="kategori" value="9" />
+                  <input id="kelulusan" onclick="getInputKategori(this.value)" class="peer sr-only" type="radio"
+                    name="kategori" value="9" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-kelulusan.png')">
@@ -53,7 +55,8 @@
               <!-- ulang tahun -->
               <label class="cursor-pointer" for="liburan">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="liburan" class="peer hidden" type="radio" name="kategori" value="10" />
+                  <input id="liburan" onclick="getInputKategori(this.value)" class="peer hidden" type="radio"
+                    name="kategori" value="10" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-liburan.png')">
@@ -74,7 +77,8 @@
               <!-- kelulusan -->
               <label class="cursor-pointer" for="pra-nikah">
                 <div class="flex flex-col relative items-center gap-4">
-                  <input id="pra-nikah" class="peer sr-only" type="radio" name="kategori" value="11" />
+                  <input id="pra-nikah" onclick="getInputKategori(this.value)" class="peer sr-only" type="radio"
+                    name="kategori" value="11" />
                   <div
                     class="card-kategori group w-[270px] h-[326px] bg-cover rounded-2xl peer-checked:shadow-default ring-4 ring-transparent peer-checked:ring-secondary transition-default hover:shadow-default overflow-hidden"
                     style="background-image: url('./assets/img/kategori-wedding.png')">
@@ -100,13 +104,13 @@
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_mulai">Tanggal Mulai</label>
                 <input class="p-[10px] w-[366px] cursor-pointer outline-none bg-secondary text-text2 rounded-lg"
-                  type="date" name="tanggal_mulai" id="tanggal_mulai" />
+                  type="date" oninput="getInputTglMulai(this.value)" name="tanggal_mulai" id="tanggal_mulai" />
               </div>
               <div class="flex flex-col gap-1">
                 <label class="text-text1 text-paragraph2" for="tanggal_selesai">Tanggal Selesai</label>
                 <input
                   class="p-[10px] py-[10px] cursor-pointer w-[366px] outline-none bg-secondary text-text2 rounded-lg"
-                  type="date" name="tanggal_selesai" id="tanggal_selesai" />
+                  type="date" oninput="getInputTglSelesai(this.value)" name="tanggal_selesai" id="tanggal_selesai" />
               </div>
             </div>
             <div class="flex flex-col gap-4">
@@ -115,19 +119,21 @@
                 id="fotografer">
                 <option value="0">Pilih Fotografer</option>
                 <?php
-                $sql_fotografer = "SELECT `id_fotovideografer`, `nama`,`foto`,`deskripsi_pribadi`,`instagram`,`status` FROM `fotovideografer` WHERE `role` = 'fotografer' ORDER BY `nama`";
+                $sql_fotografer = "SELECT `id_fotovideografer`, `nama`
+                FROM `fotovideografer` 
+                WHERE `role` = 'fotografer'
+                AND `status`= 'terverifikasi'
+                AND `foto` <> 'null'
+                AND `instagram` <> 'null'
+                AND `deskripsi_pribadi` <> 'null'
+                ORDER BY `nama`";
                 $query_fotografer = mysqli_query($koneksi, $sql_fotografer);
                 while($data_fotografer = mysqli_fetch_row($query_fotografer)){
                   $id_fotografer = $data_fotografer[0]; 
-                  $nama = $data_fotografer[1]; 
-                  $foto = $data_fotografer[2];
-                  $deskripsi_pribadi = $data_fotografer[3];
-                  $instagram = $data_fotografer[4];
-                  $status = $data_fotografer[5];
+                  $nama = $data_fotografer[1];                   
                   ?>
-                <?php if($status == "terverifikasi"&& $foto != null && $deskripsi_pribadi != null && $instagram != null){ ?>
                 <option value="<?php echo $id_fotografer ?>"><?php echo $nama ?></option>
-                <?php } ?>
+
                 <?php } ?>
               </select>
             </div>
@@ -139,7 +145,8 @@
             </div>
             <div class="flex flex-col gap-1">
               <h5 class="text-text1 text-heading5 font-poppins">Total Harga</h5>
-              <h3 id="total-bayar" class="text-primary text-heading3 font-poppins">IDR 1.100.000</h3>
+              <h3 id="rupiah" class="text-primary text-heading3 font-poppins">IDR <a id="total-harga"
+                  class="text-primary text-heading3 font-poppins">0</a></h3>
             </div>
             <div class="flex flex-col gap-1">
               <h5 class="text-text1 text-heading5 font-poppins">No. Rekening</h5>
@@ -181,3 +188,32 @@ btnPesan.addEventListener("click", () => {
   })
 });
 </script>
+<!-- <script>
+var getInputKategori = (idKategori) => {
+  var kategori = idKategori;
+};
+
+var getInputTglMulai = (tglMulai) => {
+  var tgl_mulai = tglMulai;
+};
+
+var getInputTglSelesai = (tglSelesai) => {
+  var tgl_selesai = tglSelesai;
+};
+var totalHarga = document.querySelector("#total-harga");
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = () => {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    console.log(getInputKategori());
+  }
+};
+var idkat = getInputKategori();
+var tgl_mulai = getInputTglMulai();
+var tgl_selesai = getInputTglSelesai();
+xhr.open("GET", "index.php?include=ajax-jasa-fotografi&idkat=" + idkat + "&tgl-mulai=" + tgl_mulai +
+  "&tgl-selesai=" + tgl_selesai, true);
+xhr.send();
+setInterval(() => {
+}, 10);
+</script> -->
