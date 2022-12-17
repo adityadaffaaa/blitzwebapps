@@ -14,9 +14,3 @@
 <script src="./js/portof-foto.js"></script>
 <!-- portof video -->
 <script src="./js/portof-video.js"></script>
-
-<!-- ajax chat customer -->
-<script src="./js/ajaxChatCustomer.js"></script>
-
-<!-- ajax chat fotografer dan videografer -->
-<script src="./js/ajaxChatFotoVideo.js"></script>

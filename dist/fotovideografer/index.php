@@ -17,6 +17,10 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-chat.php";
   } else if($include =="konfirmasi-tambah-portofolio"){
     include "confirm/konfirmasi-tambah-portofolio.php";
+  } else if($include =="ajax-chat-admin"){
+    include "ajax/chatAdmin.php";
+  } else if($include =="ajax-chat-masuk"){
+    include "ajax/chatMasuk.php";
   } else if($include =="logout"){
     include "confirm/logout.php";
   } 
