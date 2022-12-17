@@ -27,6 +27,8 @@
 <script src="./js/ajaxJasaFotoVideografi.js"></script>
 <!-- script ajax portofolio -->
 <script src="./js/ajaxPortofolio.js"></script>
+<!-- script ajax portofolio -->
+<script src="./js/ajaxRiwayat.js"></script>
 
 <!-- script ajax insert chat -->
 <script src="./js/ajaxInsertChat.js"></script>

@@ -31,6 +31,8 @@ if(isset($_GET["include"])){
     include "search/jasaVideografi.php";
   } else if($include == "ajax-jasa-fotovideografi"){
     include "search/jasaFotoVideografi.php";
+  } else if($include == "riwayat-search"){
+    include "search/riwayatSearch.php";
   } else if($include == "logout"){
     include "confirm/logout.php";
   }
