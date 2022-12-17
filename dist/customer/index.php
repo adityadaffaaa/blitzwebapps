@@ -17,6 +17,8 @@ if(isset($_GET["include"])){
     include "search/searchPortofolio.php";
   } else if($include == "insert-chat"){
     include "search/InsertChat.php";
+  } else if($include == "chat-masuk"){
+    include "search/chatMasuk.php";
   } else if($include == "logout"){
     include "confirm/logout.php";
   }

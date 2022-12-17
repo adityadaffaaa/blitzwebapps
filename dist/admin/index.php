@@ -21,6 +21,14 @@ if(isset($_GET["include"])){
     include "confirm/konfirmasi-verifikasi-fotovideografer.php";
   } else if($include =="konfirmasi-pemesanan"){
     include "confirm/konfirmasi-pemesanan.php";
+  } else if ($include == "ajax-insert-chat-customer"){
+    include "ajax/insertChatCustomer.php" ;
+  } else if ($include == "ajax-insert-chat-fotovideo"){
+    include "ajax/insertChatFotoVideo.php" ;
+  } else if ($include == "ajax-chat-masuk-customer"){
+    include "ajax/chatMasukCustomer.php" ;
+  } else if ($include == "ajax-chat-masuk-fotovideo"){
+    include "ajax/chatMasukFotoVideo.php" ;
   }
 }
 ?>
@@ -40,43 +48,61 @@ if(isset($_GET["include"])){
 
 <body class="font-lora flex bg-[rgba(0,0,0,0.1)]">
   <?php
-      include "includes/sidebar.php";
       if($include == "profil"){
+        include "includes/sidebar.php";
         include "pages/profil.php";
       } else if ($include == "edit-profil"){
+        include "includes/sidebar.php";
         include "pages/editprofil.php" ;
       } else if ($include == "data-customer"){
+        include "includes/sidebar.php";
         include "pages/data-customer.php" ;
       } else if ($include == "data-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/data-fotovideografer.php" ;
       } else if ($include == "ubah-password"){
+        include "includes/sidebar.php";
         include "pages/ubah-password.php" ;
       } else if ($include == "chat-customer"){
+        include "includes/sidebar.php";
         include "pages/chat-customer.php" ;
       } else if ($include == "chat-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/chat-fotovideografer.php" ;
       } else if ($include == "detail-chat-customer"){
+        include "includes/sidebar.php";
         include "pages/detail-chatcustomer.php" ;
       } else if ($include == "detail-chat-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/detail-chatfotovideografer.php" ;
       } else if ($include == "data-admin"){
+        include "includes/sidebar.php";
         include "pages/data-admin.php" ;
       } else if ($include == "edit-admin"){
+        include "includes/sidebar.php";
         include "pages/edit-admin.php" ;
       } else if ($include == "konfirmasi-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/konfirmasi-fotovideografer.php" ;
       } else if ($include == "detail-konfirmasi-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/detail-konfirmasi-fotovideografer.php" ;
       } else if ($include == "detail-customer"){
+        include "includes/sidebar.php";
         include "pages/detail-customer.php" ;
       } else if ($include == "detail-fotovideografer"){
+        include "includes/sidebar.php";
         include "pages/detail-fotovideografer.php" ;
       } else if ($include == "detail-admin"){
+        include "includes/sidebar.php";
         include "pages/detail-admin.php" ;
       } else if ($include == "pemesanan"){
+        include "includes/sidebar.php";
         include "pages/pemesanan.php" ;
       } else if ($include == "detail-pemesanan"){
+        include "includes/sidebar.php";
         include "pages/detail-pemesanan.php" ;
+      
       }
     
     } else{

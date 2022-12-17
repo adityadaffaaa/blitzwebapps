@@ -26,6 +26,9 @@
 
 <!-- script ajax insert chat -->
 <script src="./js/ajaxInsertChat.js"></script>
+
+<!-- script ajax chat masuk -->
+<script src="./js/ajaxChatMasuk.js"></script>
 <!-- sweet alert -->
 <script src="../../sweatalert/sweetalert2.all.min.js"></script>
 

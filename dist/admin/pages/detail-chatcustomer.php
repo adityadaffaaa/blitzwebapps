@@ -39,7 +39,7 @@ $id_customer = $_GET["data"];
         </div>
         <div class="px-6 py-2 flex flex-col">
           <!-- chat content -->
-          <div class="flex flex-col px-6 py-4 h-[406px] gap-6 overflow-auto custom-scrollbar">
+          <div id="isi-chat" class="flex flex-col px-6 py-4 h-[406px] gap-6 overflow-auto custom-scrollbar">
             <?php
             $sql_chat = "SELECT `cust`.`foto`, `c`.`chat`, DATE_FORMAT(`c`.`waktu`,'%H.%i'), `cac`.`pengirim`
             FROM `chat_admin_customer` `cac`             
@@ -111,18 +111,17 @@ $id_customer = $_GET["data"];
           </div>
           <!-- chat content end -->
           <!-- kirim chat -->
-          <form method="POST" action="index.php?include=konfirmasi-kirim-chat-customer"
-            class="flex flex-row justify-between items-center">
+          <div class="flex flex-row justify-between items-center">
             <input
               class="px-6 py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2"
-              name="chat" type="text" autocomplete="off" placeholder="Ketikan pesan Anda" />
-            <input
+              name="chat" id="chat" type="text" autocomplete="off" placeholder="Ketikan pesan Anda" />
+            <!-- <input
               class="px-6 hidden py-4 outline-none w-[95%] rounded-lg transition-default focus:shadow-default focus:-translate-y-2"
               name="id" type="text" autocomplete="off" placeholder="Ketikan pesan Anda"
-              value="<?php echo $id_customer ?>" />
+              value="" /> -->
             <button
               class="h-[42px] w-[42px] bg-secondary rounded-full flex justify-center items-center hover:shadow-default hover:shadow-secondary hover:-translate-y-1 transition-default"
-              type="submit">
+              type="submit" onclick="InsertChat()">
               <span class="fill-text2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                   <path fill="none" d="M0 0h24v24H0z" />
@@ -131,7 +130,7 @@ $id_customer = $_GET["data"];
                 </svg>
               </span>
             </button>
-          </form>
+          </div>
           <!-- kirim chat end -->
         </div>
       </div>
@@ -139,3 +138,36 @@ $id_customer = $_GET["data"];
     <?php include "includes/footer.php" ?>
   </div>
 </section>
+<script>
+var InsertChat = () => {
+  var chat = document.querySelector("#chat");
+  var isiChat = document.querySelector("#isi-chat");
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      isiChat.innerHTML = xhr.responseText;
+    }
+  };
+  xhr.open("GET", "index.php?include=ajax-insert-chat-customer&data=<?php echo $id_customer ?>&chat=" + chat.value,
+    true);
+  xhr.send();
+};
+</script>
+<script>
+setInterval(() => {
+  var chat = document.querySelector("#chat");
+  var isiChat = document.querySelector("#isi-chat");
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      isiChat.innerHTML = xhr.responseText;
+    }
+  };
+  xhr.open("GET", "index.php?include=ajax-chat-masuk-customer&data=<?php echo $id_customer ?>&chat=" + chat.value,
+    true);
+  xhr.send();
+
+}, 10)
+</script>
