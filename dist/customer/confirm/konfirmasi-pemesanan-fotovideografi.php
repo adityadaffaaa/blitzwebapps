@@ -11,7 +11,7 @@ if(isset($_SESSION['id_customer'])){
   $nama_file = $_FILES['pembayaran']['name'];
   $direktori = './assets/img/' . $nama_file;
   $status = 'belum dikonfirmasi';
-
+  $level = 'gold';
   if(empty($id_kategori)){
     header('Location:index.php?include=jasa-fotovideografi&notif=kategorikosong');
   }else if(empty($tgl_mulai)){
@@ -33,11 +33,11 @@ if(isset($_SESSION['id_customer'])){
     while($data_harga = mysqli_fetch_row($query_harga)){
     $harga =$data_harga[0];
     }
-  if(move_uploaded_file($lokasi_file, $direktori)){
-      $sql_pemesanan = "INSERT INTO `pemesanan` (`id_kategori`, `id_jasa`,`id_customer`,`id_fotovideografer`, `jadwal_mulai`,`jadwal_selesai`,`status`, `foto_pembayaran`,`harga`)
-      VALUES ('$id_kategori','$id_jasa','$id_customer','$id_fotovideografer','$tgl_mulai','$tgl_selesai', '$status','$nama_file','$harga')";
-      mysqli_query($koneksi,$sql_pemesanan);
-      header('Location:index.php?include=jasa-fotovideografi&notif=pemesananberhasil');
+  if(move_uploaded_file($lokasi_file, $direktori)){          
+        $sql_pemesanan = "INSERT INTO `pemesanan` (`id_kategori`, `id_jasa`,`id_customer`,`id_fotovideografer`, `jadwal_mulai`,`jadwal_selesai`,`status`, `foto_pembayaran`,`harga`)
+        VALUES ('$id_kategori','$id_jasa','$id_customer','$id_fotovideografer','$tgl_mulai','$tgl_selesai', '$status','$nama_file','$harga')";
+        mysqli_query($koneksi,$sql_pemesanan);
+        header('Location:index.php?include=jasa-fotovideografi&notif=pemesananberhasil');
     } else {
       header('Location:index.php?include=jasa-fotovideografi&notif=pemesanangagal');
     }

@@ -11,7 +11,7 @@ if(isset($_SESSION['id_customer'])){
   $nama_file = $_FILES['pembayaran']['name'];
   $direktori = './assets/img/' . $nama_file;
   $status = 'belum dikonfirmasi';
-
+  $level = "gold";
   if(empty($id_kategori)){
     header('Location:index.php?include=jasa-videografi&notif=kategorikosong');
   }else if(empty($tgl_mulai)){
@@ -34,10 +34,27 @@ if(isset($_SESSION['id_customer'])){
     $harga =$data_harga[0];
     }
   if(move_uploaded_file($lokasi_file, $direktori)){
+    // jml_pemesanan
+    $sql_jml_pesanan = "SELECT COUNT(`id_pemesanan`) FROM `pemesanan` WHERE `id_customer` = $id_customer";
+    $query_jml_pesanan = mysqli_query($koneksi, $sql_jml_pesanan);
+    while($data_jml_pesanan = mysqli_fetch_row($query_jml_pesanan)){
+      $jml_pesanan = $data_jml_pesanan[0];    
+    }
+    if($jml_pesanan > 1){
+      // update level
+    $sql_update = "UPDATE `customer` SET `level` = '$level' WHERE `id_customer` = $id_customer";
+    mysqli_query($koneksi, $sql_update);
+    $sql_pemesanan = "INSERT INTO `pemesanan` (`id_kategori`, `id_jasa`,`id_customer`,`id_fotovideografer`, `jadwal_mulai`,`jadwal_selesai`,`status`, `foto_pembayaran`,`harga`)
+    VALUES ('$id_kategori','$id_jasa','$id_customer','$id_videografer','$tgl_mulai','$tgl_selesai', '$status','$nama_file','$harga')";
+    mysqli_query($koneksi,$sql_pemesanan);
+    $_SESSION["level"] = $level; 
+    header('Location:index.php?include=jasa-videografi&notif=pemesananberhasil');
+    }else{
       $sql_pemesanan = "INSERT INTO `pemesanan` (`id_kategori`, `id_jasa`,`id_customer`,`id_fotovideografer`, `jadwal_mulai`,`jadwal_selesai`,`status`, `foto_pembayaran`,`harga`)
       VALUES ('$id_kategori','$id_jasa','$id_customer','$id_videografer','$tgl_mulai','$tgl_selesai', '$status','$nama_file','$harga')";
       mysqli_query($koneksi,$sql_pemesanan);
-      header('Location:index.php?include=jasa-videografi&notif=pemesananberhasil');
+      header('Location:index.php?include=jasa-videografi&notif=pemesananberhasil');    
+    }
     } else {
       header('Location:index.php?include=jasa-videografi&notif=pemesanangagal');
     }
