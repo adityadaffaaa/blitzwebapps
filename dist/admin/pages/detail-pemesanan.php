@@ -24,6 +24,13 @@ if(isset($_GET["data"])){
   $nama_fotovideografer = $data[10];
   }
 }
+
+// validasi status
+$sql_v = "SELECT `status` FROM `pemesanan` WHERE `id_pemesanan` = $id_pemesanan";
+$query_v = mysqli_query($koneksi, $sql_v);
+while($data_v = mysqli_fetch_row($query_v)){
+  $status_v = $data_v[0];
+}
 ?>
 
 <!-- content edit profil -->
@@ -168,7 +175,10 @@ if(isset($_GET["data"])){
           <div class="flex flex-row w-full justify-end">
             <button
               class="px-4 py-[10px] bg-primary rounded-lg text-text2 text-paragraph3 flex items-center gap-2 transition-default hover:bg-secondary"
-              type="submit" name="simpan" value="<?php echo $id_pemesanan ?>">Konfirmasi</button>
+              type="submit" name="simpan"
+              value="<?php echo $id_pemesanan ?>"><?php if ($status_v == "sudah dikonfirmasi") { ?>
+              Selesaikan
+              <?php } else { ?>Konfirmasi <?php }?></button>
           </div>
         </form>
       </div>
@@ -219,6 +229,21 @@ setTimeout(() => {
     title: "Pemesanan sudah selesai!",
     icon: "warning",
     iconColor: "#D7A151",
+    confirmButtonText: "Oke",
+    confirmButtonColor: "#034C5F",
+  }).then(() => {
+    window.location.replace(
+      "index.php?include=detail-pemesanan&data=<?php echo $id_pemesanan ?>")
+  })
+}, 10)
+</script>
+<?php } else if($_GET["notif"] =="behasildiselesaikan") {?>
+<script>
+setTimeout(() => {
+  swal.fire({
+    title: "Pemesanan berhasil diselesaikan!",
+    icon: "success",
+    iconColor: "#034C5F",
     confirmButtonText: "Oke",
     confirmButtonColor: "#034C5F",
   }).then(() => {
