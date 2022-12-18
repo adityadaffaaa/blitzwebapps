@@ -11,7 +11,9 @@
     ?>
       <li><a class="nav-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-non-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-non-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-non-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-non-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
@@ -19,7 +21,9 @@
       ?>
       <li><a class="nav-non-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-non-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-non-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-non-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
@@ -28,7 +32,9 @@
         ?>
       <li><a class="nav-non-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-non-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-non-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-non-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
@@ -37,7 +43,9 @@
           ?>
       <li><a class="nav-non-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-non-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-non-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-non-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
@@ -46,7 +54,9 @@
             ?>
       <li><a class="nav-non-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-non-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-non-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-non-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
@@ -55,7 +65,9 @@
       ?>
       <li><a class="nav-active" href="index.php?include=beranda">Beranda</a></li>
       <li><a class="nav-non-active" href="index.php?include=jasa-kami">Jasa Kami</a></li>
+      <?php if (isset($_SESSION["id_customer"])) { ?>
       <li><a class="nav-non-active" href="index.php?include=riwayat">Riwayat</a></li>
+      <?php }?>
       <li><a class="nav-non-active" href="index.php?include=portofolio">Portofolio</a></li>
       <li><a class="nav-non-active" href="index.php?include=ulasan">Ulasan</a></li>
       <?php
