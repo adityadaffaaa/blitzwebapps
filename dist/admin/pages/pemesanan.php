@@ -154,7 +154,9 @@ if(isset($_SESSION['katakunci_pemesanan'])){
                     </td>
                     <td class="text-center py-4">IDR <?php echo $total_h ?></td>
                     <td class="text-center py-4">
-                      <p class="text-text2 py-1 px-3 bg-primary rounded-lg"><?php echo $status ?></p>
+                      <p
+                        class="text-text2 py-1 px-3  <?php if ($status == "belum dikonfirmasi") { ?> bg-secondary <?php } else { ?> bg-primary <?php }?> rounded-lg">
+                        <?php echo $status ?></p>
                     </td>
                     <td class="py-4 px-4">
                       <div class="flex flex-row gap-2">
